@@ -1,8 +1,11 @@
-ARÈNE — INSTALLATION SUR ANDROID
+ARÈNE — VERSION PWA CORRIGÉE
 
-1. Mets tout le contenu de ce dossier sur un hébergement HTTPS (par exemple GitHub Pages, Netlify ou Cloudflare Pages).
-2. Ouvre l'adresse HTTPS du jeu dans Chrome sur ton téléphone Android.
-3. Dans Chrome, menu ⋮ > « Installer l'application » (ou « Ajouter à l'écran d'accueil » selon la version).
-4. Valide. L'icône « Arène » apparaîtra sur l'écran d'accueil.
+Cette version corrige l'installation PWA :
+- manifest.json est maintenant relié depuis index.html
+- le service worker est maintenant enregistré
+- cache PWA passé en v2
+- icônes 192x192 et 512x512 conservées
 
-IMPORTANT : ouvrir directement index.html depuis le stockage du téléphone ne permet généralement pas l'installation PWA ni le service worker. Il faut une adresse HTTPS.
+IMPORTANT :
+Remplace les anciens fichiers dans ton dépôt GitHub par TOUS les fichiers de ce dossier.
+Ne garde pas l'ancien index.html.
