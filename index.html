@@ -1,0 +1,3278 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Arène d'entraînement (prototype)</title>
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="application-name" content="Arène">
+<meta name="theme-color" content="#1C2934">
+<link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMAAAADACAYAAABS3GwHAAAFuklEQVR4nO3dP45bVRTA4TcjFsACsoH0I6hIl3QpkUKDQkXBFoAC2AJFqqQLEmW6pAsVKH02kAWwg1AgjzyTsf3+nHPvez7fVyVibL9I53fvfbZHXAwrce/+1cfe10A7H96/u+h9DcMwDN0uwsCzr1cQTV/U0DNGyxjSX8jQs0R2DGlPbvCJlBVC+JMafDJFh3AZ+WSGn2zRMxZSk8Gnh4jdYPEOYPjpJWL2FgVg+Olt6QzO2kIMPms050g0eQcw/KzVnNmcFIDhZ+2mzujoAAw/WzFlVkM/B4CtGRWA1Z+tGTuzJwMw/GzVmNk9GoDhZ+tOzbB7AEo7GIDVn3NxbJbvDMDwc24OzbQjEKV9EoDVn3N112zbASjtxrfnMlb/v9++iX5KCvnywcPw59z/1qgdgNIEQGnXAbj5pYr9WbcDUJoAKO1yGBx/qGc383YAShMApQmA0i6d/6nq3v2rj3YAShNAZ09efN77EkoTQEe74RdBPwLo5PbQi6APAVCaADo4tNrbBdoTQGOnhlwEbQmgobHDLYJ2BEBpAmhk6qpuF2hDAA3MHWYR5BNAsqVDLIJcAqA0ASSKWr3tAnkEkCR6aEWQQwAJsoZVBPEEEGzqkD5/mvv8HCeAjnbDPzUC4gggUKvV2S4QRwBBlh59HIX6EECAqHO/CNoTQGOnhtz9QFsCWKj3Ktz79bdOAAtkveXpKNSOAGbKfr9fBG0IoIG553r3A/kEMMNaV9u1XteaCWCi7KPP0seLYBoBTPTH038n/fx3L5a93tTHT72+6gQww1qHbK3XtWYCaGDuLrB09+A0AcyUfRRy9GlDAAtkRWD42xHAQr2Hr/frb50AGju1ujv3tyWAAFFHIUef9gQQZGkEhr8PAQRqNZSGP44AOtqt+s79/QggWPbnA1b/WAJIkDWkhj+eAJJED6vhzyGARFFDa/jzCIDSBJBs6ept9c8lgAbmDrHhzyeARqYOs+FvQwCUJoCGxq7qVv92BNDYqeE2/G0JoINDQ2742xMApQmgk9urvdW/DwF0tBt6w9+PADoz/H0JgNIEQGkCoDQBUJoAKE0AlPZZ7wvYutdv/+l9CcOjB1/0voTNsgNQmgAoTQCUJgBKEwClCYDSBEBpAqA0AVCaAChNAJQmAEoTAKUJgNJ8HXohX0XeNjsApQmA0gRAaQKgNAFQmgAoTQCUJgBKEwClCYDSBEBpAqA0AVCaAChNAJQmAEoTAKUJgNI29yuRa/g/six17Ncoz/3ftzZ2AEoTAKUJgNIEQGkCoDQBUJoAKE0AlCYAShMApQmA0gRAaZv7MtyWvmg1x7n/+9bGDkBpAqC0zR2BzsHXr384+N/+fPR7wyvBDkBpAqA0AVCaACjNTXAjr978df3nby+ejPq5xw+/Sr0mBNDE/lAPwzB8/83jgz/77OWrG48TQS4BJNof/GNDv2//5569fHX9HELI4R4gyZzhv23/cbd3EWIIINnc4Y96PMcJIMFutY4a3t3z2AXiCYDSLj+8f3fR+yLOSfTqv2MXiPfh/bsLOwClCYDSBEBpl8Pw/1mo94VAS7uZtwME231iu/+Vhgi75/OJcCwBUNp1AI5BcaJ3Aat/rP1ZtwMkWxpB9FGKmwSQZH+1njvE+4+z+uf45Nhz7/7Vxx4Xcs5+/OnnG38f+/sAwzAMv/36S8o1VXX7qC+ARm5HMIbhj3cygGEQQbZjMRj6PHe90SMAyrgrgDtvgr0lyrk5NNMH3wUSAefi2Cx7G5TSjgZgF2DrTs3wyR1ABGzVmNkddQQSAVszdmbdA1Da6ADsAmzFlFmdtAOIgLWbOqOTj0AiYK3mzOaiYfaVCdZgyaK86CbYbkBvS2dw8btAIqCXiNkLHV5HIlqIXHRDPwewG5AtesbSBtZuQKSsxTV9xRYCS2SfKpoeWcTAGC2P0t3O7GJgX6/7x9XctAqilrW8YfIfkMLAAZ22Q8gAAAAASUVORK5CYII=">
+<link rel="apple-touch-icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMAAAADACAYAAABS3GwHAAAFuklEQVR4nO3dP45bVRTA4TcjFsACsoH0I6hIl3QpkUKDQkXBFoAC2AJFqqQLEmW6pAsVKH02kAWwg1AgjzyTsf3+nHPvez7fVyVibL9I53fvfbZHXAwrce/+1cfe10A7H96/u+h9DcMwDN0uwsCzr1cQTV/U0DNGyxjSX8jQs0R2DGlPbvCJlBVC+JMafDJFh3AZ+WSGn2zRMxZSk8Gnh4jdYPEOYPjpJWL2FgVg+Olt6QzO2kIMPms050g0eQcw/KzVnNmcFIDhZ+2mzujoAAw/WzFlVkM/B4CtGRWA1Z+tGTuzJwMw/GzVmNk9GoDhZ+tOzbB7AEo7GIDVn3NxbJbvDMDwc24OzbQjEKV9EoDVn3N112zbASjtxrfnMlb/v9++iX5KCvnywcPw59z/1qgdgNIEQGnXAbj5pYr9WbcDUJoAKO1yGBx/qGc383YAShMApQmA0i6d/6nq3v2rj3YAShNAZ09efN77EkoTQEe74RdBPwLo5PbQi6APAVCaADo4tNrbBdoTQGOnhlwEbQmgobHDLYJ2BEBpAmhk6qpuF2hDAA3MHWYR5BNAsqVDLIJcAqA0ASSKWr3tAnkEkCR6aEWQQwAJsoZVBPEEEGzqkD5/mvv8HCeAjnbDPzUC4gggUKvV2S4QRwBBlh59HIX6EECAqHO/CNoTQGOnhtz9QFsCWKj3Ktz79bdOAAtkveXpKNSOAGbKfr9fBG0IoIG553r3A/kEMMNaV9u1XteaCWCi7KPP0seLYBoBTPTH038n/fx3L5a93tTHT72+6gQww1qHbK3XtWYCaGDuLrB09+A0AcyUfRRy9GlDAAtkRWD42xHAQr2Hr/frb50AGju1ujv3tyWAAFFHIUef9gQQZGkEhr8PAQRqNZSGP44AOtqt+s79/QggWPbnA1b/WAJIkDWkhj+eAJJED6vhzyGARFFDa/jzCIDSBJBs6ept9c8lgAbmDrHhzyeARqYOs+FvQwCUJoCGxq7qVv92BNDYqeE2/G0JoINDQ2742xMApQmgk9urvdW/DwF0tBt6w9+PADoz/H0JgNIEQGkCoDQBUJoAKE0AlPZZ7wvYutdv/+l9CcOjB1/0voTNsgNQmgAoTQCUJgBKEwClCYDSBEBpAqA0AVCaAChNAJQmAEoTAKUJgNJ8HXohX0XeNjsApQmA0gRAaQKgNAFQmgAoTQCUJgBKEwClCYDSBEBpAqA0AVCaAChNAJQmAEoTAKUJgNI29yuRa/g/six17Ncoz/3ftzZ2AEoTAKUJgNIEQGkCoDQBUJoAKE0AlCYAShMApQmA0gRAaZv7MtyWvmg1x7n/+9bGDkBpAqC0zR2BzsHXr384+N/+fPR7wyvBDkBpAqA0AVCaACjNTXAjr978df3nby+ejPq5xw+/Sr0mBNDE/lAPwzB8/83jgz/77OWrG48TQS4BJNof/GNDv2//5569fHX9HELI4R4gyZzhv23/cbd3EWIIINnc4Y96PMcJIMFutY4a3t3z2AXiCYDSLj+8f3fR+yLOSfTqv2MXiPfh/bsLOwClCYDSBEBpl8Pw/1mo94VAS7uZtwME231iu/+Vhgi75/OJcCwBUNp1AI5BcaJ3Aat/rP1ZtwMkWxpB9FGKmwSQZH+1njvE+4+z+uf45Nhz7/7Vxx4Xcs5+/OnnG38f+/sAwzAMv/36S8o1VXX7qC+ARm5HMIbhj3cygGEQQbZjMRj6PHe90SMAyrgrgDtvgr0lyrk5NNMH3wUSAefi2Cx7G5TSjgZgF2DrTs3wyR1ABGzVmNkddQQSAVszdmbdA1Da6ADsAmzFlFmdtAOIgLWbOqOTj0AiYK3mzOaiYfaVCdZgyaK86CbYbkBvS2dw8btAIqCXiNkLHV5HIlqIXHRDPwewG5AtesbSBtZuQKSsxTV9xRYCS2SfKpoeWcTAGC2P0t3O7GJgX6/7x9XctAqilrW8YfIfkMLAAZ22Q8gAAAAASUVORK5CYII=">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oxanium:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #C9D3DA; --panel: rgba(244, 247, 249, 0.95); --ink: #1C2934; --muted: #536472;
+    --accent: #2E6ED4; --ally: #D9962B; --danger: #D23F2B; --ok: #3A9F66; --soft: rgba(100, 115, 130, 0.14);
+    box-sizing: border-box;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #17212A; --panel: rgba(25, 35, 44, 0.96); --ink: #E4ECF1; --muted: #97A7B4;
+      --accent: #5E9BFF; --ally: #F0B24A; --danger: #FF6250; --ok: #5CC98B; --soft: rgba(150, 170, 190, 0.14);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #17212A; --panel: rgba(25, 35, 44, 0.96); --ink: #E4ECF1; --muted: #97A7B4;
+    --accent: #5E9BFF; --ally: #F0B24A; --danger: #FF6250; --ok: #5CC98B; --soft: rgba(150, 170, 190, 0.14);
+  }
+  *, *::before, *::after { box-sizing: inherit; }
+  html { height: 100%; scroll-padding-top: env(safe-area-inset-top, 0px); }
+  body {
+    height: 100%; margin: 0; background: var(--bg); color: var(--ink);
+    font-family: 'Oxanium', 'Segoe UI', system-ui, -apple-system, sans-serif;
+    overflow: hidden; touch-action: none; user-select: none; -webkit-user-select: none; -webkit-touch-callout: none;
+  }
+  #app { position: relative; height: 100%; width: 100%; }
+  #game { position: absolute; inset: 0; width: 100%; height: 100%; display: block; touch-action: none; }
+  button { cursor: pointer; font-family: inherit; -webkit-tap-highlight-color: transparent; }
+  button:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+  .hidden { display: none !important; }
+
+  #hud {
+    position: absolute; top: 8px; left: 8px; right: 8px;
+    display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 6px;
+    pointer-events: none;
+  }
+  .chip {
+    background: var(--panel); border-radius: 10px; padding: 5px 9px;
+    font-weight: 600; font-size: 13px; display: flex; gap: 5px; align-items: center;
+    box-shadow: 0 2px 8px rgba(20, 40, 60, 0.15);
+  }
+  .chip .dot { width: 10px; height: 10px; border-radius: 50%; background: var(--c); }
+  .chip.pausebtn { pointer-events: auto; border: 0; color: var(--ink); cursor: pointer; font-size: 14px; font-weight: 700; letter-spacing: 1px; min-width: 40px; justify-content: center; }
+  .levels { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+  .lvl { position: relative; text-align: left; padding: 9px 10px; border-radius: 12px; border: 2px solid transparent; background: var(--soft); color: var(--ink); }
+  .lvl.on { border-color: var(--accent); background: rgba(46, 110, 212, 0.12); }
+  .lvl b { display: block; font-size: 14px; padding-right: 18px; }
+  .lvl small { display: block; color: var(--muted); font-size: 11px; margin-top: 3px; }
+  .lvl .tag { display: inline-block; font-size: 10px; font-weight: 700; color: #fff; background: var(--ally); border-radius: 6px; padding: 0 5px; margin-top: 4px; }
+  .lvl-del { position: absolute; top: 4px; right: 4px; width: 26px; height: 26px; border-radius: 50%; border: 0; background: transparent; color: var(--muted); font-size: 16px; line-height: 1; }
+  .lvl-del.confirm { width: auto; border-radius: 8px; padding: 0 7px; background: var(--danger); color: #fff; font-size: 11px; font-weight: 700; }
+  .pv { display: flex; gap: 12px; align-items: flex-start; margin-top: 10px; }
+  .pv canvas { position: static; flex: none; border-radius: 8px; background: #7C8B98; }
+  .pv p { margin: 0 0 6px; }
+  .legend { display: flex; flex-wrap: wrap; gap: 4px 10px; font-size: 11px; color: var(--muted); margin-top: 4px; }
+  .legend i { display: inline-block; width: 9px; height: 9px; border-radius: 50%; margin-right: 4px; vertical-align: -1px; }
+  .grow { display: flex; align-items: center; justify-content: space-between; padding: 6px 0; border-top: 1px solid var(--soft); font-size: 14px; }
+  .grow:first-of-type { border-top: 0; }
+  .grow .stepper { gap: 8px; }
+  .grow .stepper span { min-width: 28px; }
+  .grow .stepper button { width: 32px; height: 32px; font-size: 18px; }
+  .field { display: block; margin-top: 12px; font-size: 13px; font-weight: 700; }
+  .field input[type="text"] {
+    display: block; width: 100%; margin-top: 6px; padding: 10px 12px; border-radius: 10px; border: 2px solid var(--soft);
+    background: var(--panel); color: var(--ink); font: inherit; font-size: 15px; user-select: text; -webkit-user-select: text; touch-action: auto;
+  }
+  .field input[type="text"]:focus { outline: none; border-color: var(--accent); }
+  .opt { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 8px 0; font-size: 14px; font-weight: 600; }
+  .opt input[type="range"] { flex: 1; max-width: 200px; accent-color: var(--accent); touch-action: auto; }
+  .toggle { border: 0; border-radius: 16px; padding: 7px 14px; font-weight: 700; font-size: 13px; background: var(--soft); color: var(--ink); min-width: 90px; }
+  .toggle.on { background: var(--accent); color: #fff; }
+  .go:disabled { opacity: 0.45; cursor: default; }
+  .pip { width: 8px; height: 13px; border-radius: 2px; background: var(--danger); }
+  .pip.off { opacity: 0.18; }
+
+  #squad {
+    position: absolute; right: 8px; top: 44%; transform: translateY(-50%);
+    display: flex; flex-direction: column; gap: 10px; align-items: flex-end;
+  }
+  .slot { position: relative; }
+  .bubble {
+    width: 60px; margin: 0; padding: 0; background: none; border: 0; color: var(--ink);
+    display: flex; flex-direction: column; align-items: center; gap: 3px; opacity: 0.94;
+  }
+  .ring {
+    position: relative; width: 50px; height: 50px; border-radius: 50%;
+    background: conic-gradient(var(--hpc, #3A9F66) calc(var(--hp, 100) * 1%), rgba(100, 115, 130, 0.3) 0);
+    display: grid; place-items: center; box-shadow: 0 2px 8px rgba(20, 40, 60, 0.28);
+    transition: transform 0.12s ease;
+  }
+  .core {
+    width: 40px; height: 40px; border-radius: 50%; background: var(--panel);
+    display: grid; place-items: center; font-weight: 700; font-size: 17px;
+    color: var(--cc); box-shadow: inset 0 0 0 3px var(--cc);
+  }
+  .bubble.sel .ring { transform: scale(1.1); box-shadow: 0 0 0 3px var(--ally), 0 2px 10px rgba(20, 40, 60, 0.3); }
+  .bubble.dead { opacity: 0.6; }
+  .st {
+    position: absolute; right: -4px; bottom: -3px; width: 21px; height: 21px; border-radius: 50%;
+    display: grid; place-items: center; border: 2px solid var(--panel);
+  }
+  .st svg { width: 12px; height: 12px; fill: none; stroke: #fff; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+  .bname { font-size: 10px; font-weight: 600; background: var(--panel); padding: 1px 6px; border-radius: 6px; white-space: nowrap; }
+  .fire {
+    position: absolute; right: calc(100% + 6px); top: 9px;
+    background: #D23F2B; color: #fff; border: 0; border-radius: 14px; padding: 8px 11px;
+    font-weight: 700; font-size: 12px; white-space: nowrap;
+    box-shadow: 0 2px 10px rgba(210, 63, 43, 0.45); animation: pulse 0.9s ease-in-out infinite;
+  }
+  @keyframes pulse { 50% { transform: scale(1.08); } }
+  .ammo {
+    position: absolute; left: -5px; top: -4px; min-width: 19px; height: 19px; padding: 0 4px; border-radius: 10px;
+    background: #D23F2B; color: #fff; font-size: 11px; font-weight: 700; display: grid; place-items: center;
+    border: 2px solid var(--panel);
+  }
+  .ammo.empty { background: #7C8B98; }
+  #weapons {
+    position: absolute; right: 12px; bottom: 214px;
+    display: flex; flex-direction: column; gap: 8px; align-items: flex-end;
+  }
+  .wbtn {
+    position: relative; overflow: hidden; min-width: 118px; text-align: center;
+    background: var(--panel); color: var(--ink); border: 2px solid #D23F2B; border-radius: 14px;
+    padding: 9px 12px; font-weight: 700; font-size: 13px; box-shadow: 0 2px 10px rgba(20, 40, 60, 0.2);
+  }
+  .wbtn:disabled { opacity: 0.45; cursor: default; }
+  .wbtn .fill { position: absolute; left: 0; top: 0; bottom: 0; width: 0; background: rgba(210, 63, 43, 0.28); }
+  .wbtn .lbl { position: relative; }
+  .rollbtn {
+    position: absolute; right: 16px; bottom: 214px; width: 66px; height: 66px; border-radius: 50%;
+    border: 2px solid var(--c, #3AA55A); color: var(--ink); padding: 0;
+    background: conic-gradient(rgba(100, 115, 130, 0.45) calc(var(--cd, 0) * 1%), var(--panel) 0);
+    display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1px;
+    font-size: 10px; font-weight: 700; box-shadow: 0 2px 10px rgba(20, 40, 60, 0.22);
+  }
+  .rollbtn svg { width: 24px; height: 24px; fill: none; stroke: currentColor; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+  .rollbtn.cool { opacity: 0.7; }
+  .wbtn.urgent { background: #D23F2B; color: #fff; animation: pulse 0.9s ease-in-out infinite; }
+
+  #hint, #toast {
+    position: absolute; left: 50%; transform: translateX(-50%);
+    width: max-content; max-width: min(80%, 420px);
+    background: var(--panel); border-radius: 10px; padding: 8px 12px;
+    font-size: 13px; line-height: 1.35; pointer-events: none;
+    box-shadow: 0 2px 10px rgba(20, 40, 60, 0.18);
+  }
+  #hint { top: 84px; border-left: 3px solid var(--ally); }
+  #toast { top: 130px; border-left: 3px solid var(--danger); }
+
+  #overlay {
+    position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+    padding: 14px; background: rgba(18, 30, 42, 0.42);
+  }
+  .card {
+    background: var(--panel); max-width: 420px; width: 100%; padding: 20px 18px 18px;
+    border-radius: 18px; box-shadow: 0 10px 40px rgba(10, 25, 40, 0.3);
+    max-height: 100%; overflow-y: auto; touch-action: pan-y;
+  }
+  h1 { font-size: 28px; margin: 0 0 6px; font-weight: 700; line-height: 1.1; letter-spacing: -0.01em; }
+  h2 { font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin: 18px 0 8px; font-weight: 700; }
+  p { margin: 0 0 8px; color: var(--muted); line-height: 1.45; font-size: 14px; }
+  .small { font-size: 12.5px; margin-top: 6px; }
+  .stats { font-size: 18px; color: var(--ink); font-weight: 600; }
+  .seg { display: flex; gap: 6px; }
+  .seg button {
+    flex: 1; padding: 10px 4px; border-radius: 10px; border: 2px solid transparent;
+    background: var(--soft); color: var(--ink); font-weight: 700; font-size: 14px;
+  }
+  .seg button.on { border-color: var(--accent); background: rgba(46, 110, 212, 0.14); }
+  .classes { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+  .cls {
+    text-align: left; padding: 9px 10px; border-radius: 12px; border: 2px solid transparent;
+    background: var(--soft); color: var(--ink);
+  }
+  .cls.on { border-color: var(--c); background: color-mix(in srgb, var(--c) 14%, transparent); }
+  .cls b { display: flex; align-items: center; gap: 7px; font-size: 14px; }
+  .cls .dot { width: 13px; height: 13px; border-radius: 50%; background: var(--c); flex: none; }
+  .cls small { display: block; color: var(--muted); font-size: 11.5px; margin-top: 4px; line-height: 1.3; }
+  .stepper { display: flex; align-items: center; gap: 12px; }
+  .stepper button {
+    width: 38px; height: 38px; border-radius: 50%; border: 0; background: var(--soft);
+    color: var(--ink); font-size: 20px; font-weight: 700; line-height: 1;
+  }
+  .stepper button:disabled { opacity: 0.35; cursor: default; }
+  .stepper span { font-weight: 700; font-size: 15px; min-width: 110px; text-align: center; }
+  .srow { display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 8px 0; border-top: 1px solid var(--soft); }
+  .srow:first-child { border-top: 0; }
+  .srow b { display: block; font-size: 14px; }
+  .srow small { color: var(--muted); font-size: 12px; }
+  .chips { display: flex; gap: 7px; }
+  .chipc { width: 30px; height: 30px; border-radius: 50%; border: 3px solid transparent; background: var(--c); padding: 0; }
+  .chipc.on { border-color: var(--ink); box-shadow: 0 0 0 2px var(--panel) inset; }
+  details { margin-top: 14px; }
+  summary { cursor: pointer; font-weight: 700; font-size: 13px; color: var(--ink); }
+  .controls { border-left: 3px solid var(--accent); padding-left: 10px; margin-top: 8px; }
+  .controls p { margin: 0 0 4px; color: var(--ink); font-size: 13px; }
+  .go {
+    font-weight: 700; font-size: 18px; background: var(--accent); color: #fff;
+    border: 0; border-radius: 12px; padding: 13px 18px; width: 100%; margin-top: 14px;
+  }
+  .ghost { background: var(--soft); color: var(--ink); margin-top: 8px; font-size: 16px; }
+</style>
+  <link rel="manifest" href="manifest.json">
+</head>
+<body>
+<div id="app">
+  <canvas id="game"></canvas>
+  <div id="hud" class="hidden">
+    <div class="chip" id="hp" aria-label="Points de vie"></div>
+    <div class="chip" id="classChip"></div>
+    <div class="chip" id="timer">0,0 s</div>
+    <div class="chip" id="turretCount">Tourelles 4</div>
+    <div class="chip" id="droidCount">Droïdes 6</div>
+    <button class="chip pausebtn" id="pauseBtn" aria-label="Pause">II</button>
+  </div>
+  <div id="squad" class="hidden"></div>
+  <div id="weapons" class="hidden">
+    <button class="wbtn" id="swapBtn"><span class="lbl">Bazooka</span></button>
+    <button class="wbtn" id="reloadBtn"><span class="fill"></span><span class="lbl">Recharger</span></button>
+  </div>
+  <button id="rollBtn" class="rollbtn hidden" aria-label="Roulade">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 12a8 8 0 1 1-2.3-5.6"/><path d="M20 4v4.5h-4.5"/></svg>
+    <span>Roulade</span>
+  </button>
+  <div id="hint" class="hidden"></div>
+  <div id="toast" class="hidden"></div>
+  <div id="overlay">
+    <div class="card" id="card"></div>
+  </div>
+</div>
+
+<script>
+(() => {
+  const canvas = document.getElementById('game');
+  const ctx = canvas.getContext('2d');
+  const hud = document.getElementById('hud');
+  const hpEl = document.getElementById('hp');
+  const classEl = document.getElementById('classChip');
+  const timerEl = document.getElementById('timer');
+  const turretEl = document.getElementById('turretCount');
+  const droidEl = document.getElementById('droidCount');
+  const squadEl = document.getElementById('squad');
+  const hintEl = document.getElementById('hint');
+  const toastEl = document.getElementById('toast');
+  const overlay = document.getElementById('overlay');
+  const card = document.getElementById('card');
+  const weaponsEl = document.getElementById('weapons');
+  const swapBtn = document.getElementById('swapBtn');
+  const reloadBtn = document.getElementById('reloadBtn');
+  const rollBtn = document.getElementById('rollBtn');
+
+
+  // Carte courante : remplie par applyLevel() à partir d'une définition de niveau
+  let W = 640, H = 1500;
+  const WALL = 16;
+  const BEACON = { x: 320, y: 72 }, START = { x: 320, y: 1430 };
+  // Points de vie par classe (miroir des droïdes : le lourd encaisse, le tireur d'élite est fragile)
+  const CLASS_HP = { classique: 5, medecin: 5, lourd: 7, sniper: 4 };
+  const isTouch = window.matchMedia('(pointer: coarse)').matches || 'ontouchstart' in window;
+  const obstacles = [];
+  let levelTurrets = [];   // [x, y, angle de repos]
+  let levelDroids = [];    // [x, y, "classe recrue classe soldat classe vétéran"]
+  let LEVEL = null;
+
+  // ---------- géométrie ----------
+  // Segment contre boîte (Liang-Barsky), sans allocation : c'est la fonction la plus appelée du jeu
+  function segHitsBox(x1, y1, x2, y2, bx0, by0, bx1, by1) {
+    if ((x1 < bx0 && x2 < bx0) || (x1 > bx1 && x2 > bx1) || (y1 < by0 && y2 < by0) || (y1 > by1 && y2 > by1)) return false;
+    let t0 = 0, t1 = 1;
+    const dx = x2 - x1, dy = y2 - y1;
+    if (dx === 0) { if (x1 < bx0 || x1 > bx1) return false; }
+    else {
+      let ta = (bx0 - x1) / dx, tb = (bx1 - x1) / dx;
+      if (ta > tb) { const t = ta; ta = tb; tb = t; }
+      if (ta > t0) t0 = ta; if (tb < t1) t1 = tb;
+      if (t0 > t1) return false;
+    }
+    if (dy === 0) { if (y1 < by0 || y1 > by1) return false; }
+    else {
+      let ta = (by0 - y1) / dy, tb = (by1 - y1) / dy;
+      if (ta > tb) { const t = ta; ta = tb; tb = t; }
+      if (ta > t0) t0 = ta; if (tb < t1) t1 = tb;
+      if (t0 > t1) return false;
+    }
+    return true;
+  }
+  function segHitsRect(x1, y1, x2, y2, r) { return segHitsBox(x1, y1, x2, y2, r.x, r.y, r.x + r.w, r.y + r.h); }
+  function hasLOS(ax, ay, bx, by) {
+    for (const o of obstacles) if (segHitsRect(ax, ay, bx, by, o)) return false;
+    return true;
+  }
+  function pathClear(ax, ay, bx, by, pad) {
+    for (const o of obstacles) if (segHitsBox(ax, ay, bx, by, o.x - pad, o.y - pad, o.x + o.w + pad, o.y + o.h + pad)) return false;
+    return true;
+  }
+  function blockedAt(x, y, pad) {
+    for (const o of obstacles) if (x > o.x - pad && x < o.x + o.w + pad && y > o.y - pad && y < o.y + o.h + pad) return true;
+    return false;
+  }
+  function inRect(x, y, o) { return x > o.x && x < o.x + o.w && y > o.y && y < o.y + o.h; }
+  function angDiff(a, b) {
+    let d = b - a;
+    while (d > Math.PI) d -= Math.PI * 2;
+    while (d < -Math.PI) d += Math.PI * 2;
+    return d;
+  }
+  function pushOutRect(c, o) {
+    const cx = Math.max(o.x, Math.min(c.x, o.x + o.w));
+    const cy = Math.max(o.y, Math.min(c.y, o.y + o.h));
+    const dx = c.x - cx, dy = c.y - cy, d = Math.hypot(dx, dy);
+    if (d < c.r && d > 0) { const push = c.r - d; c.x += dx / d * push; c.y += dy / d * push; }
+  }
+  function pushOutCircle(c, o, r) {
+    const dx = c.x - o.x, dy = c.y - o.y, d = Math.hypot(dx, dy), min = c.r + r;
+    if (d < min && d > 0) { c.x += dx / d * (min - d); c.y += dy / d * (min - d); }
+  }
+  function clampInArena(u) {
+    u.x = Math.max(WALL + u.r, Math.min(W - WALL - u.r, u.x));
+    u.y = Math.max(WALL + u.r, Math.min(H - WALL - u.r, u.y));
+  }
+
+  // ---------- points d'abri des droïdes ----------
+  const coverPoints = [];
+  function buildCover() {
+    coverPoints.length = 0;
+    for (const o of obstacles) {
+      const off = 15, pts = [];
+      for (let x = o.x + 8; x <= o.x + o.w - 8; x += 18) pts.push([x, o.y - off], [x, o.y + o.h + off]);
+      for (let y = o.y + 8; y <= o.y + o.h - 8; y += 18) pts.push([o.x - off, y], [o.x + o.w + off, y]);
+      for (const [x, y] of pts) {
+        if (x < WALL + 12 || x > W - WALL - 12 || y < WALL + 12 || y > H - WALL - 12) continue;
+        if (blockedAt(x, y, 11)) continue;
+        coverPoints.push({ x, y });
+      }
+    }
+  }
+
+  // ---------- postes des alliés ----------
+  // Derrière chaque obstacle côté départ (tirs sur les côtés), et le long des murs verticaux (tir par le haut du mur)
+  const allyPosts = [];
+  function buildAllyPosts() {
+    allyPosts.length = 0;
+    const ok = (x, y) => x > WALL + 12 && x < W - WALL - 12 && y > WALL + 12 && y < H - WALL - 12 && !blockedAt(x, y, 11);
+    for (const o of obstacles) {
+      const y = o.y + o.h + 15;
+      if (y < H - WALL - 14) {
+        const xs = o.w >= 90 ? [o.x + o.w * 0.28, o.x + o.w * 0.72] : [o.x + o.w / 2];
+        const peeks = [[o.x - 17, o.y + o.h + 3], [o.x + o.w + 17, o.y + o.h + 3]].filter(([x, py]) => ok(x, py)).map(([x, py]) => ({ x, y: py }));
+        for (const x of xs) if (ok(x, y)) allyPosts.push({ x, y, peeks });
+      }
+      if (o.h >= 60) {
+        for (const side of [-1, 1]) {
+          const x = side < 0 ? o.x - 15 : o.x + o.w + 15, py = o.y + o.h - 20;
+          const peek = { x, y: o.y - 14 };
+          if (ok(x, py)) allyPosts.push({ x, y: py, side: true, peeks: ok(peek.x, peek.y) ? [peek] : [] });
+        }
+      }
+    }
+    // pas de doublons trop proches
+    for (let i = allyPosts.length - 1; i >= 0; i--) {
+      for (let j = 0; j < i; j++) if (Math.hypot(allyPosts[i].x - allyPosts[j].x, allyPosts[i].y - allyPosts[j].y) < 20) { allyPosts.splice(i, 1); break; }
+    }
+  }
+
+  // ---------- navigation (grille + A*) ----------
+  const CELL = 16;
+  let COLS = 0, ROWS = 0, blocked = new Uint8Array(0);
+  let navG, navCame, navSeen, navClosed, navGen = 0;
+  function buildNav() {
+    COLS = Math.ceil(W / CELL); ROWS = Math.ceil(H / CELL);
+    blocked = new Uint8Array(COLS * ROWS);
+    for (let r = 0; r < ROWS; r++) for (let c = 0; c < COLS; c++) {
+      const x = c * CELL + CELL / 2, y = r * CELL + CELL / 2;
+      let b = x < WALL + 11 || x > W - WALL - 11 || y < WALL + 11 || y > H - WALL - 11 || blockedAt(x, y, 11);
+      if (!b) for (const [tx, ty] of levelTurrets) if (Math.hypot(x - tx, y - ty) < 29) { b = true; break; }
+      blocked[r * COLS + c] = b ? 1 : 0;
+    }
+    const n = COLS * ROWS;
+    navG = new Float32Array(n); navCame = new Int32Array(n); navSeen = new Uint32Array(n); navClosed = new Uint32Array(n); navGen = 0;
+  }
+  // Cases atteignables depuis un point (sert à valider les niveaux)
+  function floodFrom(x, y) {
+    const reach = new Uint8Array(COLS * ROWS);
+    const [c0, r0] = nearestFree(x, y);
+    const q = [r0 * COLS + c0]; reach[q[0]] = 1;
+    for (let h = 0; h < q.length; h++) {
+      const i = q[h], ci = i % COLS, ri = (i / COLS) | 0;
+      for (let dr = -1; dr <= 1; dr++) for (let dc = -1; dc <= 1; dc++) {
+        if (!dr && !dc) continue;
+        const nc = ci + dc, nr = ri + dr;
+        if (nc < 0 || nr < 0 || nc >= COLS || nr >= ROWS) continue;
+        const ni = nr * COLS + nc;
+        if (reach[ni] || blocked[ni]) continue;
+        if (dr && dc && (blocked[ri * COLS + nc] || blocked[nr * COLS + ci])) continue;
+        reach[ni] = 1; q.push(ni);
+      }
+    }
+    return reach;
+  }
+  function reachable(reach, x, y) { const [c, r] = nearestFree(x, y); return !!reach[r * COLS + c]; }
+
+  function nearestFree(x, y) {
+    const c0 = Math.max(0, Math.min(COLS - 1, Math.floor(x / CELL)));
+    const r0 = Math.max(0, Math.min(ROWS - 1, Math.floor(y / CELL)));
+    if (!blocked[r0 * COLS + c0]) return [c0, r0];
+    for (let rad = 1; rad < 8; rad++)
+      for (let dr = -rad; dr <= rad; dr++) for (let dc = -rad; dc <= rad; dc++) {
+        const c = c0 + dc, r = r0 + dr;
+        if (c >= 0 && r >= 0 && c < COLS && r < ROWS && !blocked[r * COLS + c]) return [c, r];
+      }
+    return [c0, r0];
+  }
+  // Tableaux de l'A* alloués une fois par niveau ; un numéro de passage évite de les remettre à zéro
+  const heapF = [], heapI = [];
+  function heapPush(f, i) {
+    let k = heapF.length; heapF.push(f); heapI.push(i);
+    while (k > 0) {
+      const p = (k - 1) >> 1;
+      if (heapF[p] <= f) break;
+      heapF[k] = heapF[p]; heapI[k] = heapI[p]; k = p;
+    }
+    heapF[k] = f; heapI[k] = i;
+  }
+  function heapPop() {
+    const top = heapI[0];
+    const lf = heapF.pop(), li = heapI.pop();
+    const n = heapF.length;
+    if (n) {
+      let k = 0;
+      for (;;) {
+        const l = 2 * k + 1, r = l + 1; let m = -1, mf = lf;
+        if (l < n && heapF[l] < mf) { m = l; mf = heapF[l]; }
+        if (r < n && heapF[r] < mf) { m = r; mf = heapF[r]; }
+        if (m < 0) break;
+        heapF[k] = heapF[m]; heapI[k] = heapI[m]; k = m;
+      }
+      heapF[k] = lf; heapI[k] = li;
+    }
+    return top;
+  }
+  function findPath(sx, sy, tx, ty) {
+    const [sc, sr] = nearestFree(sx, sy), [tc, tr] = nearestFree(tx, ty);
+    const start = sr * COLS + sc, goal = tr * COLS + tc;
+    navGen++;
+    heapF.length = 0; heapI.length = 0;
+    const hf = i => { const dx = Math.abs(i % COLS - tc), dy = Math.abs(((i / COLS) | 0) - tr); return dx + dy - 0.586 * Math.min(dx, dy); };
+    navG[start] = 0; navSeen[start] = navGen; navCame[start] = -1;
+    heapPush(hf(start), start);
+    let found = start === goal;
+    while (heapF.length && !found) {
+      const i = heapPop();
+      if (navClosed[i] === navGen) continue;
+      navClosed[i] = navGen;
+      if (i === goal) { found = true; break; }
+      const ci = i % COLS, ri = (i / COLS) | 0, gi = navG[i];
+      for (let dr = -1; dr <= 1; dr++) for (let dc = -1; dc <= 1; dc++) {
+        if (!dr && !dc) continue;
+        const nc = ci + dc, nr = ri + dr;
+        if (nc < 0 || nr < 0 || nc >= COLS || nr >= ROWS) continue;
+        const ni = nr * COLS + nc;
+        if (blocked[ni] || navClosed[ni] === navGen) continue;
+        if (dr && dc && (blocked[ri * COLS + nc] || blocked[nr * COLS + ci])) continue;
+        const ng = gi + (dr && dc ? 1.414 : 1);
+        if (navSeen[ni] !== navGen || ng < navG[ni]) { navSeen[ni] = navGen; navG[ni] = ng; navCame[ni] = i; heapPush(ng + hf(ni), ni); }
+      }
+    }
+    if (!found) return [{ x: tx, y: ty }];
+    const cells = [];
+    for (let i = goal; i !== start && i !== -1; i = navCame[i]) cells.push({ x: (i % COLS) * CELL + CELL / 2, y: ((i / COLS) | 0) * CELL + CELL / 2 });
+    cells.reverse(); cells.push({ x: tx, y: ty });
+    const out = []; let cx = sx, cy = sy, k = 0;
+    while (k < cells.length) {
+      let j = cells.length - 1;
+      while (j > k && !pathClear(cx, cy, cells[j].x, cells[j].y, 10)) j--;
+      out.push(cells[j]); cx = cells[j].x; cy = cells[j].y; k = j + 1;
+    }
+    return out;
+  }
+  function moveUnit(u, tx, ty, speed, dt) {
+    const dx = tx - u.x, dy = ty - u.y, dist = Math.hypot(dx, dy);
+    if (dist < 1) return dist;
+    const step = Math.min(dist, speed * dt);
+    u.x += dx / dist * step; u.y += dy / dist * step;
+    u.moveAng = Math.atan2(dy, dx); u.moving = true;
+    return dist;
+  }
+  function navTo(u, tx, ty, speed, dt) {
+    // chemin recalculé si la cible a bougé (au plus 4 fois par seconde) ou toutes les 1,2 s
+    if (!u.nav || u.nav.repath <= 0 || (u.nav.age > 0.25 && Math.hypot(u.nav.tx - tx, u.nav.ty - ty) > 24)) {
+      const direct = pathClear(u.x, u.y, tx, ty, 10);
+      u.nav = { tx, ty, repath: 1.2, age: 0, pts: direct ? [{ x: tx, y: ty }] : findPath(u.x, u.y, tx, ty) };
+    } else if (u.nav.pts.length === 1 && u.nav.direct !== false && pathClear(u.x, u.y, tx, ty, 10)) {
+      const last = u.nav.pts[0]; last.x = tx; last.y = ty; u.nav.tx = tx; u.nav.ty = ty;   // ligne droite : suit la cible en continu
+    }
+    u.nav.repath -= dt; u.nav.age += dt;
+    const p = u.nav.pts[0];
+    if (p) {
+      const d = moveUnit(u, p.x, p.y, speed, dt);
+      if (d < 5 && u.nav.pts.length > 1) u.nav.pts.shift();
+    }
+    return Math.hypot(tx - u.x, ty - u.y);
+  }
+  function turnTo(u, target, rate, dt) {
+    const diff = angDiff(u.ang, target);
+    u.ang += Math.max(-rate * dt, Math.min(rate * dt, diff));
+    return diff;
+  }
+
+
+  // ---------- difficultés et classes ----------
+  const DIFFS = {
+    recrue:  { label: 'Recrue',  droidHp: 4, turretHp: 2, droidRange: 260, turretRange: 480, aimMul: 1.3, cdMul: 1.25, enemyRockets: 1,
+               desc: 'Ennemis moins résistants, qui te repèrent de moins loin.' },
+    soldat:  { label: 'Soldat',  droidHp: 5, turretHp: 3, droidRange: 320, turretRange: 580, aimMul: 1, cdMul: 1, enemyRockets: 2,
+               desc: 'L\'équilibre du prototype.' },
+    veteran: { label: 'Vétéran', droidHp: 6, turretHp: 4, droidRange: 380, turretRange: 620, aimMul: 0.8, cdMul: 0.85, enemyRockets: 2,
+               desc: 'Ennemis robustes qui te voient de très loin : avance prudemment d\'abri en abri.' }
+  };
+  const CLASSES = {
+    classique: { name: 'Classique', color: '#3AA55A', desc: 'Blaster polyvalent à bonne cadence. 5 PV.' },
+    medecin:   { name: 'Médecin',   color: '#2E6ED4', desc: 'Soigne un équipier proche quand vous êtes hors de vue. En IA : envoie-le soigner. 5 PV.' },
+    lourd:     { name: 'Lourd',     color: '#D23F2B', desc: 'Bazooka (5 roquettes, recharge manuelle) et pistolet. 7 PV. En IA : il demande ton accord.' },
+    sniper:    { name: 'Sniper',    color: '#8E5BD6', desc: 'Touche un ennemi pour le verrouiller (1 s) : tir auto à 2 dégâts. 4 PV, fragile.' }
+  };
+  const CLASS_KEYS = Object.keys(CLASSES);
+  const ROLL_DUR = 0.44, ROLL_PREP = 0.05, ROLL_MOVE = 0.34, ROLL_DIST = 90, ROLL_CD_PLAYER = 1.6, ROLL_CD_AI = 2.5, ROLL_LOW_HP = 0.25;
+  const ROCKET_R = 55, ROCKET_RANGE = 260, ROCKETS_PER_GAME = 5, RELOAD_TIME = 2.8, PISTOL_DMG = 0.5;
+  let DIFF = DIFFS.soldat;
+
+  let cfg = { diff: 'soldat', player: 'classique', count: 3, squad: ['classique', 'medecin', 'sniper'], level: 'citadelle' };
+  try {
+    const saved = JSON.parse(localStorage.getItem('arene-cfg') || 'null');
+    if (saved && DIFFS[saved.diff] && CLASSES[saved.player] && Array.isArray(saved.squad)) {
+      cfg.diff = saved.diff; cfg.player = saved.player; if (typeof saved.level === 'string') cfg.level = saved.level;
+      cfg.count = Math.max(0, Math.min(3, saved.count | 0));
+      cfg.squad = [0, 1, 2].map(i => CLASSES[saved.squad[i]] ? saved.squad[i] : 'classique');
+    }
+  } catch (e) {}
+  function saveCfg() { try { localStorage.setItem('arene-cfg', JSON.stringify(Object.assign({}, cfg, { level: cfg.level.startsWith('essai-') ? 'citadelle' : cfg.level }))); } catch (e) {} }
+  // clé du meilleur temps : niveau + difficulté (la Citadelle garde l'ancienne clé)
+  const bestKey = diff => 'arene-best-' + (cfg.level === 'citadelle' ? '' : cfg.level + '-') + diff;
+  function getBest(diff) { try { const v = localStorage.getItem(bestKey(diff)); return v ? parseFloat(v) : null; } catch (e) { return null; } }
+  function setBest(diff, v) { try { localStorage.setItem(bestKey(diff), String(v)); } catch (e) {} }
+
+  // ---------- formes d'obstacles ----------
+  // L : coin (carré t×t) en (x, y) ; bras horizontal de longueur a vers dx (±1), bras vertical de longueur b vers dy (±1)
+  function L(x, y, dx, a, dy, b, t = 22) {
+    return [dx > 0 ? [x, y, a, t] : [x + t - a, y, a, t], dy > 0 ? [x, y, t, b] : [x, y + t - b, t, b]];
+  }
+  // Z : barre haute de longueur a, descente de b, barre basse de longueur c (S = Z en miroir)
+  function Z(x, y, a, b, c, t = 22) { return [[x, y, a, t], [x + a - t, y, t, b], [x + a - t, y + b - t, c, t]]; }
+  function S(x, y, a, b, c, t = 22) { const w = a + c - t; return Z(0, 0, a, b, c, t).map(([rx, ry, rw, rh]) => [x + w - rx - rw, y + ry, rw, rh]); }
+  function bbox(rects) {
+    let x0 = Infinity, y0 = Infinity, x1 = -Infinity, y1 = -Infinity;
+    for (const [x, y, w, h] of rects) { x0 = Math.min(x0, x); y0 = Math.min(y0, y); x1 = Math.max(x1, x + w); y1 = Math.max(y1, y + h); }
+    return { x0, y0, x1, y1 };
+  }
+  const HALF_PI = Math.PI / 2, LEFT_WALL = WALL + 18;
+
+  // ---------- niveaux dessinés à la main ----------
+  // droïdes : [x, y, "recrue soldat vétéran"] avec c = combat, l = lourd, m = réparateur, s = tireur d'élite, - = absent
+  const LEVELS = [
+    {
+      id: 'citadelle', name: 'Citadelle', desc: 'Le terrain d\'entraînement d\'origine : une ligne de tourelles au fond, des abris simples.',
+      W: 640, H: 1500, start: { x: 320, y: 1430 }, beacon: { x: 320, y: 72 },
+      obstacles: [
+        [80, 1300, 110, 28], [450, 1300, 110, 28], [270, 1180, 100, 40], [60, 1060, 44, 100], [536, 1060, 44, 100],
+        [180, 1000, 80, 28], [380, 1000, 80, 28], [290, 860, 60, 60], [180, 900, 36, 40], [424, 900, 36, 40],
+        [100, 780, 110, 26], [430, 780, 110, 26], [230, 660, 40, 40], [370, 660, 40, 40],
+        [120, 540, 90, 28], [430, 540, 90, 28], [300, 520, 40, 70], [60, 400, 44, 90], [536, 400, 44, 90],
+        [210, 420, 70, 28], [360, 420, 70, 28], [150, 290, 44, 44], [446, 290, 44, 44], [296, 300, 48, 24]
+      ],
+      turrets: [[130, 165, HALF_PI], [250, 165, HALF_PI], [390, 165, HALF_PI], [510, 165, HALF_PI]],
+      droids: [[140, 920, 'c c c'], [500, 920, 'c c l'], [320, 740, 'l l c'], [170, 470, 'm m m'], [470, 470, 'c c c'], [320, 360, 'c s s']]
+    },
+    {
+      id: 'feux-croises', name: 'Feux croisés', desc: 'Des tourelles sur les murs balaient l\'arène de côté : les abris en L protègent de face et de flanc.',
+      W: 640, H: 1600, start: { x: 320, y: 1530 }, beacon: { x: 320, y: 72 },
+      obstacles: [
+        [110, 1400, 100, 24], [430, 1400, 100, 24], [280, 1290, 80, 26],
+        ...L(110, 1150, 1, 110, 1, 100), [300, 1170, 50, 50], [440, 1170, 110, 24],
+        [110, 1000, 90, 24], [290, 1010, 40, 40], ...L(508, 950, -1, 110, 1, 100),
+        ...L(110, 720, 1, 110, 1, 100), [300, 800, 60, 24], [440, 760, 100, 24],
+        [100, 560, 90, 24], [290, 590, 60, 26], ...L(508, 500, -1, 110, 1, 100),
+        [150, 300, 60, 24], [430, 300, 60, 24], [296, 330, 48, 24]
+      ],
+      turrets: [[220, 170, HALF_PI], [420, 170, HALF_PI], [LEFT_WALL, 1240, 0], [640 - LEFT_WALL, 1030, Math.PI], [LEFT_WALL, 800, 0], [640 - LEFT_WALL, 580, Math.PI]],
+      droids: [[460, 1250, 'c c c'], [200, 1080, '- c -'], [380, 1090, 'm m m'], [210, 900, 'c l c'], [460, 870, 'c c -'],
+               [320, 680, '- s s'], [200, 650, '- - -'], [470, 680, 'c c c'], [320, 440, 'l l c']]
+    },
+    {
+      id: 'le-fort', name: 'Le Fort', desc: 'La balise est dans un fort : franchis la ligne de défense par ses brèches, puis la porte gardée.',
+      W: 640, H: 1500, start: { x: 320, y: 1430 }, beacon: { x: 320, y: 110 },
+      obstacles: [
+        [170, 16, 26, 224], [444, 16, 26, 224], [196, 214, 70, 26], [374, 214, 70, 26],
+        [16, 520, 150, 26], [236, 520, 168, 26], [474, 520, 150, 26],
+        [150, 390, 70, 24], [420, 390, 70, 24], [296, 340, 48, 24], [238, 452, 44, 24], [358, 452, 44, 24],
+        ...L(90, 640, 1, 100, 1, 90), ...L(528, 640, -1, 100, 1, 90), [290, 760, 60, 40],
+        [120, 900, 110, 24], [410, 900, 110, 24], ...Z(250, 1000, 100, 70, 100),
+        [90, 1180, 40, 70], [510, 1180, 40, 70], [260, 1220, 120, 24], [140, 1340, 90, 24], [410, 1340, 90, 24]
+      ],
+      turrets: [[240, 90, HALF_PI], [400, 90, HALF_PI], [120, 300, HALF_PI], [520, 300, HALF_PI], [LEFT_WALL, 700, 0], [640 - LEFT_WALL, 700, Math.PI]],
+      droids: [[180, 820, 'c c c'], [460, 820, 'c c c'], [320, 650, 'c l l'], [190, 450, 'm m m'], [450, 450, 'c c c'],
+               [320, 400, '- s s'], [320, 290, 'c c c']]
+    },
+    {
+      id: 'serpentin', name: 'Serpentin', desc: 'De longs murs forment un couloir en zigzag. Chaque allée est balayée par une tourelle au bout.',
+      W: 700, H: 1800, start: { x: 350, y: 1730 }, beacon: { x: 350, y: 80 },
+      obstacles: [
+        [16, 1450, 480, 26], [204, 1150, 480, 26], [16, 850, 480, 26], [204, 550, 480, 26],
+        [150, 1600, 90, 24], [430, 1590, 90, 24],
+        [560, 1250, 26, 110], ...L(350, 1230, 1, 100, 1, 110), [150, 1300, 70, 24],
+        [110, 950, 26, 110], ...L(328, 930, -1, 100, 1, 110), [480, 1000, 70, 24],
+        [560, 650, 26, 110], ...L(350, 630, 1, 100, 1, 110), [140, 700, 70, 24],
+        [120, 380, 90, 24], [280, 400, 60, 26], [480, 380, 90, 24], [200, 250, 50, 24], [450, 250, 50, 24]
+      ],
+      turrets: [[LEFT_WALL, 1310, 0], [700 - LEFT_WALL, 1010, Math.PI], [LEFT_WALL, 710, 0], [220, 170, HALF_PI], [480, 170, HALF_PI]],
+      droids: [[250, 1250, 'c c c'], [470, 1330, 'm m m'], [230, 1010, 'c l l'], [560, 960, 'c c c'],
+               [300, 740, '- s s'], [470, 720, 'c c c'], [420, 330, 'l l c'], [260, 330, '- c c'], [560, 300, '- - s']]
+    }
+  ];
+  const CLASS_CODE = { c: 'classique', l: 'lourd', m: 'medecin', s: 'sniper' };
+  const DIFF_INDEX = { recrue: 0, soldat: 1, veteran: 2 };
+
+  // Niveaux enregistrés par le joueur (générés procéduralement)
+  let customLevels = [];
+  try { const v = JSON.parse(localStorage.getItem('arene-levels') || '[]'); if (Array.isArray(v)) customLevels = v.filter(l => l && l.obstacles && l.turrets && l.droids); } catch (e) {}
+  function saveLevels() { try { localStorage.setItem('arene-levels', JSON.stringify(customLevels)); } catch (e) {} }
+  // Livraison par étapes : 1 = pause et options, 2 = + niveaux faits main, 3 = + générateur procédural
+  const STAGE = 3;
+  const allLevels = () => STAGE >= 3 ? LEVELS.concat(customLevels) : STAGE >= 2 ? LEVELS : [LEVELS[0]];
+  const levelById = id => STAGE < 2 ? LEVELS[0] : (typeof tempLevel !== 'undefined' && tempLevel && tempLevel.id === id ? tempLevel : null) || allLevels().find(l => l.id === id) || LEVELS[0];
+
+  function applyLevel(lv) {
+    LEVEL = lv;
+    W = lv.W; H = lv.H;
+    BEACON.x = lv.beacon.x; BEACON.y = lv.beacon.y;
+    START.x = lv.start.x; START.y = lv.start.y;
+    obstacles.length = 0;
+    for (const [x, y, w, h] of lv.obstacles) obstacles.push({ x, y, w, h });
+    levelTurrets = lv.turrets.map(t => t.slice());
+    levelDroids = lv.droids.map(d => d.slice());
+    buildCover(); buildAllyPosts(); buildNav();
+    floorCanvas = null; floorCtx = null; floorK = 0;
+  }
+  // Droïdes présents pour une difficulté donnée
+  function droidsFor(diff) {
+    const k = DIFF_INDEX[diff];
+    return levelDroids.map(([x, y, spec]) => [x, y, CLASS_CODE[spec.split(' ')[k]]]).filter(d => d[2]);
+  }
+
+  // ---------- génération procédurale ----------
+  function makeRng(seed) {
+    let a = seed >>> 0;
+    return () => { a |= 0; a = a + 0x6D2B79F5 | 0; let t = Math.imul(a ^ a >>> 15, 1 | a); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; };
+  }
+  const GEN_LIMITS = { classique: [0, 12], lourd: [0, 4], medecin: [0, 3], sniper: [0, 3], front: [0, 6], side: [0, 6] };
+  function randomShape(rnd) {
+    const R = (lo, hi) => Math.round(lo + rnd() * (hi - lo));
+    const k = rnd();
+    let rects;
+    if (k < 0.18) rects = [[0, 0, R(40, 60), R(40, 60)]];
+    else if (k < 0.38) rects = [[0, 0, R(90, 130), 24]];
+    else if (k < 0.48) rects = [[0, 0, 26, R(70, 110)]];
+    else if (k < 0.8) rects = L(0, 0, rnd() < 0.5 ? 1 : -1, R(90, 125), rnd() < 0.5 ? 1 : -1, R(70, 100));
+    else { const a = R(80, 110), b = R(60, 90); rects = rnd() < 0.5 ? Z(0, 0, a, b, a) : S(0, 0, a, b, a); }
+    const bx = bbox(rects);
+    return { rects: rects.map(([x, y, w, h]) => [x - bx.x0, y - bx.y0, w, h]), w: bx.x1 - bx.x0, h: bx.y1 - bx.y0 };
+  }
+  function tryGenerate(p, rnd) {
+    const nDroids = p.classique + p.lourd + p.medecin + p.sniper;
+    const LW = 640, LH = Math.round(Math.min(2200, Math.max(1200, 1000 + nDroids * 70 + p.side * 50)) / 10) * 10;
+    const R = (lo, hi) => lo + rnd() * (hi - lo);
+    const rects = [], boxes = [];
+    const fits = bx => {
+      if (bx.x0 < WALL + 40 || bx.x1 > LW - WALL - 40 || bx.y0 < 240 || bx.y1 > LH - 170) return false;
+      for (const b of boxes) if (bx.x0 < b.x1 + 48 && bx.x1 > b.x0 - 48 && bx.y0 < b.y1 + 48 && bx.y1 > b.y0 - 48) return false;
+      return true;
+    };
+    const add = list => { const bx = bbox(list); if (!fits(bx)) return false; rects.push(...list); boxes.push(bx); return true; };
+    // tourelles latérales, chacune avec un abri en L qui protège de son côté
+    const turrets = [];
+    // assez loin du départ pour qu'aucune tourelle ne tire dès la première seconde
+    const y0 = 380, y1 = Math.max(y0, LH - 780), flip = rnd() < 0.5;
+    for (let i = 0; i < p.side; i++) {
+      const y = Math.round(y0 + (y1 - y0) * (p.side === 1 ? 0.5 : i / (p.side - 1)) + R(-25, 25));
+      const left = (i % 2 === 0) !== flip;
+      turrets.push([left ? LEFT_WALL : LW - LEFT_WALL, y, left ? 0 : Math.PI]);
+      for (let k = 0; k < 15; k++) {
+        const a = Math.round(R(90, 125)), b = Math.round(R(80, 110));
+        const x = left ? Math.round(R(90, 190)) : Math.round(R(LW - 190 - 22, LW - 90 - 22));
+        const list = left ? L(x, Math.round(y - R(25, 55)), 1, a, 1, b) : L(x, Math.round(y - R(25, 55)), -1, a, 1, b);
+        if (add(list)) break;
+      }
+    }
+    // abris répartis par bandes
+    for (let y = 250; y < LH - 200; y += 150) {
+      const n = 2 + (rnd() < 0.5 ? 1 : 0);
+      for (let k = 0, placed = 0; k < 24 && placed < n; k++) {
+        const sh = randomShape(rnd);
+        const x = Math.round(R(WALL + 44, LW - WALL - 44 - sh.w)), yy = Math.round(R(y, y + 140 - sh.h));
+        if (add(sh.rects.map(([rx, ry, rw, rh]) => [rx + x, ry + yy, rw, rh]))) placed++;
+      }
+    }
+    // tourelles frontales, réparties devant la balise
+    for (let i = 0; i < p.front; i++) {
+      let x = Math.round(100 + (LW - 200) * (p.front === 1 ? 0.25 : i / (p.front - 1)));
+      if (Math.abs(x - LW / 2) < 60) x += x < LW / 2 ? -60 : 60;
+      turrets.push([x, 170, HALF_PI]);
+    }
+    const lv = { W: LW, H: LH, start: { x: LW / 2, y: LH - 70 }, beacon: { x: LW / 2, y: 72 }, obstacles: rects, turrets, droids: [] };
+    applyLevel(lv);
+    const reach = floodFrom(lv.start.x, lv.start.y);
+    if (!reachable(reach, lv.beacon.x, lv.beacon.y)) return null;
+    // la zone de départ doit être hors de portée ou hors de vue de toutes les tourelles
+    for (const [tx, ty] of turrets) if (Math.hypot(tx - lv.start.x, ty - lv.start.y) < 740 && hasLOS(tx, ty, lv.start.x, lv.start.y)) return null;
+    // postes des droïdes : près d'un abri, atteignables, espacés
+    const cands = [];
+    for (let y = 270; y < LH - 380; y += 34) for (let x = 50; x < LW - 50; x += 34) {
+      const cx = x + R(-8, 8), cy = y + R(-8, 8);
+      if (blockedAt(cx, cy, 22) || !reachable(reach, cx, cy)) continue;
+      if (turrets.some(([tx, ty]) => Math.hypot(tx - cx, ty - cy) < 80)) continue;
+      if (!coverPoints.some(c => Math.hypot(c.x - cx, c.y - cy) < 70)) continue;
+      cands.push({ x: Math.round(cx), y: Math.round(cy) });
+    }
+    const chosen = [];
+    const takeFrom = (list, code, n, spacing) => {
+      for (const c of list) {
+        if (n <= 0) break;
+        if (chosen.some(o => Math.hypot(o[0] - c.x, o[1] - c.y) < spacing)) continue;
+        chosen.push([c.x, c.y, code]); n--;
+      }
+      return n;
+    };
+    const shuffled = cands.slice().sort(() => rnd() - 0.5);
+    const far = cands.slice().sort((a, b) => a.y - b.y);
+    const mid = shuffled.filter(c => c.y > LH * 0.3 && c.y < LH * 0.7);
+    for (const spacing of [120, 90, 70]) {
+      chosen.length = 0;
+      let left = takeFrom(far, 's', p.sniper, spacing);
+      left += takeFrom(mid.concat(shuffled), 'l', p.lourd, spacing);
+      left += takeFrom(shuffled, 'c', p.classique, spacing);
+      // réparateurs : là où il y a déjà le plus de droïdes autour
+      const near = shuffled.slice().sort((a, b) => chosen.filter(o => Math.hypot(o[0] - b.x, o[1] - b.y) < 220).length - chosen.filter(o => Math.hypot(o[0] - a.x, o[1] - a.y) < 220).length);
+      left += takeFrom(near, 'm', p.medecin, spacing);
+      if (left === 0) break;
+      if (spacing === 70) return null;
+    }
+    lv.droids = chosen.map(([x, y, c]) => [x, y, `${c} ${c} ${c}`]);
+    return lv;
+  }
+  function generateLevel(p) {
+    for (let attempt = 0; attempt < 40; attempt++) {
+      const lv = tryGenerate(p, makeRng(p.seed + attempt * 7919));
+      if (lv) { lv.params = Object.assign({}, p); return lv; }
+    }
+    return null;
+  }
+
+  // ---------- droïdes ----------
+  // Classes ennemies : mêmes rôles que l'escouade, en version droïde
+  const ENEMY_CLASSES = {
+    classique: { name: 'Droïde de combat', hpMul: 1, r: 10, walk: 55, strafe: 32, bravery: [0.9, 1.4] },
+    medecin:   { name: 'Droïde réparateur', hpMul: 0.8, r: 10, walk: 60, strafe: 32, bravery: [0.7, 1.0] },
+    lourd:     { name: 'Droïde lourd', hpMul: 2, r: 13, walk: 38, strafe: 18, bravery: [2.4, 3.0] },
+    sniper:    { name: 'Droïde tireur d\'élite', hpMul: 0.7, r: 9, walk: 50, strafe: 0, bravery: [0.6, 0.9] }
+  };
+  const DROID_PAL = {
+    classique: { body: '#C9B184', head: '#D9C49A', line: '#86704B', dark: '#3B3226', scrap: '#8F7C5A', dead: '#B39C72', foot: '#8F7C5A' },
+    medecin:   { body: '#C9B184', head: '#D9C49A', line: '#86704B', dark: '#3B3226', scrap: '#8F7C5A', dead: '#B39C72', foot: '#8F7C5A' },
+    lourd:     { body: '#8A939C', head: '#6E767E', line: '#5E666E', dark: '#3A3F45', scrap: '#6B737B', dead: '#7C848C', foot: '#5E666E' },
+    sniper:    { body: '#5B6068', head: '#6C7179', line: '#3A3E44', dark: '#2A2D31', scrap: '#4A4F57', dead: '#555A61', foot: '#43474D' }
+  };
+  const ENEMY_ROCKET_R = 50, ENEMY_ROCKET_RANGE = 300, ENEMY_ROCKET_WARN = 0.9;
+  const LEASH = 90;
+
+  // Noms des équipiers : tirés au hasard une fois par session
+  const usedNums = new Set();
+  const ALLY_NAMES = [0, 1, 2].map(() => { let n; do { n = 1000 + Math.floor(Math.random() * 9000); } while (usedNums.has(n)); usedNums.add(n); return 'CT-' + n; });
+
+  let player, allies = [], turrets = [], droids = [], bolts = [], sparks = [], plusFx = [], flashes = [];
+  let state = 'menu', time = 0, camY = H, camX = 0, viewW = 0, viewH = 0, dpr = 1, cw = 0, ch = 0, scale = 1;
+  let selected = -1, highlight = [], playerExposed = false, threatToPlayer = null, gameOver = false, shakeT = 0;
+
+  function reset() {
+    DIFF = DIFFS[cfg.diff];
+    applyLevel(levelById(cfg.level));
+    player = {
+      isPlayer: true, cls: cfg.player, x: START.x, y: START.y, r: 11, hp: CLASS_HP[cfg.player], maxHp: CLASS_HP[cfg.player], inv: 0,
+      aim: -Math.PI / 2, ang: -Math.PI / 2, cd: 0, weapon: 'bazooka', rocketsLeft: ROCKETS_PER_GAME, loaded: true, reloadT: 0, heavyWasAiming: false, heavyLast: null, heavyPreview: null,
+      lock: null, healT: 0, healing: null, roll: null, rollCd: 0, wantRoll: false
+    };
+    const starts = [[-58, 32], [58, 32], [0, 44]].map(([dx, dy]) => [Math.max(WALL + 12, Math.min(W - WALL - 12, START.x + dx)), Math.min(H - WALL - 12, START.y + dy)]);
+    allies = [];
+    for (let i = 0; i < cfg.count; i++) {
+      const [x, y] = starts[i];
+      allies.push({
+        i, name: ALLY_NAMES[i], cls: cfg.squad[i], x, y, r: 11, hp: CLASS_HP[cfg.squad[i]], maxHp: CLASS_HP[cfg.squad[i]], ang: -Math.PI / 2,
+        mode: 'follow', post: null, phase: null, peek: null, peekT: 0, peekCheck: 0,
+        cd: Math.random(), aimT: 0, nav: null, flash: 0, inv: 0, moving: false, moveAng: -Math.PI / 2,
+        fallT: 0, fallAng: 0, startAng: 0, gunDir: 0,
+        healTarget: null, healT: 0, prevMode: null, prevPost: null,
+        lock: null, manualTgt: null, roll: null, rollCd: 0,
+        rocketAuth: true, rocketsLeft: ROCKETS_PER_GAME, loaded: true, reloadT: 0, rocketRequest: false, rocketZone: null, rocketAimT: 0, reqNotified: false,
+        rocketPlan: null, rocketMission: null, shotCheck: 0
+      });
+    }
+    turrets = levelTurrets.map(([x, y, rest]) => ({ x, y, rest, side: Math.abs(Math.sin(rest)) < 0.5, r: 16, hp: DIFF.turretHp, maxHp: DIFF.turretHp, ang: rest,
+      cd: 0.8 + Math.random(), aimT: 0, los: false, tgt: null, hit: 0, burst: 0, bt: 0, suppShots: 0, suppX: 0, suppY: 0, lkx: 0, lky: 0, sparkT: 0 }));
+    droids = droidsFor(cfg.diff).map(([x, y, ec]) => {
+      const C = ENEMY_CLASSES[ec];
+      const hp = Math.max(2, Math.round(DIFF.droidHp * C.hpMul));
+      return {
+        x, y, ecls: ec, r: C.r, hp, maxHp: hp, low: Math.ceil(hp * (ec === 'lourd' ? 0.3 : 0.4)), home: { x, y }, ang: Math.atan2(START.y - y, START.x - x),
+        state: 'patrol', wp: null, wait: Math.random(), moveT: 0,
+        cd: 1 + Math.random(), aimT: 0, alert: 0, lx: x, ly: y + 50, tgt: null,
+        stress: 0, bravery: C.bravery[0] + Math.random() * (C.bravery[1] - C.bravery[0]), fightT: 0, provoked: null,
+        coverCd: 0, cover: null, phase: null, hideT: 0, peekT: 0,
+        strafe: Math.random() < 0.5 ? 1 : -1, strafeT: 1, hurt: 0,
+        burst: 0, bt: 0, suppShots: 0, hadSight: false, deadT: 0, deathAng: 0, sparkT: 0,
+        arm: 1, rockets: ec === 'lourd' ? DIFF.enemyRockets : 0, rocketCd: 3, rocketWarn: null,
+        patient: null, repairT: 0, repairCd: 1, nav: null
+      };
+    });
+    invalidateUnits();
+    bolts = []; sparks = []; plusFx = []; flashes = []; time = 0; gameOver = false; shakeT = 0;
+    debris = []; smokes = []; scorches = []; rings = [];
+    floorCanvas = null; floorCtx = null; floorK = 0;   // sol propre pour la nouvelle partie
+    camY = H; camX = W / 2 - 210;
+    selected = -1; highlight = [];
+    buildSquad();
+    updateHud();
+  }
+
+  // ---------- ciblage ----------
+  // Listes recalculées seulement quand quelqu'un tombe (au lieu de centaines de fois par image)
+  let enemiesCache = null, friendsCache = null;
+  const aliveEnemies = () => enemiesCache || (enemiesCache = [...turrets.filter(t => t.hp > 0), ...droids.filter(d => d.hp > 0)]);
+  const friends = () => friendsCache || (friendsCache = [player, ...allies.filter(a => a.hp > 0)]);
+  function invalidateUnits() { enemiesCache = null; friendsCache = null; }
+  // tourelles murales : portée réduite (elles couvrent une bande de l'arène, pas toute la salle)
+  const SIDE_RANGE = 0.62;
+  const enemyRange = e => e.home ? DIFF.droidRange : DIFF.turretRange * (e.side ? SIDE_RANGE : 1);
+
+  function nearestVisibleHostile(x, y, range) {   // pour les ennemis : le joueur ou un équipier
+    let bestT = null, bd = range;
+    for (const h of friends()) {
+      const d = Math.hypot(h.x - x, h.y - y);
+      if (d < bd && hasLOS(x, y, h.x, h.y)) { bd = d; bestT = h; }
+    }
+    return bestT;
+  }
+  function nearestVisibleEnemy(x, y, range) {     // pour les équipiers : tourelle ou droïde
+    let bestT = null, bd = range;
+    for (const e of aliveEnemies()) {
+      const d = Math.hypot(e.x - x, e.y - y);
+      if (d < bd && hasLOS(x, y, e.x, e.y)) { bd = d; bestT = e; }
+    }
+    return bestT;
+  }
+  function nearestEnemyAny(x, y) {
+    let bestT = null, bd = Infinity;
+    for (const e of aliveEnemies()) { const d = Math.hypot(e.x - x, e.y - y); if (d < bd) { bd = d; bestT = e; } }
+    return bestT;
+  }
+  function enemySees(u) {
+    for (const e of aliveEnemies()) if (Math.hypot(e.x - u.x, e.y - u.y) < enemyRange(e) && hasLOS(e.x, e.y, u.x, u.y)) return true;
+    return false;
+  }
+  function enemyAt(wx, wy, tol) {
+    let bestT = null, bd = Infinity;
+    for (const e of aliveEnemies()) { const d = Math.hypot(e.x - wx, e.y - wy) - e.r; if (d < tol && d < bd) { bd = d; bestT = e; } }
+    return bestT;
+  }
+  function computeExposure() {
+    playerExposed = false; threatToPlayer = null;
+    let bd = Infinity;
+    for (const e of aliveEnemies()) {
+      const d = Math.hypot(e.x - player.x, e.y - player.y);
+      if (d < enemyRange(e) && hasLOS(e.x, e.y, player.x, player.y)) { playerExposed = true; if (d < bd) { bd = d; threatToPlayer = e; } }
+    }
+  }
+  function onScreen(e) { return e.x > camX && e.x < camX + viewW && e.y > camY && e.y < camY + viewH; }
+  function pointSegDist(px, py, ax, ay, bx, by) {
+    const dx = bx - ax, dy = by - ay, l = dx * dx + dy * dy;
+    let t = l ? ((px - ax) * dx + (py - ay) * dy) / l : 0;
+    t = Math.max(0, Math.min(1, t));
+    return Math.hypot(px - (ax + dx * t), py - (ay + dy * t));
+  }
+  // Ligne de tir du sniper : dégagée si aucun obstacle ni équipier sur la trajectoire
+  function lockLineClear(u, t) {
+    if (!hasLOS(u.x, u.y, t.x, t.y)) return false;
+    for (const f of friends()) {
+      if (f === u) continue;
+      if (pointSegDist(f.x, f.y, u.x, u.y, t.x, t.y) < f.r + 3) return false;
+    }
+    return true;
+  }
+
+  // ---------- sons ----------
+  // Tous les sons sont synthétisés (Web Audio) : aucun fichier à charger.
+  // Volume et stéréo selon la position à l'écran ; chaque son a un intervalle minimum pour éviter la saturation.
+  const Sound = (() => {
+    let ac = null, master = null, noiseBuf = null, muted = false, echoIn = null, shapeCurve = null;
+    const last = {};
+    let vol = 1;
+    try { muted = localStorage.getItem('arene-mute') === '1'; const v = parseFloat(localStorage.getItem('arene-vol')); if (v >= 0 && v <= 1) vol = v; } catch (e) {}
+    const VOL = 0.5;
+    function init() {
+      if (ac) { if (ac.state === 'suspended') ac.resume(); return; }
+      const AC = window.AudioContext || window.webkitAudioContext;
+      if (!AC) return;
+      try {
+        ac = new AC();
+        master = ac.createGain(); master.gain.value = muted ? 0 : VOL * vol;
+        const comp = ac.createDynamicsCompressor();
+        master.connect(comp); comp.connect(ac.destination);
+        // bus d'écho court avec rétroaction filtrée : donne le côté "ressort métallique" des tirs
+        echoIn = ac.createGain();
+        const dl = ac.createDelay(0.5), fb = ac.createGain(), lp = ac.createBiquadFilter(), eo = ac.createGain();
+        dl.delayTime.value = 0.075; fb.gain.value = 0.42; lp.type = 'lowpass'; lp.frequency.value = 2800; eo.gain.value = 0.55;
+        echoIn.connect(dl); dl.connect(lp); lp.connect(fb); fb.connect(dl); lp.connect(eo); eo.connect(master);
+        // courbe de saturation pour épaissir les explosions
+        shapeCurve = new Float32Array(1024);
+        for (let i = 0; i < 1024; i++) { const x = i / 512 - 1; shapeCurve[i] = Math.tanh(x * 3.2); }
+        noiseBuf = ac.createBuffer(1, ac.sampleRate, ac.sampleRate);
+        const d = noiseBuf.getChannelData(0);
+        for (let i = 0; i < d.length; i++) d[i] = Math.random() * 2 - 1;
+      } catch (e) { ac = null; }
+    }
+    function setMuted(m) {
+      muted = m;
+      if (master) master.gain.value = m ? 0 : VOL * vol;
+      try { localStorage.setItem('arene-mute', m ? '1' : '0'); } catch (e) {}
+    }
+    function out(v, pan) {
+      const g = ac.createGain(); g.gain.value = v;
+      if (ac.createStereoPanner) { const pn = ac.createStereoPanner(); pn.pan.value = pan; g.connect(pn); pn.connect(master); }
+      else g.connect(master);
+      return g;
+    }
+    function env(g, t, vol, atk, dur) {
+      g.gain.setValueAtTime(0.0001, t);
+      g.gain.exponentialRampToValueAtTime(vol, t + atk);
+      g.gain.exponentialRampToValueAtTime(0.0001, t + dur);
+    }
+    // oscillateur à glissement de fréquence
+    function tone(dest, t, type, f0, f1, dur, vol, atk = 0.004) {
+      const o = ac.createOscillator(), g = ac.createGain();
+      o.type = type; o.frequency.setValueAtTime(f0, t); o.frequency.exponentialRampToValueAtTime(Math.max(20, f1), t + dur);
+      env(g, t, vol, atk, dur);
+      o.connect(g); g.connect(dest); o.start(t); o.stop(t + dur + 0.02);
+    }
+    // bruit filtré (explosions, souffles, impacts)
+    function noise(dest, t, ftype, f0, f1, dur, vol, q = 0.8, atk = 0.004) {
+      const src = ac.createBufferSource(), f = ac.createBiquadFilter(), g = ac.createGain();
+      src.buffer = noiseBuf; f.type = ftype; f.Q.value = q;
+      f.frequency.setValueAtTime(f0, t); f.frequency.exponentialRampToValueAtTime(Math.max(20, f1), t + dur);
+      env(g, t, vol, atk, dur);
+      src.connect(f); f.connect(g); g.connect(dest);
+      src.start(t, Math.random() * 0.5); src.stop(t + dur + 0.02);
+    }
+    // "Zap" dispersif : chute de fréquence très rapide puis traînée, modulation FM inharmonique = timbre de câble frappé
+    function zap(dest, t, f0, f1, dur, vol, ratio, idx, type = 'sine') {
+      const car = ac.createOscillator(), mod = ac.createOscillator(), mg = ac.createGain(), g = ac.createGain();
+      car.type = type;
+      const k = dur / 5;
+      car.frequency.setValueAtTime(f0, t); car.frequency.setTargetAtTime(f1, t, k);
+      mod.frequency.setValueAtTime(f0 * ratio, t); mod.frequency.setTargetAtTime(f1 * ratio, t, k);
+      mg.gain.setValueAtTime(f0 * idx, t); mg.gain.setTargetAtTime(f1 * idx * 0.3, t, k);
+      mod.connect(mg); mg.connect(car.frequency);
+      env(g, t, vol, 0.0015, dur);
+      car.connect(g); g.connect(dest);
+      car.start(t); mod.start(t); car.stop(t + dur + 0.05); mod.stop(t + dur + 0.05);
+    }
+    // choc métallique (rapport de fréquences inharmonique)
+    function clang(dest, t, f, dur, vol) {
+      const car = ac.createOscillator(), mod = ac.createOscillator(), mg = ac.createGain(), g = ac.createGain();
+      car.frequency.value = f; mod.frequency.value = f * 2.76; mg.gain.setValueAtTime(f * 2.5, t); mg.gain.exponentialRampToValueAtTime(f * 0.1, t + dur);
+      mod.connect(mg); mg.connect(car.frequency);
+      env(g, t, vol, 0.001, dur);
+      car.connect(g); g.connect(dest); car.start(t); mod.start(t); car.stop(t + dur + 0.02); mod.stop(t + dur + 0.02);
+    }
+    function saturated(dest) { const sh = ac.createWaveShaper(); sh.curve = shapeCurve; sh.connect(dest); return sh; }
+    function boom(dest, t, size) {
+      const sat = saturated(dest);
+      noise(sat, t, 'lowpass', 3200, 70, 1.3 * size, 0.9, 0.6, 0.003);
+      tone(dest, t, 'sine', 130, 28, 0.9 * size, 0.8, 0.003);
+      for (let i = 0; i < 6; i++) noise(dest, t + 0.05 + Math.random() * 0.5 * size, 'highpass', 2500, 1800, 0.03, 0.12 * Math.random() + 0.05);
+    }
+    const SFX = {
+      blaster: (d, t) => { zap(d, t, 2700, 170, 0.24, 0.24, 1.47, 2.2); zap(d, t, 2900, 190, 0.2, 0.1, 1.51, 1.6, 'triangle'); noise(d, t, 'highpass', 5000, 3000, 0.012, 0.18); },
+      pistol: (d, t) => { zap(d, t, 1900, 260, 0.14, 0.2, 1.33, 1.8); noise(d, t, 'highpass', 4000, 2500, 0.01, 0.14); },
+      snipe: (d, t) => { zap(d, t, 3400, 110, 0.42, 0.26, 1.61, 2.8); tone(d, t, 'sine', 170, 45, 0.3, 0.45); noise(d, t, 'highpass', 5000, 2000, 0.02, 0.3); },
+      enemyBlaster: (d, t) => { zap(d, t, 1800, 120, 0.22, 0.12, 1.33, 2.6, 'sawtooth'); zap(d, t, 1650, 110, 0.2, 0.1, 1.19, 1.4); },
+      esnipe: (d, t) => { zap(d, t, 2600, 90, 0.45, 0.24, 1.19, 3, 'sawtooth'); tone(d, t, 'sine', 140, 40, 0.3, 0.45); },
+      rocketLaunch: (d, t) => {
+        tone(d, t, 'sine', 90, 40, 0.22, 0.5);
+        const src = ac.createBufferSource(), f = ac.createBiquadFilter(), g = ac.createGain();
+        src.buffer = noiseBuf; f.type = 'bandpass'; f.Q.value = 1.4;
+        f.frequency.setValueAtTime(350, t); f.frequency.exponentialRampToValueAtTime(2600, t + 0.1); f.frequency.exponentialRampToValueAtTime(500, t + 0.6);
+        env(g, t, 0.45, 0.01, 0.6); src.connect(f); f.connect(g); g.connect(d); src.start(t, Math.random() * 0.3); src.stop(t + 0.65);
+      },
+      explosion: (d, t) => boom(d, t, 1),
+      destroy: (d, t) => {
+        // grésillement électrique puis petite explosion
+        const o = ac.createOscillator(), g = ac.createGain();
+        o.type = 'sawtooth';
+        for (let i = 0; i < 16; i++) o.frequency.setValueAtTime(120 + Math.random() * 900, t + i * 0.016);
+        env(g, t, 0.09, 0.002, 0.28); o.connect(g); g.connect(d); o.start(t); o.stop(t + 0.3);
+        clang(d, t, 520, 0.25, 0.12);
+        boom(d, t + 0.04, 0.55);
+      },
+      hitMetal: (d, t) => { clang(d, t, 780 + Math.random() * 300, 0.14, 0.1); noise(d, t, 'highpass', 4500, 3000, 0.015, 0.1); },
+      hurt: (d, t) => { tone(d, t, 'sine', 170, 55, 0.18, 0.5); noise(d, t, 'lowpass', 1200, 200, 0.1, 0.3); clang(d, t, 300, 0.12, 0.06); },
+      allyHurt: (d, t) => { tone(d, t, 'sine', 190, 70, 0.14, 0.3); noise(d, t, 'lowpass', 1000, 200, 0.08, 0.18); },
+      roll: (d, t) => { noise(d, t, 'bandpass', 1300, 380, 0.28, 0.24, 1.3, 0.04); noise(d, t + 0.3, 'highpass', 3000, 2000, 0.02, 0.18); tone(d, t + 0.3, 'sine', 120, 70, 0.06, 0.2); },
+      heal: (d, t) => { [523, 784, 1046].forEach((f, i) => tone(d, t + i * 0.06, 'sine', f, f * 1.01, 0.22, 0.08, 0.01)); },
+      repair: (d, t) => { tone(d, t, 'sawtooth', 180, 420, 0.22, 0.04, 0.02); for (let i = 0; i < 3; i++) noise(d, t + 0.05 + i * 0.06, 'highpass', 3500, 2500, 0.012, 0.08); },
+      reload: (d, t) => { noise(d, t, 'bandpass', 2400, 1600, 0.025, 0.3, 3); tone(d, t + 0.05, 'sawtooth', 160, 320, 0.3, 0.035, 0.02); },
+      reloadDone: (d, t) => { noise(d, t, 'bandpass', 1400, 700, 0.05, 0.4, 2); clang(d, t, 240, 0.1, 0.08); noise(d, t + 0.09, 'bandpass', 2600, 1800, 0.02, 0.3, 3); },
+      lockStart: (d, t) => { tone(d, t, 'square', 1800, 1800, 0.03, 0.05); tone(d, t + 0.06, 'square', 1800, 1800, 0.03, 0.05); },
+      lockDone: (d, t) => { for (let i = 0; i < 3; i++) tone(d, t + i * 0.05, 'square', 2400, 2400, 0.03, 0.06); },
+      laserWarn: (d, t) => {
+        // charge du tir : sifflement qui monte avec un vibrato rapide
+        const o = ac.createOscillator(), lfo = ac.createOscillator(), lg = ac.createGain(), g = ac.createGain();
+        o.frequency.setValueAtTime(300, t); o.frequency.exponentialRampToValueAtTime(2200, t + 0.3);
+        lfo.frequency.value = 38; lg.gain.value = 60; lfo.connect(lg); lg.connect(o.frequency);
+        env(g, t, 0.09, 0.05, 0.32); o.connect(g); g.connect(d); o.start(t); lfo.start(t); o.stop(t + 0.34); lfo.stop(t + 0.34);
+      },
+      rocketWarn: (d, t) => { for (let i = 0; i < 3; i++) { tone(d, t + i * 0.24, 'square', 950, 950, 0.09, 0.07); tone(d, t + i * 0.24 + 0.1, 'square', 700, 700, 0.09, 0.07); } },
+      request: (d, t) => { tone(d, t, 'sine', 1150, 1500, 0.07, 0.12); tone(d, t + 0.1, 'sine', 1150, 1700, 0.09, 0.12); noise(d, t, 'bandpass', 2500, 2000, 0.03, 0.05, 2); },
+      order: (d, t) => { noise(d, t, 'bandpass', 3000, 2500, 0.02, 0.12, 2); tone(d, t + 0.02, 'sine', 900, 1300, 0.06, 0.08); },
+      click: (d, t) => { tone(d, t, 'sine', 900, 700, 0.04, 0.08); },
+      victory: (d, t) => { [392, 523, 659, 784, 1046].forEach((f, i) => tone(d, t + i * 0.12, 'triangle', f, f, i === 4 ? 0.6 : 0.2, 0.15)); },
+      defeat: (d, t) => { tone(d, t, 'sawtooth', 330, 110, 0.9, 0.12); tone(d, t + 0.05, 'sine', 220, 70, 1, 0.14); }
+    };
+    // niveau de chaque son (équilibrage du mixage, mesuré par rendu hors ligne)
+    const LEVEL = { blaster: 3, pistol: 3.5, enemyBlaster: 4, hitMetal: 4, hurt: 3, allyHurt: 2.5, reload: 6, reloadDone: 4, order: 4, lockStart: 3, lockDone: 3,
+      laserWarn: 4.5, rocketWarn: 3, rocketLaunch: 2.5, repair: 2, request: 2, roll: 1.3, heal: 2 };
+    // part envoyée dans l'écho, par son
+    const ECHO = { blaster: 0.45, pistol: 0.35, snipe: 0.6, enemyBlaster: 0.4, esnipe: 0.55, explosion: 0.25, destroy: 0.2, heal: 0.4, rocketLaunch: 0.2 };
+    const GAP = { blaster: 0.035, enemyBlaster: 0.045, hitMetal: 0.05, explosion: 0.06, destroy: 0.06, allyHurt: 0.08, heal: 0.1, repair: 0.2, laserWarn: 0.3 };
+    function play(name, x, y) {
+      if (!ac || muted || !SFX[name]) return;
+      const t = ac.currentTime;
+      if (last[name] !== undefined && t - last[name] < (GAP[name] || 0.02)) return;
+      let v = 1, pan = 0;
+      if (x !== undefined && viewW) {
+        const cx = camX + viewW / 2, cy = camY + viewH / 2;
+        const d = Math.hypot(x - cx, y - cy);
+        v = Math.max(0, 1 - d / (Math.max(viewW, viewH) * 0.95));
+        pan = Math.max(-1, Math.min(1, (x - cx) / (viewW / 2))) * 0.6;
+      }
+      if (v < 0.03) return;   // trop loin : on ne l'entend pas
+      last[name] = t;
+      const node = out(v * (LEVEL[name] || 1), pan);
+      if (ECHO[name] && echoIn) { const snd = ac.createGain(); snd.gain.value = ECHO[name]; node.connect(snd); snd.connect(echoIn); }
+      SFX[name](node, t);
+    }
+    function setVolume(v) {
+      vol = Math.max(0, Math.min(1, v));
+      if (master) master.gain.value = muted ? 0 : VOL * vol;
+      try { localStorage.setItem('arene-vol', String(vol)); } catch (e) {}
+    }
+    return { init, play, setMuted, setVolume, get muted() { return muted; }, get volume() { return vol; } };
+  })();
+  document.addEventListener('pointerdown', () => Sound.init(), { capture: true });
+  addEventListener('keydown', () => Sound.init());
+  document.getElementById('pauseBtn').addEventListener('click', () => { if (state === 'play') showPause(); });
+  document.addEventListener('visibilitychange', () => { if (document.hidden && state === 'play') showPause(); });
+
+  // ---------- roulade ----------
+  // Sniper, classique et médecin : déplacement rapide et court, les tirs passent à travers pendant la roulade
+  const canRoll = u => u.cls !== 'lourd';
+  // Trois temps : appel (le soldat se ramasse), roulé (départ explosif puis freinage), réception (il se relève)
+  function startRoll(u, ang, dist, cd) {
+    Sound.play('roll', u.x, u.y);
+    u.roll = { t: 0, ang, from: u.aim !== undefined && u.isPlayer ? u.aim : u.ang, dist, done: 0, landed: false, trail: [] };
+    u.rollCd = cd;
+  }
+  const rollEase = k => 1 - Math.pow(1 - k, 2.4);
+  function advanceRoll(u, dt) {
+    const r = u.roll;
+    const wasPrep = r.t < ROLL_PREP;
+    r.t += dt;
+    if (wasPrep && r.t >= ROLL_PREP) addDust(u.x, u.y, 4, r.ang + Math.PI);    // poussée au départ
+    const k = Math.min(1, Math.max(0, (r.t - ROLL_PREP) / (ROLL_MOVE - ROLL_PREP)));
+    const e = rollEase(k), step = (e - r.done) * r.dist;
+    r.done = e;
+    u.x += Math.cos(r.ang) * step; u.y += Math.sin(r.ang) * step;
+    if (r.t > ROLL_PREP && r.t < ROLL_MOVE) { r.trail.push({ x: u.x, y: u.y }); if (r.trail.length > 5) r.trail.shift(); }
+    if (!r.landed && r.t >= ROLL_MOVE) { r.landed = true; addDust(u.x, u.y, 5, r.ang); }  // glissade à la réception
+    if (r.t >= ROLL_DUR) u.roll = null;
+  }
+  // Invulnérable pendant l'appel et le roulé, pas pendant la réception
+  const isDodging = u => !!u.roll && u.roll.t < ROLL_MOVE;
+
+  // ---------- animation ----------
+  // Vitesse lissée, direction de marche et cycle de pas calculés à partir du déplacement réel
+  function updateAnim(u, dt) {
+    if (u.px === undefined) { u.px = u.x; u.py = u.y; }
+    const dx = u.x - u.px, dy = u.y - u.py, d = Math.hypot(dx, dy);
+    u.px = u.x; u.py = u.y;
+    u.recoil = Math.max(0, (u.recoil || 0) - dt * 9);
+    if (u.roll || dt <= 0) return;
+    const spd = Math.min(260, d / dt);
+    u.aSpd = (u.aSpd || 0) + (spd - (u.aSpd || 0)) * Math.min(1, dt * 12);
+    u.aWalk = Math.min(1, u.aSpd / 110);
+    if (d > 0.05) {
+      const a = Math.atan2(dy, dx);
+      u.aDir = u.aDir === undefined ? a : u.aDir + angDiff(u.aDir, a) * Math.min(1, dt * 14);
+    }
+    const stride = u.home ? 20 : 27;
+    u.aPhase = ((u.aPhase || 0) + d / stride * Math.PI) % (Math.PI * 2);
+    if (u.aWalk < 0.05) u.aPhase *= 0.85;   // les pieds se remettent côte à côte à l'arrêt
+  }
+
+  // ---------- dégâts ----------
+  function hitEnemy(e, dmg, dir, src) {
+    if (e.hp <= 0) return;
+    e.hp -= dmg;
+    Sound.play('hitMetal', e.x, e.y);
+    if (e.home) {
+      e.hurt = 0.12; e.stress += 0.4 * dmg; e.provoked = src;
+      if (e.hp <= 0) { destroyDroid(e, dir); invalidateUnits(); }
+    } else {
+      e.hit = 0.12;
+      if (e.hp <= 0) { destroyTurret(e, dir); invalidateUnits(); }
+    }
+  }
+  function hitFriend(u, dmg, dir) {
+    if (u.hp <= 0 || u.inv > 0 || isDodging(u)) return;   // en roulade : esquivé
+    u.hp -= dmg;
+    Sound.play(u.isPlayer ? 'hurt' : 'allyHurt', u.x, u.y);
+    burst(u.x, u.y, '#FF5A3C', 10, 130);
+    if (u.isPlayer) { u.inv = 0.9; if (u.hp <= 0) gameOver = true; return; }
+    u.flash = 0.15; u.inv = 0.35;
+    if (u.hp <= 0) {
+      invalidateUnits();
+      woundAlly(u, dir);
+      u.post = null; u.prevPost = null; u.nav = null; u.mode = 'down'; u.healTarget = null; u.rocketRequest = false; u.rocketMission = null; u.rocketZone = null;
+      if (selected === u.i) setSelected(-1);
+    }
+  }
+  function heal(u) {
+    Sound.play('heal', u.x, u.y);
+    u.hp = Math.min(u.maxHp, u.hp + 1);
+    plusFx.push({ x: u.x, y: u.y - 14, life: 0.9 });
+  }
+
+  // ---------- armes ----------
+  // Bout du canon, calculé à partir du dessin de chaque arme (coordonnées locales, x = vers l'avant)
+  function muzzleOf(u) {
+    const ang = u.isPlayer ? u.aim : u.ang;
+    let lx = 21, ly = 7.25;                                   // blaster classique / médecin
+    if (u.home) {                                             // droïde
+      if (u.ecls === 'lourd') { lx = 18; ly = 9.5 * (u.arm || 1); }   // bras-canons, tir alterné
+      else if (u.ecls === 'sniper') { lx = 26; ly = 2.5; }
+      else { lx = 18; ly = 5.75; }
+    }
+    else if (!u.cls) { lx = 26; ly = 0; }                     // tourelle
+    else if (u.cls === 'sniper') { lx = 28; ly = 6.75; }
+    else if (u.cls === 'lourd') {
+      const bazooka = u.isPlayer ? u.weapon === 'bazooka' : u.rocketsLeft > 0;
+      if (bazooka) { lx = 20; ly = 6.25; } else { lx = 16; ly = 7; }
+    }
+    const c = Math.cos(ang), s = Math.sin(ang);
+    return { x: u.x + c * lx - s * ly, y: u.y + s * lx + c * ly };
+  }
+  function muzzleFlash(m, color) { flashes.push({ x: m.x, y: m.y, life: 0.07, color }); }
+
+  function fireBolt(u, ang, speed, dmg, kind, tgt) {
+    const m = muzzleOf(u);
+    if (tgt) ang = Math.atan2(tgt.y - m.y, tgt.x - m.x);   // tir verrouillé : on vise depuis le canon
+    const c = Math.cos(ang), s = Math.sin(ang);
+    bolts.push({ x: m.x, y: m.y, vx: c * speed, vy: s * speed, team: 'friend', src: u, life: 2.5, dmg, kind });
+    u.recoil = kind === 'snipe' ? 1.4 : 1;
+    muzzleFlash(m, kind === 'snipe' ? '#D9C2FF' : '#9FD0FF');
+    Sound.play(kind === 'snipe' ? 'snipe' : kind === 'pistol' ? 'pistol' : 'blaster', m.x, m.y);
+  }
+  function fireRocket(u, pt) {
+    u.ang = Math.atan2(pt.y - u.y, pt.x - u.x); if (u.isPlayer) u.aim = u.ang;
+    const m = muzzleOf(u);
+    const ang = Math.atan2(pt.y - m.y, pt.x - m.x), c = Math.cos(ang), s = Math.sin(ang);
+    bolts.push({ x: m.x, y: m.y, vx: c * 300, vy: s * 300, team: 'friend', src: u, life: 3, dmg: 0, kind: 'rocket', tx: pt.x, ty: pt.y, trail: 0 });
+    muzzleFlash(m, '#FFB347'); addSmoke(m.x, m.y, 2, false);
+    u.recoil = 1.8;
+    Sound.play('rocketLaunch', m.x, m.y);
+  }
+  function explode(x, y, src, team) {
+    Sound.play('explosion', x, y);
+    burst(x, y, '#FFB347', 34, 260); burst(x, y, '#FFFFFF', 10, 140);
+    rings.push({ x, y, r: 10, life: 0.45, max: 0.45 });
+    addSmoke(x, y, 10, true);
+    bakeScorch({ x, y, r: ROCKET_R * 0.6 });
+    shakeT = 0.25;
+    if (team === 'enemy') {
+      // roquette de droïde lourd : touche le joueur et l'escouade (la roulade permet d'esquiver)
+      for (const f of friends()) {
+        const d = Math.hypot(f.x - x, f.y - y);
+        if (d < ENEMY_ROCKET_R + f.r) hitFriend(f, d < ENEMY_ROCKET_R * 0.5 ? 2 : 1, Math.atan2(f.y - y, f.x - x));
+      }
+      return;
+    }
+    for (const e of aliveEnemies()) {
+      const d = Math.hypot(e.x - x, e.y - y);
+      if (d < ROCKET_R + e.r) hitEnemy(e, d < ROCKET_R * 0.5 ? 3 : 2, Math.atan2(e.y - y, e.x - x), src);
+      else if (e.home && d < ROCKET_R * 1.8) { e.stress += 0.5; e.provoked = src; }
+    }
+    for (const f of friends()) {
+      if (f !== src && Math.hypot(f.x - x, f.y - y) < ROCKET_R + f.r) hitFriend(f, 1, Math.atan2(f.y - y, f.x - x));
+    }
+  }
+  function segEnterT(x1, y1, x2, y2, r) {
+    const bx0 = r.x, by0 = r.y, bx1 = r.x + r.w, by1 = r.y + r.h;
+    let t0 = 0, t1 = 1;
+    const dx = x2 - x1, dy = y2 - y1;
+    if (dx === 0) { if (x1 < bx0 || x1 > bx1) return null; }
+    else {
+      let ta = (bx0 - x1) / dx, tb = (bx1 - x1) / dx;
+      if (ta > tb) { const t = ta; ta = tb; tb = t; }
+      if (ta > t0) t0 = ta; if (tb < t1) t1 = tb;
+      if (t0 > t1) return null;
+    }
+    if (dy === 0) { if (y1 < by0 || y1 > by1) return null; }
+    else {
+      let ta = (by0 - y1) / dy, tb = (by1 - y1) / dy;
+      if (ta > tb) { const t = ta; ta = tb; tb = t; }
+      if (ta > t0) t0 = ta; if (tb < t1) t1 = tb;
+      if (t0 > t1) return null;
+    }
+    return t0;
+  }
+  function segCircleT(x1, y1, x2, y2, cx, cy, rad) {
+    const dx = x2 - x1, dy = y2 - y1, fx = x1 - cx, fy = y1 - cy;
+    const a = dx * dx + dy * dy, b = 2 * (fx * dx + fy * dy), c = fx * fx + fy * fy - rad * rad;
+    const disc = b * b - 4 * a * c;
+    if (disc < 0 || a === 0) return null;
+    const t = (-b - Math.sqrt(disc)) / (2 * a);
+    return t >= 0 && t <= 1 ? t : null;
+  }
+  // Point d'impact prévu d'une roquette : premier obstacle ou ennemi sur la trajectoire, sinon le point visé
+  function predictImpact(sx, sy, tx, ty) {
+    tx = Math.max(WALL + 4, Math.min(W - WALL - 4, tx));
+    ty = Math.max(WALL + 4, Math.min(H - WALL - 4, ty));
+    let tMin = 1;
+    for (const o of obstacles) { const t = segEnterT(sx, sy, tx, ty, o); if (t !== null && t < tMin) tMin = t; }
+    for (const e of aliveEnemies()) { const t = segCircleT(sx, sy, tx, ty, e.x, e.y, e.r + 4); if (t !== null && t < tMin) tMin = t; }
+    return { x: sx + (tx - sx) * tMin, y: sy + (ty - sy) * tMin };
+  }
+
+
+  function enemyShot(u, muzzle, speed, spread) {
+    if (u.ecls === 'lourd') u.arm = -(u.arm || 1);
+    const m = muzzleOf(u);
+    const a = u.ang + (Math.random() - 0.5) * spread, c = Math.cos(a), s = Math.sin(a);
+    bolts.push({ x: m.x, y: m.y, vx: c * speed, vy: s * speed, team: 'enemy', src: u, life: 3 });
+    u.recoil = 1;
+    muzzleFlash(m, '#FF8A6B');
+    Sound.play('enemyBlaster', m.x, m.y);
+  }
+
+  function enemySnipe(d, tgt) {
+    const m = muzzleOf(d), ang = Math.atan2(tgt.y - m.y, tgt.x - m.x), c = Math.cos(ang), sn = Math.sin(ang);
+    bolts.push({ x: m.x, y: m.y, vx: c * 820, vy: sn * 820, team: 'enemy', src: d, life: 2, dmg: 2, kind: 'esnipe' });
+    muzzleFlash(m, '#FF6A8A'); d.recoil = 1.5;
+    Sound.play('esnipe', m.x, m.y);
+  }
+  function predictImpactVs(sx, sy, tx, ty, blockers) {
+    tx = Math.max(WALL + 4, Math.min(W - WALL - 4, tx));
+    ty = Math.max(WALL + 4, Math.min(H - WALL - 4, ty));
+    let tMin = 1;
+    for (const o of obstacles) { const t = segEnterT(sx, sy, tx, ty, o); if (t !== null && t < tMin) tMin = t; }
+    for (const e of blockers) { const t = segCircleT(sx, sy, tx, ty, e.x, e.y, e.r + 4); if (t !== null && t < tMin) tMin = t; }
+    return { x: sx + (tx - sx) * tMin, y: sy + (ty - sy) * tMin };
+  }
+  function fireEnemyRocket(d, pt) {
+    d.ang = Math.atan2(pt.y - d.y, pt.x - d.x);
+    const m = muzzleOf(d), ang = Math.atan2(pt.y - m.y, pt.x - m.x), c = Math.cos(ang), sn = Math.sin(ang);
+    bolts.push({ x: m.x, y: m.y, vx: c * 250, vy: sn * 250, team: 'enemy', src: d, life: 3, dmg: 0, kind: 'rocket', tx: pt.x, ty: pt.y, trail: 0 });
+    muzzleFlash(m, '#FFB347'); addSmoke(m.x, m.y, 2, false); d.recoil = 1.8;
+    Sound.play('rocketLaunch', m.x, m.y);
+  }
+  function friendSees(u, range) {
+    for (const f of friends()) if (Math.hypot(f.x - u.x, f.y - u.y) < range && hasLOS(f.x, f.y, u.x, u.y)) return true;
+    return false;
+  }
+  const droidRange = d => d.ecls === 'sniper' ? DIFF.droidRange * 1.9 : DIFF.droidRange;
+  const SNIPER_LEASH = 150;
+  // Tireur d'élite : cherche, près de son poste, un point d'où il voit la dernière position connue de sa cible
+  function findPerch(d) {
+    let bestP = null, bd = Infinity;
+    for (let k = 0; k < 16; k++) {
+      const a = Math.random() * Math.PI * 2, r = 20 + Math.random() * SNIPER_LEASH;
+      const x = d.home.x + Math.cos(a) * r, y = d.home.y + Math.sin(a) * r;
+      if (x < WALL + 14 || x > W - WALL - 14 || y < WALL + 14 || y > H - WALL - 14 || blockedAt(x, y, 12)) continue;
+      if (Math.hypot(d.lx - x, d.ly - y) > droidRange(d) || !hasLOS(x, y, d.lx, d.ly) || !pathClear(d.x, d.y, x, y, 8)) continue;
+      const dist = Math.hypot(x - d.x, y - d.y);
+      if (dist < bd) { bd = dist; bestP = { x, y }; }
+    }
+    return bestP;
+  }
+
+  // Droïde réparateur : répare un droïde blessé qui est à l'abri des regards
+  function findPatient(d) {
+    let bestP = null, bd = Infinity;
+    for (const o of droids) {
+      if (o === d || o.hp <= 0 || o.hp >= o.maxHp) continue;
+      const dist = Math.hypot(o.x - d.x, o.y - d.y);
+      if (dist > 360 || Math.hypot(o.x - d.home.x, o.y - d.home.y) > 340) continue;
+      if (friendSees(o, 450)) continue;
+      if (dist < bd) { bd = dist; bestP = o; }
+    }
+    return bestP;
+  }
+  function updateRepair(d, dt, sees) {
+    const p = d.patient;
+    if (sees || !p || p.hp <= 0 || p.hp >= p.maxHp || d.stress >= d.bravery) {
+      d.state = sees ? 'attack' : 'patrol'; d.patient = null; d.nav = null; d.wp = null; d.repairCd = 1.5; d.fightT = 1.5;
+      return;
+    }
+    let ox = 0, oy = 20, bd = Infinity;
+    for (const f of friends()) {
+      const dist = Math.hypot(f.x - p.x, f.y - p.y);
+      if (dist < bd) { bd = dist; const dx = p.x - f.x, dy = p.y - f.y, l = Math.hypot(dx, dy) || 1; ox = dx / l * 20; oy = dy / l * 20; }
+    }
+    let tx = Math.max(WALL + 12, Math.min(W - WALL - 12, p.x + ox)), ty = Math.max(WALL + 12, Math.min(H - WALL - 12, p.y + oy));
+    if (blockedAt(tx, ty, 11)) { const [c, r] = nearestFree(tx, ty); tx = c * CELL + CELL / 2; ty = r * CELL + CELL / 2; }
+    if (Math.hypot(tx - d.x, ty - d.y) > 5) { navTo(d, tx, ty, 95, dt); turnTo(d, d.moveAng, 6, dt); } else d.nav = null;
+    if (Math.hypot(p.x - d.x, p.y - d.y) < 34 && !friendSees(p, 450) && !friendSees(d, 450)) {
+      turnTo(d, Math.atan2(p.y - d.y, p.x - d.x), 6, dt);
+      d.repairT += dt;
+      if (d.repairT >= 1.2) {
+        d.repairT = 0; p.hp = Math.min(p.maxHp, p.hp + 1);
+        Sound.play('repair', p.x, p.y);
+        plusFx.push({ x: p.x, y: p.y - 14, life: 0.9, color: '#F0A33A' });
+        burst(p.x, p.y, '#FFE08A', 3, 50);
+      }
+    }
+  }
+
+  // ---------- IA droïdes ----------
+  function findCover(d) {
+    let bestP = null, bestS = Infinity;
+    for (const c of coverPoints) {
+      const dd = Math.hypot(c.x - d.x, c.y - d.y);
+      if (dd > 170) continue;
+      if (Math.hypot(c.x - d.home.x, c.y - d.home.y) > LEASH + 40) continue;
+      if (hasLOS(d.lx, d.ly, c.x, c.y)) continue;
+      if (!pathClear(d.x, d.y, c.x, c.y, 8)) continue;
+      const toThreat = Math.hypot(c.x - d.lx, c.y - d.ly);
+      let score = dd - Math.min(toThreat, 250) * 0.3;
+      if (droids.some(o => o !== d && o.hp > 0 && o.cover && Math.hypot(o.cover.x - c.x, o.cover.y - c.y) < 22)) score += 200;
+      if (score < bestS) { bestS = score; bestP = c; }
+    }
+    return bestP;
+  }
+  function tryCover(d) {
+    const c = findCover(d);
+    d.coverCd = 1.2;
+    if (c) { d.state = 'cover'; d.cover = c; d.phase = 'move'; d.moveT = 0; return true; }
+    d.strafe *= -1; d.strafeT = 1.2;
+    return false;
+  }
+
+  function updateDroid(d, dt) {
+    const C = ENEMY_CLASSES[d.ecls];
+    const heavy = d.ecls === 'lourd', sniper = d.ecls === 'sniper';
+    d.hurt -= dt; d.coverCd -= dt; d.cd -= dt; d.alert -= dt; d.rocketCd -= dt; d.repairCd -= dt;
+    d.stress = Math.max(0, d.stress - dt * 0.22);
+    d.fightT -= dt;
+
+    // Roquette annoncée : le cercle rouge au sol précède le tir, le droïde reste en place
+    if (d.rocketWarn) {
+      d.rocketWarn.t += dt;
+      turnTo(d, Math.atan2(d.rocketWarn.y - d.y, d.rocketWarn.x - d.x), 5, dt);
+      if (d.rocketWarn.t >= ENEMY_ROCKET_WARN) { fireEnemyRocket(d, d.rocketWarn); d.rocketWarn = null; }
+      return;
+    }
+
+    const prevTgt = d.tgt;
+    const tgt = nearestVisibleHostile(d.x, d.y, droidRange(d));
+    d.tgt = tgt;
+    const sees = !!tgt;
+    const low = d.hp <= d.low;
+    if (sniper && tgt !== prevTgt) d.aimT = Math.min(d.aimT, 0.1);   // nouvelle cible : on recommence à viser
+    if (sees) { d.alert = 4; d.lx = tgt.x; d.ly = tgt.y; }
+    if (!sniper && !sees && d.hadSight && d.state === 'attack' && d.aimT > 0.25) d.suppShots = 2 + Math.floor(Math.random() * 3);
+    if (sees) d.suppShots = 0;
+    d.hadSight = sees;
+    const aimAng = sees ? Math.atan2(tgt.y - d.y, tgt.x - d.x) : Math.atan2(d.ly - d.y, d.lx - d.x);
+
+    if (d.provoked) {
+      const s = d.provoked; d.provoked = null;
+      d.alert = 4; d.lx = s.x; d.ly = s.y;
+      if (d.state === 'patrol' || d.state === 'repair') { d.state = 'attack'; d.aimT = 0.2; d.fightT = 2.5; d.patient = null; d.nav = null; }
+    }
+
+    if (d.ecls === 'medecin' && (d.state === 'patrol' || d.state === 'attack') && d.repairCd <= 0 && !sees) {
+      const p = findPatient(d);
+      if (p) { d.state = 'repair'; d.patient = p; d.repairT = 0; d.nav = null; }
+      else d.repairCd = 0.6;
+    }
+    if (d.state === 'repair') { updateRepair(d, dt, sees); return; }
+
+    if (d.state === 'patrol') {
+      if (sees) { d.state = 'attack'; d.aimT = 0; d.fightT = 2; return; }
+      d.moveT += dt;
+      if (!d.wp || d.moveT > 4) {
+        d.wait -= dt;
+        if (d.wait <= 0) {
+          for (let k = 0; k < 12; k++) {
+            const a = Math.random() * Math.PI * 2, r = 20 + Math.random() * LEASH * 0.6;
+            const x = d.home.x + Math.cos(a) * r, y = d.home.y + Math.sin(a) * r;
+            if (x < WALL + 14 || x > W - WALL - 14 || y < WALL + 14 || y > H - WALL - 14) continue;
+            if (blockedAt(x, y, 14) || !pathClear(d.x, d.y, x, y, 8)) continue;
+            d.wp = { x, y }; d.moveT = 0; break;
+          }
+        }
+      } else {
+        turnTo(d, Math.atan2(d.wp.y - d.y, d.wp.x - d.x), 4, dt);
+        if (moveUnit(d, d.wp.x, d.wp.y, C.walk, dt) < 4) { d.wp = null; d.wait = 0.6 + Math.random() * 1.4; }
+      }
+      return;
+    }
+
+    if (d.state === 'attack') {
+      if (d.peekT > 0) d.peekT -= dt;
+      d.bt -= dt;
+      if (d.burst > 0 && d.bt <= 0) {
+        enemyShot(d, 16, heavy ? 300 : 290, sees ? (heavy ? 0.2 : 0.14) : 0.24);
+        d.burst--; d.bt = heavy ? 0.11 : 0.15;
+        if (!sees && d.suppShots > 0) d.suppShots--;
+      }
+      // Droïde lourd : roquette sur une cible visible, ou sur l'abri où elle vient de disparaître
+      if (heavy && d.rockets > 0 && d.rocketCd <= 0 && d.burst <= 0) {
+        let pt = null;
+        if (sees && d.aimT > 0.6 && Math.hypot(tgt.x - d.x, tgt.y - d.y) < ENEMY_ROCKET_RANGE) pt = tgt;
+        else if (!sees && d.alert > 2.5 && d.alert < 3.6 && Math.hypot(d.lx - d.x, d.ly - d.y) < ENEMY_ROCKET_RANGE) pt = { x: d.lx, y: d.ly };
+        if (pt) {
+          const imp = predictImpactVs(d.x, d.y, pt.x, pt.y, friends());
+          if (Math.hypot(imp.x - d.x, imp.y - d.y) > ENEMY_ROCKET_R + 20) {
+            d.rocketWarn = { x: imp.x, y: imp.y, t: 0 }; Sound.play('rocketWarn', imp.x, imp.y); d.rockets--; d.rocketCd = 7 * DIFF.cdMul;
+            return;
+          }
+          d.rocketCd = 1;
+        }
+      }
+      if (low && d.peekT <= 0 && d.coverCd <= 0 && d.alert > 0) { if (tryCover(d)) return; }
+      if (!low && d.fightT <= 0 && d.coverCd <= 0 && d.stress >= d.bravery) {
+        if (tryCover(d)) { d.stress *= 0.4; return; }
+      }
+      const fromHome = Math.hypot(d.x - d.home.x, d.y - d.home.y);
+      if (sees) {
+        const diff = turnTo(d, aimAng, sniper ? 3 : 4, dt);
+        d.aimT += dt;
+        if (sniper) {
+          // Tireur d'élite : immobile, laser de visée, un tir puissant puis il change parfois de position
+          if (fromHome > SNIPER_LEASH) moveUnit(d, d.home.x, d.home.y, C.walk, dt);
+          const th = 1.3 * DIFF.aimMul;
+          if (d.aimT >= th * 0.8 && d.aimT - dt < th * 0.8) Sound.play('laserWarn', d.x, d.y);   // le laser se met à clignoter
+          if (d.aimT > 1.3 * DIFF.aimMul && d.cd <= 0 && Math.abs(diff) < 0.06) {
+            enemySnipe(d, tgt);
+            d.cd = 3.4 * DIFF.cdMul; d.aimT = 0;
+            if (Math.random() < 0.5 && d.coverCd <= 0) tryCover(d);
+          }
+        } else {
+          d.strafeT -= dt;
+          if (d.strafeT <= 0) { d.strafe *= -1; d.strafeT = 1 + Math.random() * 1.2; }
+          if (fromHome > LEASH) moveUnit(d, d.home.x, d.home.y, C.walk + 5, dt);
+          else {
+            const sx = d.x + Math.cos(aimAng + Math.PI / 2 * d.strafe) * 20;
+            const sy = d.y + Math.sin(aimAng + Math.PI / 2 * d.strafe) * 20;
+            if (!blockedAt(sx, sy, 10)) moveUnit(d, sx, sy, C.strafe, dt);
+          }
+          if (d.burst <= 0 && d.aimT > (heavy ? 0.6 : 0.5) * DIFF.aimMul && d.cd <= 0 && Math.abs(diff) < 0.25) {
+            if (heavy) { d.burst = 3; d.cd = (1.9 + Math.random() * 0.5) * DIFF.cdMul; }
+            else { d.burst = Math.random() < 0.35 ? 3 : 2; d.cd = (1.2 + Math.random() * 0.5) * DIFF.cdMul * (d.ecls === 'medecin' ? 1.3 : 1); }
+            d.bt = 0;
+          }
+        }
+      } else if (d.suppShots > 0) {
+        const diff = turnTo(d, Math.atan2(d.ly - d.y, d.lx - d.x), 5, dt);
+        d.aimT = Math.max(0, d.aimT - dt);
+        if (d.burst <= 0 && d.cd <= 0 && Math.abs(diff) < 0.25) {
+          d.burst = Math.min(heavy ? 4 : 2, d.suppShots); d.bt = 0; d.cd = 0.45 + Math.random() * 0.3;
+        }
+      } else if (sniper && d.alert > 0) {
+        d.aimT = Math.max(0, d.aimT - dt);
+        d.perchT = (d.perchT || 0) - dt;
+        if (!d.perch || d.perchT <= 0) { d.perchT = 1; d.perch = findPerch(d); }
+        if (d.perch && Math.hypot(d.perch.x - d.x, d.perch.y - d.y) > 4) { turnTo(d, Math.atan2(d.perch.y - d.y, d.perch.x - d.x), 4, dt); moveUnit(d, d.perch.x, d.perch.y, C.walk + 10, dt); }
+        else turnTo(d, aimAng, 2, dt);
+      } else {
+        d.aimT = Math.max(0, d.aimT - dt);
+        if (d.alert > 0) {
+          if (!sniper && Math.hypot(d.lx - d.home.x, d.ly - d.home.y) < LEASH && pathClear(d.x, d.y, d.lx, d.ly, 8)) {
+            turnTo(d, aimAng, 4, dt);
+            moveUnit(d, d.lx, d.ly, C.walk - 5, dt);
+          } else turnTo(d, aimAng, 2, dt);
+        } else { d.state = 'patrol'; d.wp = null; d.wait = 0.5; }
+      }
+      return;
+    }
+
+    if (d.state === 'cover') {
+      const c = d.cover;
+      if (d.phase === 'move') {
+        d.moveT += dt;
+        turnTo(d, Math.atan2(c.y - d.y, c.x - d.x), 6, dt);
+        if (moveUnit(d, c.x, c.y, heavy ? 80 : 120, dt) < 4) {
+          d.phase = 'hide';
+          d.hideT = low ? 2.4 + Math.random() * 1.2 : (sniper ? 0.8 : 1.3) + Math.random() * 0.8;
+        } else if (d.moveT > 3) { d.state = 'attack'; d.cover = null; }
+        else if (hasLOS(d.lx, d.ly, c.x, c.y) && d.coverCd <= 0) tryCover(d);
+      } else {
+        d.hideT -= dt;
+        turnTo(d, aimAng, 3, dt);
+        if (sees && d.coverCd <= 0 && !sniper) { if (tryCover(d)) return; }
+        if (d.hideT <= 0 || (sniper && sees)) {
+          d.state = 'attack'; d.cover = null;
+          d.peekT = low ? 2.2 + Math.random() * 0.8 : 0;
+          d.aimT = sniper ? Math.min(d.aimT, 0.3) : 0.35;
+          d.fightT = 2.5 + Math.random() * 1.5;
+          d.coverCd = low ? 0 : 2;
+        }
+      }
+    }
+  }
+
+  // ---------- IA des équipiers ----------
+  const FORMATION = [[-36, 34], [36, 34], [0, 54]];
+  function choosePeek(a) {
+    const pk = a.post.peeks;
+    if (!pk.length) return null;
+    const byDist = (list, x, y) => list.slice().sort((p, q) => Math.hypot(p.x - x, p.y - y) - Math.hypot(q.x - x, q.y - y));
+    const threat = threatToPlayer || nearestVisibleEnemy(a.x, a.y, 500);
+    if (threat) {
+      const ok = pk.filter(p => hasLOS(p.x, p.y, threat.x, threat.y));
+      if (ok.length) return byDist(ok, a.x, a.y)[0];
+    }
+    return byDist(pk, player.x, player.y)[0];
+  }
+  function postTaken(p, except) {
+    return allies.some(o => o !== except && o.hp > 0 && (o.post === p || o.prevPost === p));
+  }
+  // Cibles que le médecin peut aller soigner : blessées, et à couvert
+  function healTargets(a) {
+    const list = [];
+    if (player.hp < player.maxHp && !playerExposed) list.push(player);
+    for (const o of allies) {
+      if (o !== a && o.hp > 0 && o.hp < o.maxHp && o.mode === 'post' && o.phase === 'hide' && !enemySees(o)) list.push(o);
+    }
+    return list;
+  }
+  function orderHeal(a, h) {
+    a.prevMode = a.mode; a.prevPost = a.post;
+    a.mode = 'heal'; a.healTarget = h; a.post = null; a.nav = null; a.healT = 0;
+  }
+  function endHeal(a) {
+    const pp = a.prevPost;
+    a.healTarget = null; a.healT = 0; a.nav = null;
+    if (a.prevMode === 'post' && pp && !postTaken(pp, a)) { a.mode = 'post'; a.post = pp; a.phase = 'move'; }
+    else { a.mode = 'follow'; a.post = null; }
+    a.prevPost = null; a.prevMode = null;
+  }
+
+  function updateAlly(a, dt) {
+    a.cd -= dt; a.flash -= dt; a.inv -= dt; a.rollCd -= dt; a.moving = false;
+    if (a.roll) { advanceRoll(a, dt); return; }
+    // l'IA recharge toute seule
+    if (a.cls === 'lourd' && !a.loaded && a.rocketsLeft > 0) { a.reloadT -= dt; if (a.reloadT <= 0) { a.reloadT = 0; a.loaded = true; } }
+    if (a.rocketMission) { runRocketMission(a, dt); return; }
+    if (a.mode === 'follow') {
+      let tx = player.x + FORMATION[a.i][0], ty = player.y + FORMATION[a.i][1];
+      tx = Math.max(WALL + 12, Math.min(W - WALL - 12, tx));
+      ty = Math.max(WALL + 12, Math.min(H - WALL - 12, ty));
+      if (blockedAt(tx, ty, 12)) { const [c, r] = nearestFree(tx, ty); tx = c * CELL + CELL / 2; ty = r * CELL + CELL / 2; }
+      const dist = Math.hypot(tx - a.x, ty - a.y);
+      if (dist > 14) navTo(a, tx, ty, dist > 90 ? 190 : 150, dt);
+      else a.nav = null;
+    } else if (a.mode === 'heal') {
+      const t = a.healTarget;
+      if (!t || t.hp <= 0 || t.hp >= t.maxHp) endHeal(a);
+      else {
+        // se place derrière le blessé, du côté opposé à l'ennemi le plus proche
+        const e = nearestEnemyAny(t.x, t.y);
+        let ox = 0, oy = 24;
+        if (e) { const dx = t.x - e.x, dy = t.y - e.y, d = Math.hypot(dx, dy) || 1; ox = dx / d * 24; oy = dy / d * 24; }
+        let tx = Math.max(WALL + 12, Math.min(W - WALL - 12, t.x + ox));
+        let ty = Math.max(WALL + 12, Math.min(H - WALL - 12, t.y + oy));
+        if (blockedAt(tx, ty, 12)) { const [c, r] = nearestFree(tx, ty); tx = c * CELL + CELL / 2; ty = r * CELL + CELL / 2; }
+        if (Math.hypot(tx - a.x, ty - a.y) > 6) navTo(a, tx, ty, 175, dt); else a.nav = null;
+        const safe = t.isPlayer ? !playerExposed : !enemySees(t);
+        if (Math.hypot(t.x - a.x, t.y - a.y) < 42 && safe) {
+          a.healT += dt;
+          if (a.healT >= 0.9) { a.healT = 0; heal(t); if (t.hp >= t.maxHp) endHeal(a); }
+        }
+      }
+    } else if (a.mode === 'post') {
+      const post = a.post;
+      if (a.phase === 'move') {
+        if (navTo(a, post.x, post.y, 165, dt) < 6) { a.phase = 'hide'; a.nav = null; }
+      } else {
+        const near = Math.hypot(player.x - post.x, player.y - post.y) < 200;
+        // très blessé (25 % de vie ou moins) : il ne sort plus couvrir, il reste à l'abri
+        const wantCover = near && playerExposed && a.hp / a.maxHp > ROLL_LOW_HP;
+        if (a.phase === 'hide') {
+          if (Math.hypot(post.x - a.x, post.y - a.y) > 3) moveUnit(a, post.x, post.y, 150, dt);
+          if (wantCover) { const pk = choosePeek(a); if (pk) { a.phase = 'peek'; a.peek = pk; a.peekT = 0; a.peekCheck = 1; } }
+        } else if (a.phase === 'peek') {
+          a.peekT += dt; a.peekCheck -= dt;
+          moveUnit(a, a.peek.x, a.peek.y, 170, dt);
+          if (a.peekCheck <= 0) { a.peekCheck = 1; const pk = choosePeek(a); if (pk) a.peek = pk; }
+          if ((a.peekT > 0.8 && !wantCover) || a.hp / a.maxHp <= ROLL_LOW_HP) a.phase = 'hide';
+        }
+      }
+    }
+    // Très blessé, à découvert et en train de rejoindre un abri ou sa place : roulade vers sa destination
+    if (canRoll(a) && a.rollCd <= 0 && a.moving && a.hp / a.maxHp <= ROLL_LOW_HP && enemySees(a)) {
+      const dest = a.nav && a.nav.pts[0] ? a.nav.pts[0] : a.mode === 'post' && a.post ? (a.phase === 'peek' ? a.peek : a.post) : null;
+      const dist = dest ? Math.hypot(dest.x - a.x, dest.y - a.y) : ROLL_DIST;
+      if (dist > 40) { startRoll(a, a.moveAng, Math.min(ROLL_DIST, dist - 4), ROLL_CD_AI); return; }
+    }
+    allyShoot(a, dt);
+  }
+
+  // ---------- roquettes du Lourd IA ----------
+  function rocketZoneClear(imp, shooter, from) {
+    for (const f of friends()) {
+      if (f === shooter) continue;
+      if (Math.hypot(f.x - imp.x, f.y - imp.y) <= ROCKET_R + f.r + 6) return false;
+    }
+    const s = from || shooter;
+    return Math.hypot(s.x - imp.x, s.y - imp.y) > ROCKET_R + shooter.r + 6;
+  }
+  // Cherche un tir possible depuis sa position actuelle ou depuis les côtés de son abri
+  function findRocketShot(a) {
+    const spots = [{ x: a.x, y: a.y }];
+    if (a.mode === 'post' && a.post) for (const p of a.post.peeks) spots.push(p);
+    let bestS = null, bs = Infinity;
+    spots.forEach((pos, i) => {
+      for (const e of aliveEnemies()) {
+        const d = Math.hypot(e.x - pos.x, e.y - pos.y);
+        if (d > ROCKET_RANGE || !hasLOS(pos.x, pos.y, e.x, e.y)) continue;
+        const imp = predictImpact(pos.x, pos.y, e.x, e.y);
+        if (Math.hypot(imp.x - e.x, imp.y - e.y) > ROCKET_R * 0.6) continue;
+        if (!rocketZoneClear(imp, a, pos)) continue;
+        const score = d + (i === 0 ? 0 : 60) + Math.hypot(pos.x - a.x, pos.y - a.y);
+        if (score < bs) { bs = score; bestS = { pos, tgt: e, imp }; }
+      }
+    });
+    return bestS;
+  }
+  // Tir autorisé : il se décale jusqu'à la position de tir, tire, puis retourne derrière son abri
+  function runRocketMission(a, dt) {
+    const m = a.rocketMission, t = m.tgt;
+    m.t += dt;
+    if (t.hp <= 0 || m.t > 5) { a.rocketMission = null; a.rocketPlan = null; a.shotCheck = 0; if (a.mode === 'post') a.phase = 'hide'; return; }
+    if (Math.hypot(m.pos.x - a.x, m.pos.y - a.y) > 4) {
+      if (pathClear(a.x, a.y, m.pos.x, m.pos.y, 8)) moveUnit(a, m.pos.x, m.pos.y, 170, dt);
+      else navTo(a, m.pos.x, m.pos.y, 170, dt);
+      turnTo(a, Math.atan2(t.y - a.y, t.x - a.x), 6, dt);
+      a.rocketAimT = 0;
+      return;
+    }
+    a.nav = null;
+    if (!hasLOS(a.x, a.y, t.x, t.y)) { a.rocketMission = null; a.shotCheck = 0; if (a.mode === 'post') a.phase = 'hide'; return; }
+    const diff = turnTo(a, Math.atan2(t.y - a.y, t.x - a.x), 6, dt);
+    const imp = predictImpact(a.x, a.y, t.x, t.y);
+    m.imp = imp; a.rocketZone = imp;
+    a.rocketAimT += dt;
+    if (rocketZoneClear(imp, a) && a.rocketAimT > 0.6 && Math.abs(diff) < 0.15) {
+      fireRocket(a, imp);
+      a.rocketAuth = false; a.loaded = false; a.rocketsLeft--; a.reloadT = RELOAD_TIME; a.rocketAimT = 0; a.cd = 0.8; a.reqNotified = false;
+      a.rocketMission = null; a.rocketPlan = null; a.rocketZone = null;
+      if (a.mode === 'post' && a.post) a.phase = 'hide';   // retour derrière l'abri
+    }
+  }
+
+  function allyShoot(a, dt) {
+    const idle = () => { a.aimT = 0; turnTo(a, a.moving ? a.moveAng : -Math.PI / 2, 5, dt); };
+
+    if (a.cls === 'sniper') {
+      let tgt = a.manualTgt && a.manualTgt.hp > 0 ? a.manualTgt : null;
+      if (!tgt) { a.manualTgt = null; tgt = nearestVisibleEnemy(a.x, a.y, 700); }
+      if (!tgt) { a.lock = null; idle(); return; }
+      if (!a.lock || a.lock.tgt !== tgt) a.lock = { tgt, t: 0 };
+      a.lock.t += dt;
+      turnTo(a, Math.atan2(tgt.y - a.y, tgt.x - a.x), 5, dt);
+      if (a.lock.t >= 1 && a.cd <= 0 && lockLineClear(a, tgt)) {
+        fireBolt(a, a.ang, 900, 2, 'snipe', tgt);
+        a.cd = 2.4 + Math.random() * 0.5;   // latence entre deux tirs pour l'équilibre
+      }
+      return;
+    }
+
+    const tgt = nearestVisibleEnemy(a.x, a.y, 400);
+
+    if (a.cls === 'lourd') {
+      a.shotCheck -= dt;
+      if (!a.loaded || a.rocketsLeft <= 0) a.rocketPlan = null;
+      else if (a.shotCheck <= 0) { a.shotCheck = 0.25; a.rocketPlan = findRocketShot(a); }
+      const plan = a.rocketPlan;
+      a.rocketZone = plan ? plan.imp : null;
+      a.rocketRequest = !!plan && !a.rocketAuth;
+      if (plan && a.rocketAuth) { a.rocketMission = { pos: plan.pos, tgt: plan.tgt, imp: plan.imp, t: 0 }; a.rocketAimT = 0; return; }
+      if (a.rocketRequest && !a.reqNotified) {
+        a.reqNotified = true;
+        Sound.play('request');
+        toast(`${a.name} a une cible pour sa roquette, zone dégagée. Touche « Feu » près de sa bulle.`);
+      }
+    }
+
+    if (tgt) {
+      const diff = turnTo(a, Math.atan2(tgt.y - a.y, tgt.x - a.x), 6, dt);
+      a.aimT += dt;
+      if (a.aimT > 0.4 && a.cd <= 0 && Math.abs(diff) < 0.2) {
+        const heavy = a.cls === 'lourd';
+        fireBolt(a, a.ang + (Math.random() - 0.5) * 0.14, heavy ? 420 : 480, heavy ? PISTOL_DMG : 1, heavy ? 'pistol' : 'bolt');
+        a.cd = heavy ? 1.5 + Math.random() * 0.4 : a.cls === 'medecin' ? 1.0 + Math.random() * 0.4 : 0.75 + Math.random() * 0.35;
+      }
+    } else idle();
+  }
+
+  const STATUS_ICONS = {
+    'Me suit': { bg: '#2E6ED4', svg: '<path d="M3 8.5l4-4 4 4M3 12l4-4 4 4"/>' },
+    'En route': { bg: '#D9962B', svg: '<path d="M2 7h9M8 3.5L11.5 7 8 10.5"/>' },
+    'À couvert': { bg: '#5E7A94', svg: '<path d="M7 1.8l4.5 1.8v3.4c0 2.6-2 4.3-4.5 5.3C4.5 11.3 2.5 9.6 2.5 7V3.6z"/>' },
+    'Tir de couverture': { bg: '#E0672B', svg: '<circle cx="7" cy="7" r="3.8"/><path d="M7 1v2.5M7 10.5V13M1 7h2.5M10.5 7H13"/>' },
+    'Tir de roquette': { bg: '#D23F2B', svg: '<path d="M3 11l2.2-2.2M5.5 8.5L10 4l1.5-1.5-.5 2.5-4.5 4.5zM4 7.5l2.5 2.5"/>' },
+    'Soigne': { bg: '#2EAD6B', svg: '<path d="M7 2.5v9M2.5 7h9"/>' },
+    'Blessé': { bg: '#D23F2B', svg: '<path d="M7 3v8M3 7h8"/>' }
+  };
+  function allyStatus(a) {
+    if (a.hp <= 0) return 'Blessé';
+    if (a.rocketMission) return 'Tir de roquette';
+    if (a.mode === 'follow') return 'Me suit';
+    if (a.mode === 'heal') return 'Soigne';
+    if (a.phase === 'move') return 'En route';
+    if (a.phase === 'peek') return 'Tir de couverture';
+    return 'À couvert';
+  }
+
+  // ---------- ordres ----------
+  function setSelected(i) {
+    if (i >= 0 && (!allies[i] || allies[i].hp <= 0)) i = -1;
+    selected = i;
+    if (i >= 0) {
+      const a = allies[i];
+      let extra = '';
+      if (a.cls === 'medecin') extra = ', une croix verte pour soigner';
+      if (a.cls === 'sniper') extra = ', un ennemi pour le verrouiller';
+      hintEl.textContent = `${a.name} : touche un abri en surbrillance${extra}, ou ton soldat pour qu'il te suive.`;
+      hintEl.classList.remove('hidden');
+    } else hintEl.classList.add('hidden');
+    refreshSquad(true);
+  }
+  function computeHighlight() {
+    if (selected < 0) { highlight = []; return; }
+    const a = allies[selected];
+    highlight = allyPosts.filter(p => !postTaken(p, a))
+      .map(p => ({ p, d: Math.hypot(p.x - player.x, p.y - player.y) }))
+      .filter(o => o.d < 330).sort((m, n) => m.d - n.d).slice(0, 8).map(o => o.p);
+  }
+  function handleTap(sx, sy) {
+    if (state !== 'play') return;
+    const wx = sx / scale + camX, wy = sy / scale + camY;
+    const tol = Math.max(26, 30 / scale);
+    if (selected < 0) {
+      if (player.cls === 'sniper') { const e = enemyAt(wx, wy, tol); if (e) { player.lock = { tgt: e, t: 0 }; Sound.play('lockStart'); } }
+      return;
+    }
+    const a = allies[selected];
+    const cands = [];
+    if (a.cls === 'sniper') for (const e of aliveEnemies()) cands.push({ d: Math.hypot(wx - e.x, wy - e.y) - e.r, act: () => { a.manualTgt = e; a.lock = { tgt: e, t: 0 }; } });
+    if (a.cls === 'medecin') for (const h of healTargets(a)) cands.push({ d: Math.hypot(wx - h.x, wy - (h.y - 34)), act: () => orderHeal(a, h) });
+    cands.push({ d: Math.hypot(wx - player.x, wy - player.y), act: () => { a.mode = 'follow'; a.post = null; a.phase = null; a.nav = null; a.healTarget = null; a.prevPost = null; } });
+    for (const p of highlight) cands.push({ d: Math.hypot(wx - p.x, wy - p.y), act: () => { a.mode = 'post'; a.post = p; a.phase = 'move'; a.nav = null; a.healTarget = null; a.prevPost = null; } });
+    let bestC = null;
+    for (const c of cands) if (c.d < tol && (!bestC || c.d < bestC.d)) bestC = c;
+    if (bestC) { a.rocketMission = null; bestC.act(); Sound.play('order'); }
+    setSelected(-1);
+  }
+  function approveRocket(i) {
+    const a = allies[i];
+    if (!a || a.hp <= 0) return;
+    a.rocketAuth = true; a.rocketRequest = false;
+    refreshSquad(true);
+  }
+
+  function swapWeapon() {
+    if (state !== 'play' || player.cls !== 'lourd') return;
+    if (player.rocketsLeft <= 0) { player.weapon = 'pistol'; return; }
+    player.weapon = player.weapon === 'bazooka' ? 'pistol' : 'bazooka';
+    player.heavyWasAiming = false;
+  }
+  function reloadRocket() {
+    if (state !== 'play' || player.cls !== 'lourd') return;
+    if (!player.loaded && player.rocketsLeft > 0 && player.reloadT <= 0) { player.reloadT = RELOAD_TIME; Sound.play('reload'); }
+  }
+  swapBtn.addEventListener('click', swapWeapon);
+  reloadBtn.addEventListener('click', reloadRocket);
+  let weaponsCache = '';
+  function updateWeaponsUi() {
+    const show = state === 'play' && player.cls === 'lourd';
+    weaponsEl.classList.toggle('hidden', !show);
+    if (!show) return;
+    const out = player.rocketsLeft <= 0;
+    const canReload = !player.loaded && player.rocketsLeft > 0 && player.reloadT <= 0;
+    const urgent = canReload && player.weapon === 'bazooka';
+    const prog = player.reloadT > 0 ? Math.round((1 - player.reloadT / RELOAD_TIME) * 100) : 0;
+    const key = `${player.weapon}|${player.rocketsLeft}|${player.loaded}|${canReload}|${urgent}|${prog}`;
+    if (key === weaponsCache) return;
+    weaponsCache = key;
+    swapBtn.querySelector('.lbl').textContent = out ? 'Pistolet (plus de roquettes)' : player.weapon === 'bazooka' ? 'Passer au pistolet' : 'Passer au bazooka';
+    swapBtn.disabled = out;
+    reloadBtn.querySelector('.lbl').textContent = out ? 'Plus de roquettes' : player.reloadT > 0 ? 'Recharge…' : player.loaded ? 'Chargé' : 'Recharger';
+    reloadBtn.disabled = !canReload;
+    reloadBtn.classList.toggle('urgent', urgent);
+    reloadBtn.querySelector('.fill').style.width = prog + '%';
+  }
+
+  rollBtn.addEventListener('pointerdown', e => { e.preventDefault(); if (state === 'play') player.wantRoll = true; });
+  rollBtn.addEventListener('click', () => { if (state === 'play') player.wantRoll = true; });
+  let rollUiCache = '';
+  function updateRollUi() {
+    const show = state === 'play' && canRoll(player);
+    rollBtn.classList.toggle('hidden', !show);
+    if (!show) return;
+    const cd = Math.max(0, Math.round(player.rollCd / ROLL_CD_PLAYER * 100));
+    const key = cd + '|' + player.cls;
+    if (key === rollUiCache) return;
+    rollUiCache = key;
+    rollBtn.style.setProperty('--cd', cd);
+    rollBtn.style.setProperty('--c', CLASSES[player.cls].color);
+    rollBtn.classList.toggle('cool', cd > 0);
+  }
+
+  let toastTimer = null;
+  function toast(msg) {
+    toastEl.textContent = msg; toastEl.classList.remove('hidden');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => toastEl.classList.add('hidden'), 3500);
+  }
+
+  // ---------- panneau d'escouade ----------
+  let squadCache = [];
+  function buildSquad() {
+    squadEl.innerHTML = allies.map(a => `
+      <div class="slot">
+        <button class="fire hidden" data-i="${a.i}" aria-label="Autoriser ${a.name} à tirer une roquette">Feu</button>
+        <button class="bubble" data-i="${a.i}" aria-label="Donner un ordre à ${a.name}">
+          <span class="ring"><span class="core" style="--cc:${CLASSES[a.cls].color}">${a.i + 1}</span><span class="st"></span>${a.cls === 'lourd' ? '<span class="ammo"></span>' : ''}</span>
+          <span class="bname">${a.name}</span>
+        </button>
+      </div>`).join('');
+    squadEl.querySelectorAll('.bubble').forEach(b => {
+      b.addEventListener('click', () => { const i = +b.dataset.i; setSelected(selected === i ? -1 : i); });
+    });
+    squadEl.querySelectorAll('.fire').forEach(b => {
+      b.addEventListener('click', () => approveRocket(+b.dataset.i));
+    });
+    squadCache = [];
+    squadBubbles = squadEl.querySelectorAll('.bubble'); squadFires = squadEl.querySelectorAll('.fire');
+    refreshSquad(true);
+  }
+  let squadBubbles = [], squadFires = [];
+  function refreshSquad(force) {
+    const bubbles = squadBubbles, fires = squadFires;
+    allies.forEach((a, i) => {
+      const status = allyStatus(a);
+      const ask = a.hp > 0 && a.rocketRequest && !a.rocketAuth;
+      const key = `${a.hp}|${status}|${selected === i}|${ask}|${a.rocketsLeft}`;
+      if (!force && squadCache[i] === key) return;
+      squadCache[i] = key;
+      const b = bubbles[i]; if (!b) return;
+      b.classList.toggle('sel', selected === i);
+      b.classList.toggle('dead', a.hp <= 0);
+      const ring = b.querySelector('.ring');
+      ring.style.setProperty('--hp', a.hp > 0 ? Math.round(a.hp / a.maxHp * 100) : 0);
+      ring.style.setProperty('--hpc', a.hp / a.maxHp <= 0.4 ? '#E3452C' : '#3A9F66');
+      const ic = STATUS_ICONS[status];
+      const st = b.querySelector('.st');
+      st.style.background = ic.bg;
+      st.innerHTML = `<svg viewBox="0 0 14 14" aria-hidden="true">${ic.svg}</svg>`;
+      b.setAttribute('aria-label', `${a.name}, ${CLASSES[a.cls].name}, ${status}. Donner un ordre`);
+      b.title = `${a.name} (${CLASSES[a.cls].name}) : ${status}`;
+      if (fires[i]) fires[i].classList.toggle('hidden', !ask);
+      const am = b.querySelector('.ammo');
+      if (am) { am.textContent = a.rocketsLeft; am.classList.toggle('empty', a.rocketsLeft <= 0); am.title = `${a.rocketsLeft} roquette(s) restante(s)`; }
+    });
+  }
+
+  // ---------- entrées ----------
+  const keys = {};
+  addEventListener('keydown', e => {
+    const k = e.key.toLowerCase();
+    // en pause : Échap ou P reprend (sauf pendant la saisie dans un champ)
+    if (state === 'paused') {
+      if ((k === 'escape' || k === 'p') && !(e.target && e.target.tagName === 'INPUT' && e.target.type === 'text')) { e.preventDefault(); resumeGame(); }
+      return;
+    }
+    keys[k] = true;
+    if ([' ', 'arrowup', 'arrowdown', 'arrowleft', 'arrowright'].includes(k)) e.preventDefault();
+    if (state === 'play') {
+      if (k === '1' || k === '2' || k === '3') { const i = +k - 1; if (allies[i]) setSelected(selected === i ? -1 : i); }
+      if (k === 'escape' || k === 'p') { if (selected >= 0 && k === 'escape') setSelected(-1); else { showPause(); return; } }
+      if (k === 'f') allies.forEach(a => { if (a.rocketRequest) approveRocket(a.i); });
+      if (k === 'r') reloadRocket();
+      if (k === 'x') swapWeapon();
+      if (k === 'shift' || k === 'c') player.wantRoll = true;
+    }
+  });
+  addEventListener('keyup', e => { keys[e.key.toLowerCase()] = false; });
+
+  const STICK_R = 55, STICK_ZONE = 95;
+  const baseL = () => ({ x: 82, y: ch - 100 });
+  const baseR = () => ({ x: cw - 82, y: ch - 100 });
+  const sticks = { move: null, aim: null };
+  const mouse = { active: false, x: 0, y: 0, down: false };
+  function localPos(e) { const r = canvas.getBoundingClientRect(); return { x: e.clientX - r.left, y: e.clientY - r.top }; }
+
+  canvas.addEventListener('pointerdown', e => {
+    const p = localPos(e);
+    if (e.pointerType === 'mouse') {
+      mouse.active = true; mouse.x = p.x; mouse.y = p.y;
+      if (state !== 'play') return;
+      if (selected >= 0) { handleTap(p.x, p.y); return; }
+      if (player.cls === 'sniper' && enemyAt(p.x / scale + camX, p.y / scale + camY, Math.max(20, 24 / scale))) { handleTap(p.x, p.y); return; }
+      mouse.down = true;
+      return;
+    }
+    const L = baseL(), R = baseR();
+    if (!sticks.move && Math.hypot(p.x - L.x, p.y - L.y) < STICK_ZONE) {
+      sticks.move = { id: e.pointerId, ox: L.x, oy: L.y, x: p.x, y: p.y };
+    } else if (!sticks.aim && Math.hypot(p.x - R.x, p.y - R.y) < STICK_ZONE) {
+      sticks.aim = { id: e.pointerId, ox: R.x, oy: R.y, x: p.x, y: p.y };
+    } else { handleTap(p.x, p.y); return; }
+    try { canvas.setPointerCapture(e.pointerId); } catch (err) {}
+  });
+  canvas.addEventListener('pointermove', e => {
+    const p = localPos(e);
+    if (e.pointerType === 'mouse') { mouse.active = true; mouse.x = p.x; mouse.y = p.y; return; }
+    for (const s of ['move', 'aim']) if (sticks[s] && sticks[s].id === e.pointerId) { sticks[s].x = p.x; sticks[s].y = p.y; }
+  });
+  function endPointer(e) {
+    if (e.pointerType === 'mouse') { mouse.down = false; return; }
+    for (const s of ['move', 'aim']) if (sticks[s] && sticks[s].id === e.pointerId) sticks[s] = null;
+  }
+  canvas.addEventListener('pointerup', endPointer);
+  canvas.addEventListener('pointercancel', endPointer);
+  document.addEventListener('touchmove', e => { if (state === 'play') e.preventDefault(); }, { passive: false });
+
+  function stickVec(s, dead) {
+    if (!s) return null;
+    const dx = s.x - s.ox, dy = s.y - s.oy, d = Math.hypot(dx, dy);
+    if (d < dead) return null;
+    return { x: dx / d, y: dy / d, m: Math.min(d, STICK_R) / STICK_R };
+  }
+
+
+  // ---------- effets ----------
+  let debris = [], smokes = [], scorches = [], rings = [];
+  function addSmoke(x, y, n, big) {
+    if (smokes.length > 160) smokes.splice(0, smokes.length - 160);
+    for (let i = 0; i < n; i++) {
+      const m = Math.random() * 0.8 + 0.6;
+      smokes.push({ x: x + (Math.random() - 0.5) * 10, y: y + (Math.random() - 0.5) * 10,
+        vx: (Math.random() - 0.5) * 24, vy: (Math.random() - 0.5) * 24,
+        r: (big ? 6 : 3) + Math.random() * 4, grow: (big ? 18 : 10) + Math.random() * 8,
+        life: m + (big ? 0.5 : 0), max: m + (big ? 0.5 : 0) });
+    }
+  }
+  function addDust(x, y, n, dir) {
+    for (let i = 0; i < n; i++) {
+      const a = dir + (Math.random() - 0.5) * 1.6, sp = 25 + Math.random() * 45;
+      smokes.push({ x: x + (Math.random() - 0.5) * 8, y: y + (Math.random() - 0.5) * 8, vx: Math.cos(a) * sp, vy: Math.sin(a) * sp,
+        r: 2.5 + Math.random() * 2.5, grow: 14 + Math.random() * 8, life: 0.35 + Math.random() * 0.25, max: 0.6, dust: true });
+    }
+  }
+  function addDebris(x, y, dir, pieces) {
+    if (debris.length > 240) debris.splice(0, debris.length - 240);
+    for (const [w, h, color, shape] of pieces) {
+      const a = dir + (Math.random() - 0.5) * 2, sp = 70 + Math.random() * 170;
+      debris.push({ x, y, vx: Math.cos(a) * sp, vy: Math.sin(a) * sp, rot: Math.random() * Math.PI * 2,
+        vr: (Math.random() - 0.5) * 16, w, h, color, shape: shape || 'rect' });
+    }
+  }
+  function destroyDroid(d, dir) {
+    Sound.play('destroy', d.x, d.y);
+    d.deathAng = dir; d.deadT = 0; d.sparkT = 3.5;
+    burst(d.x, d.y, '#FFB347', 26, 220); burst(d.x, d.y, '#FFFFFF', 8, 120);
+    rings.push({ x: d.x, y: d.y, r: 5, life: 0.35, max: 0.35 });
+    addSmoke(d.x, d.y, 7, true);
+    bakeScorch({ x: d.x, y: d.y, r: 15 + Math.random() * 5 });
+    const P = DROID_PAL[d.ecls];
+    addDebris(d.x, d.y, dir, [
+      [9, 4.5, P.head, 'ellipse'],               // tête
+      [9, 2.5, P.body], [8, 2.5, P.body],        // bras
+      [12, 3, P.dark],                           // arme
+      [3.5, 3, P.scrap], [4, 2, P.scrap], [3, 2.5, P.line], [2.5, 2.5, P.line]
+    ].concat(d.ecls === 'lourd' ? [[14, 5, P.dark], [10, 6, P.body], [5, 4, P.scrap]] : []));
+    d.rocketWarn = null;
+  }
+  function destroyTurret(t, dir) {
+    Sound.play('destroy', t.x, t.y);
+    t.sparkT = 4;
+    burst(t.x, t.y, '#FFB347', 30, 230); burst(t.x, t.y, '#FFFFFF', 8, 120);
+    rings.push({ x: t.x, y: t.y, r: 8, life: 0.4, max: 0.4 });
+    addSmoke(t.x, t.y, 9, true);
+    bakeScorch({ x: t.x, y: t.y, r: 24 });
+    addDebris(t.x, t.y, dir, [[16, 5, '#2E3841'], [7, 5, '#707D88'], [6, 4, '#56636E'], [5, 5, '#56636E'], [3, 3, '#3A424A']]);
+  }
+  function woundAlly(a, dir) {
+    a.fallT = 0; a.fallAng = dir; a.startAng = a.ang;
+    a.gunDir = dir + (Math.random() < 0.5 ? 1 : -1) * (1 + Math.random() * 0.6);
+    burst(a.x, a.y, '#FF5A3C', 12, 130);
+  }
+  function updateEffects(dt) {
+    const f = Math.pow(0.02, dt);
+    for (const p of debris) {
+      if (Math.abs(p.vx) + Math.abs(p.vy) < 3) continue;
+      const nx = p.x + p.vx * dt, ny = p.y + p.vy * dt;
+      if (blockedAt(nx, ny, 1) || nx < WALL + 2 || nx > W - WALL - 2 || ny < WALL + 2 || ny > H - WALL - 2) { p.vx *= -0.35; p.vy *= -0.35; }
+      else { p.x = nx; p.y = ny; }
+      p.vx *= f; p.vy *= f; p.rot += p.vr * dt; p.vr *= f;
+    }
+    for (let i = smokes.length - 1; i >= 0; i--) {
+      const s = smokes[i];
+      s.x += s.vx * dt; s.y += s.vy * dt; s.r += s.grow * dt; s.life -= dt;
+      if (s.dust) { s.vx *= 0.9; s.vy *= 0.9; }
+      if (s.life <= 0) smokes.splice(i, 1);
+    }
+    for (let i = rings.length - 1; i >= 0; i--) { const r = rings[i]; r.r += 130 * dt; r.life -= dt; if (r.life <= 0) rings.splice(i, 1); }
+    for (const u of [...droids, ...turrets]) {
+      if (u.hp > 0 || u.sparkT <= 0) continue;
+      u.sparkT -= dt; if (u.deadT !== undefined) u.deadT += dt;
+      if (Math.random() < dt * 5) burst(u.x + (Math.random() - 0.5) * 8, u.y + (Math.random() - 0.5) * 8, '#FFE08A', 3, 70);
+      if (Math.random() < dt * 2.5) addSmoke(u.x, u.y, 1, false);
+    }
+    for (const a of allies) {
+      if (a.hp > 0 || a.fallT > 0.5) continue;
+      const prev = a.fallT; a.fallT += dt;
+      const e0 = 1 - Math.pow(1 - Math.min(1, prev / 0.45), 3), e1 = 1 - Math.pow(1 - Math.min(1, a.fallT / 0.45), 3);
+      const nx = a.x + Math.cos(a.fallAng) * 12 * (e1 - e0), ny = a.y + Math.sin(a.fallAng) * 12 * (e1 - e0);
+      if (!blockedAt(nx, ny, 8)) { a.x = nx; a.y = ny; }
+    }
+  }
+
+  function burst(x, y, color, n, spd) {
+    if (sparks.length > 450) n = Math.min(n, 2);   // plafond pour les grosses mêlées
+    for (let i = 0; i < n; i++) {
+      const a = Math.random() * Math.PI * 2, s = spd * (0.3 + Math.random());
+      sparks.push({ x, y, vx: Math.cos(a) * s, vy: Math.sin(a) * s, life: 0.25 + Math.random() * 0.3, max: 0.55, color });
+    }
+  }
+
+
+  // ---------- arme du joueur ----------
+  function updatePlayerWeapon(dt, av, ml, mx, my) {
+    const pc = player.cls;
+    player.cd -= dt;
+    const mw = mouse.active && !isTouch ? { x: mouse.x / scale + camX, y: mouse.y / scale + camY } : null;
+    player.heavyPreview = null;
+
+    if (pc === 'lourd') {
+      if (player.reloadT > 0) { player.reloadT -= dt; if (player.reloadT <= 0) { player.reloadT = 0; player.loaded = true; Sound.play('reloadDone'); } }
+      if (player.rocketsLeft <= 0) player.weapon = 'pistol';
+      if (player.weapon === 'pistol') {
+        let firing = false;
+        if (av) { player.aim = Math.atan2(av.y, av.x); firing = true; }
+        else if (mw) { player.aim = Math.atan2(mw.y - player.y, mw.x - player.x); firing = mouse.down; }
+        else if (ml > 0.1) player.aim = Math.atan2(my, mx);
+        if (keys[' ']) firing = true;
+        if (firing && player.cd <= 0) { fireBolt(player, player.aim, 420, PISTOL_DMG, 'pistol'); player.cd = 0.5; }
+        player.heavyWasAiming = false;
+        return;
+      }
+      // joystick droit : direction + distance (longueur du geste), relâcher pour tirer ; revenir au centre annule
+      let pt = null, fire = false, preview = false;
+      if (av) {
+        const dist = 40 + av.m * (ROCKET_RANGE - 40);
+        pt = { x: player.x + av.x * dist, y: player.y + av.y * dist };
+        player.aim = Math.atan2(av.y, av.x); player.heavyWasAiming = true; player.heavyLast = pt; preview = true;
+      } else if (sticks.aim) {
+        player.heavyWasAiming = false;
+      } else if (player.heavyWasAiming) {
+        player.heavyWasAiming = false; pt = player.heavyLast; fire = true;
+      } else if (mw) {
+        const dx = mw.x - player.x, dy = mw.y - player.y, d = Math.hypot(dx, dy) || 1, k = Math.min(d, ROCKET_RANGE) / d;
+        pt = { x: player.x + dx * k, y: player.y + dy * k };
+        player.aim = Math.atan2(dy, dx); fire = mouse.down; preview = true;
+      } else if (ml > 0.1) player.aim = Math.atan2(my, mx);
+      if (keys[' ']) { pt = { x: player.x + Math.cos(player.aim) * ROCKET_RANGE, y: player.y + Math.sin(player.aim) * ROCKET_RANGE }; fire = true; }
+      if (pt) {
+        const imp = predictImpact(player.x, player.y, pt.x, pt.y);
+        if (preview) player.heavyPreview = imp;
+        if (fire && player.loaded) { fireRocket(player, imp); player.loaded = false; player.rocketsLeft--; }
+      }
+      return;
+    }
+
+    if (pc === 'sniper') {
+      if (player.lock) {
+        const t = player.lock.tgt;
+        if (t.hp <= 0 || !onScreen(t)) player.lock = null;
+        else { const was = player.lock.t; player.lock.t += dt; if (was < 1 && player.lock.t >= 1) Sound.play('lockDone'); }
+      }
+      let manual = false;
+      if (av) { player.aim = Math.atan2(av.y, av.x); manual = true; }
+      else if (mw && mouse.down) { player.aim = Math.atan2(mw.y - player.y, mw.x - player.x); manual = true; }
+      else if (player.lock && player.lock.t >= 1) { const t = player.lock.tgt; player.aim = Math.atan2(t.y - player.y, t.x - player.x); }
+      else if (mw) player.aim = Math.atan2(mw.y - player.y, mw.x - player.x);
+      else if (ml > 0.1) player.aim = Math.atan2(my, mx);
+      if (keys[' ']) manual = true;
+      if (player.cd <= 0) {
+        if (manual) { fireBolt(player, player.aim, 900, 2, 'snipe'); player.cd = 1.2; }
+        else if (player.lock && player.lock.t >= 1 && lockLineClear(player, player.lock.tgt)) {
+          const t = player.lock.tgt;
+          fireBolt(player, player.aim, 900, 2, 'snipe', t); player.cd = 1.2;
+        }
+      }
+      return;
+    }
+
+    // classique et médecin
+    let firing = false;
+    if (av) { player.aim = Math.atan2(av.y, av.x); firing = true; }
+    else if (mw) { player.aim = Math.atan2(mw.y - player.y, mw.x - player.x); firing = mouse.down; }
+    else if (ml > 0.1) player.aim = Math.atan2(my, mx);
+    if (keys[' ']) firing = true;
+    if (firing && player.cd <= 0) { fireBolt(player, player.aim, 540, 1, 'bolt'); player.cd = pc === 'medecin' ? 0.34 : 0.26; }
+
+    // soin du joueur médecin : équipier blessé tout proche, personne en vue
+    player.healing = null;
+    if (pc === 'medecin' && !playerExposed) {
+      let bestA = null, bd = 40;
+      for (const a of allies) {
+        if (a.hp <= 0 || a.hp >= a.maxHp) continue;
+        const d = Math.hypot(a.x - player.x, a.y - player.y);
+        if (d < bd && !enemySees(a)) { bd = d; bestA = a; }
+      }
+      if (bestA) {
+        player.healing = bestA; player.healT += dt;
+        if (player.healT >= 1.1) { player.healT = 0; heal(bestA); }
+      } else player.healT = 0;
+    } else player.healT = 0;
+  }
+
+  // ---------- boucle de jeu ----------
+  function update(dt) {
+    time += dt;
+    shakeT = Math.max(0, shakeT - dt);
+
+    let mx = 0, my = 0;
+    if (keys['z'] || keys['w'] || keys['arrowup']) my -= 1;
+    if (keys['s'] || keys['arrowdown']) my += 1;
+    if (keys['q'] || keys['a'] || keys['arrowleft']) mx -= 1;
+    if (keys['d'] || keys['arrowright']) mx += 1;
+    const mv = stickVec(sticks.move, 6);
+    if (mv) { mx += mv.x * mv.m; my += mv.y * mv.m; }
+    const ml = Math.hypot(mx, my);
+    if (ml > 1) { mx /= ml; my /= ml; }
+    player.rollCd -= dt;
+    if (player.wantRoll) {
+      player.wantRoll = false;
+      if (canRoll(player) && !player.roll && player.rollCd <= 0) startRoll(player, ml > 0.2 ? Math.atan2(my, mx) : player.aim, ROLL_DIST, ROLL_CD_PLAYER);
+    }
+    if (player.roll) advanceRoll(player, dt);
+    else { player.x += mx * 175 * dt; player.y += my * 175 * dt; }
+    for (const o of obstacles) pushOutRect(player, o);
+    for (const t of turrets) pushOutCircle(player, t, t.r);
+    for (const d of droids) if (d.hp > 0) pushOutCircle(player, d, d.r);
+    clampInArena(player);
+    player.inv -= dt;
+
+    computeExposure();
+    if (!player.roll) updatePlayerWeapon(dt, stickVec(sticks.aim, 10), ml, mx, my);
+
+    // tourelles
+    for (const t of turrets) {
+      t.hit -= dt;
+      if (t.hp <= 0) continue;
+      const tgt = nearestVisibleHostile(t.x, t.y, enemyRange(t));
+      if (tgt) { t.lkx = tgt.x; t.lky = tgt.y; t.suppShots = 0; }
+      else if (t.tgt && t.aimT > 0.25) { t.suppShots = 3 + Math.floor(Math.random() * 3); t.suppX = t.lkx; t.suppY = t.lky; }
+      if (tgt && tgt !== t.tgt) t.aimT = Math.min(t.aimT, 0.15);
+      t.tgt = tgt; t.los = !!tgt;
+      const suppressing = !tgt && t.suppShots > 0;
+      let target, turn;
+      if (tgt) { target = Math.atan2(tgt.y - t.y, tgt.x - t.x); turn = 2.6; t.aimT += dt; }
+      else if (suppressing) { target = Math.atan2(t.suppY - t.y, t.suppX - t.x); turn = 3; t.aimT = Math.max(0, t.aimT - dt); }
+      else { target = t.rest + Math.sin(time * 0.8 + t.x + t.y) * (t.side ? 0.6 : 0.9); turn = 1; t.aimT = Math.max(0, t.aimT - dt * 2); }
+      const d = angDiff(t.ang, target);
+      t.ang += Math.max(-turn * dt, Math.min(turn * dt, d));
+      t.cd -= dt; t.bt -= dt;
+      if (t.burst > 0) {
+        if (t.bt <= 0) { enemyShot(t, 24, 320, suppressing ? 0.2 : 0.08); t.burst--; t.bt = 0.13; if (suppressing) t.suppShots--; }
+      } else if (t.cd <= 0 && Math.abs(d) < 0.2) {
+        // les tourelles murales balaient large mais tirent des rafales plus courtes
+        if (tgt && t.aimT > (t.side ? 0.7 : 0.5) * DIFF.aimMul) { t.burst = t.side ? 2 : 3; t.bt = 0; t.cd = (1.3 + Math.random() * 0.5) * DIFF.cdMul * (t.side ? 1.4 : 1); }
+        else if (suppressing) { t.burst = Math.min(2, t.suppShots); t.bt = 0; t.cd = 0.4 + Math.random() * 0.25; }
+      }
+    }
+
+    // équipiers
+    for (const a of allies) {
+      if (a.hp <= 0) continue;
+      updateAlly(a, dt);
+      for (const o of obstacles) pushOutRect(a, o);
+      for (const t of turrets) pushOutCircle(a, t, t.r);
+      for (const d of droids) if (d.hp > 0) pushOutCircle(a, d, d.r);
+      for (const b of allies) if (b !== a && b.hp > 0) pushOutCircle(a, b, b.r);
+      pushOutCircle(a, player, player.r - 2);
+      clampInArena(a);
+    }
+
+    // droïdes
+    for (const d of droids) {
+      if (d.hp <= 0) continue;
+      updateDroid(d, dt);
+      for (const o of obstacles) pushOutRect(d, o);
+      for (const t of turrets) pushOutCircle(d, t, t.r);
+      for (const e of droids) if (e !== d && e.hp > 0) pushOutCircle(d, e, e.r);
+      for (const a of allies) if (a.hp > 0) pushOutCircle(d, a, a.r);
+      pushOutCircle(d, player, player.r);
+      clampInArena(d);
+    }
+
+    // projectiles
+    for (let i = bolts.length - 1; i >= 0; i--) {
+      const b = bolts[i];
+      if (b.kind === 'rocket') {
+        b.trail -= dt;
+        if (b.trail <= 0) { addSmoke(b.x, b.y, 1, false); b.trail = 0.035; }
+        const step = Math.hypot(b.vx, b.vy) * dt;
+        if (Math.hypot(b.tx - b.x, b.ty - b.y) <= step) { explode(b.tx, b.ty, b.src, b.team); bolts.splice(i, 1); continue; }
+        const nx = b.x + b.vx * dt, ny = b.y + b.vy * dt;
+        let boom = nx < WALL || nx > W - WALL || ny < WALL || ny > H - WALL || obstacles.some(o => inRect(nx, ny, o));
+        if (!boom) for (const e of (b.team === 'enemy' ? friends() : aliveEnemies())) if (Math.hypot(nx - e.x, ny - e.y) < e.r + 4) { boom = true; break; }
+        if (boom) { explode(b.x, b.y, b.src, b.team); bolts.splice(i, 1); continue; }
+        b.x = nx; b.y = ny;
+        continue;
+      }
+      b.x += b.vx * dt; b.y += b.vy * dt; b.life -= dt;
+      let dead = b.life <= 0 || b.x < WALL || b.x > W - WALL || b.y < WALL || b.y > H - WALL;
+      if (!dead) for (const o of obstacles) if (inRect(b.x, b.y, o)) { dead = true; break; }
+      if (dead) { burst(b.x, b.y, b.team === 'enemy' ? '#FF5A3C' : '#5AAEFF', 5, 90); bolts.splice(i, 1); continue; }
+      const dir = Math.atan2(b.vy, b.vx);
+      if (b.team === 'enemy') {
+        for (const f of friends()) {
+          if (f.inv <= 0 && !isDodging(f) && Math.hypot(b.x - f.x, b.y - f.y) < f.r + 3) { hitFriend(f, b.dmg || 1, dir); bolts.splice(i, 1); break; }
+        }
+      } else {
+        let hit = false;
+        for (const e of aliveEnemies()) {
+          const dd = Math.hypot(b.x - e.x, b.y - e.y);
+          if (dd < e.r + 3) {
+            burst(b.x, b.y, b.kind === 'snipe' ? '#C9A8FF' : '#5AAEFF', b.kind === 'snipe' ? 10 : 6, 110);
+            hitEnemy(e, b.dmg, dir, b.src);
+            bolts.splice(i, 1); hit = true; break;
+          }
+          if (e.home && dd < 38) {
+            b.warned = b.warned || new Set();
+            if (!b.warned.has(e)) { b.warned.add(e); e.stress += 0.12; e.provoked = b.src; }
+          }
+        }
+        if (hit) continue;
+      }
+    }
+
+    updateAnim(player, dt);
+    for (const a of allies) if (a.hp > 0) updateAnim(a, dt);
+    for (const d of droids) if (d.hp > 0) updateAnim(d, dt);
+    for (const t of turrets) if (t.hp > 0) updateAnim(t, dt);
+    updateEffects(dt);
+    for (let i = sparks.length - 1; i >= 0; i--) {
+      const s = sparks[i];
+      s.x += s.vx * dt; s.y += s.vy * dt; s.vx *= 0.9; s.vy *= 0.9; s.life -= dt;
+      if (s.life <= 0) sparks.splice(i, 1);
+    }
+    for (let i = flashes.length - 1; i >= 0; i--) { flashes[i].life -= dt; if (flashes[i].life <= 0) flashes.splice(i, 1); }
+    for (let i = plusFx.length - 1; i >= 0; i--) { const p = plusFx[i]; p.y -= 22 * dt; p.life -= dt; if (p.life <= 0) plusFx.splice(i, 1); }
+
+    if (gameOver) { end(false); return; }
+    if (Math.hypot(player.x - BEACON.x, player.y - BEACON.y) < 24) { end(true); return; }
+    updateHud();
+    refreshSquad(false);
+    updateWeaponsUi();
+    updateRollUi();
+  }
+
+  let hudCache = '';
+  function updateHud() {
+    const alive = turrets.filter(t => t.hp > 0).length;
+    const droidsAlive = droids.filter(d => d.hp > 0).length;
+    let clsText = CLASSES[player.cls].name;
+    if (player.cls === 'lourd') {
+      if (player.weapon === 'pistol') clsText = 'Pistolet';
+      else if (player.reloadT > 0) clsText = `Recharge ${player.reloadT.toFixed(1).replace('.', ',')} s`;
+      else clsText = player.loaded ? 'Bazooka chargé' : 'Bazooka vide';
+      clsText += ` · ${player.rocketsLeft} roq.`;
+    }
+    if (player.cls === 'sniper') clsText = !player.lock ? 'Touche un ennemi' : player.lock.t < 1 ? 'Verrouillage…' : 'Cible verrouillée';
+    if (player.cls === 'medecin' && player.healing) clsText = 'Soin en cours';
+    const key = `${player.hp}|${clsText}|${alive}|${droidsAlive}`;
+    const tt = time.toFixed(1).replace('.', ',') + ' s';
+    if (timerEl.textContent !== tt) timerEl.textContent = tt;
+    if (key === hudCache) return;
+    hudCache = key;
+    let pips = '';
+    for (let i = 0; i < player.maxHp; i++) pips += `<span class="pip${i < player.hp ? '' : ' off'}"></span>`;
+    hpEl.innerHTML = pips;
+    classEl.innerHTML = `<span class="dot" style="--c:${CLASSES[player.cls].color}"></span>${clsText}`;
+    turretEl.textContent = 'Tourelles ' + alive;
+    droidEl.textContent = 'Droïdes ' + droidsAlive;
+  }
+
+
+  // ---------- rendu ----------
+  function resize() {
+    dpr = Math.min(window.devicePixelRatio || 1, 2);
+    const r = canvas.getBoundingClientRect();
+    cw = r.width; ch = r.height;
+    canvas.width = Math.round(cw * dpr); canvas.height = Math.round(ch * dpr);
+  }
+  addEventListener('resize', resize);
+
+  // Tout ce qui ne bouge pas est dessiné une seule fois dans une image hors écran,
+  // puis recopié à chaque image : on ne redessine plus la grille, les zones ni les obstacles.
+  let floorCanvas = null, floorCtx = null, floorK = 0;
+  // Obstacles dessinés en passes successives : les pièces d'un L ou d'un Z se fondent en une seule forme
+  function paintObstacles(c, list, withShadow) {
+    if (withShadow) { c.fillStyle = 'rgba(30, 55, 80, 0.16)'; for (const o of list) c.fillRect(o.x + 4, o.y + 6, o.w, o.h); }
+    c.fillStyle = '#7F8E9B'; for (const o of list) c.fillRect(o.x, o.y, o.w, o.h);
+    c.fillStyle = '#9FADB9'; for (const o of list) c.fillRect(o.x + 1.5, o.y + 1.5, o.w - 3, o.h - 3);
+    c.fillStyle = '#BCC8D1'; for (const o of list) c.fillRect(o.x + 3.5, o.y + 3.5, o.w - 7, o.h - 8);
+  }
+  function paintScorch(c, sc) {
+    const g = c.createRadialGradient(sc.x, sc.y, 0, sc.x, sc.y, sc.r);
+    g.addColorStop(0, 'rgba(45, 40, 35, 0.45)'); g.addColorStop(1, 'rgba(45, 40, 35, 0)');
+    c.fillStyle = g; c.beginPath(); c.arc(sc.x, sc.y, sc.r, 0, Math.PI * 2); c.fill();
+  }
+  function buildFloor() {
+    const k = Math.min(2, Math.max(0.5, Math.round(scale * dpr * 4) / 4));
+    if (floorCanvas && k === floorK) return;
+    floorK = k;
+    floorCanvas = document.createElement('canvas');
+    floorCanvas.width = Math.ceil(W * k); floorCanvas.height = Math.ceil(H * k);
+    const c = floorCtx = floorCanvas.getContext('2d');
+    c.setTransform(k, 0, 0, k, 0, 0);
+    c.fillStyle = '#7C8B98'; c.fillRect(0, 0, W, H);
+    c.fillStyle = '#E5EBEF'; c.fillRect(WALL, WALL, W - WALL * 2, H - WALL * 2);
+    c.strokeStyle = '#D3DCE2'; c.lineWidth = 1;
+    c.beginPath();
+    for (let x = WALL + 40; x < W - WALL; x += 40) { c.moveTo(x, WALL); c.lineTo(x, H - WALL); }
+    for (let y = WALL + 40; y < H - WALL; y += 40) { c.moveTo(WALL, y); c.lineTo(W - WALL, y); }
+    c.stroke();
+    const zy = START.y - 40;
+    c.fillStyle = 'rgba(46, 110, 212, 0.08)'; c.fillRect(WALL, zy, W - WALL * 2, H - WALL - zy);
+    c.fillStyle = 'rgba(46, 110, 212, 0.55)'; c.fillRect(WALL, zy, W - WALL * 2, 3);
+    // lumières murales (sauf là où une tourelle est fixée au mur)
+    c.fillStyle = '#BFD6F2';
+    for (let y = 80; y < H; y += 120) {
+      if (!levelTurrets.some(t => t[0] < W / 2 && Math.abs(Math.sin(t[2])) < 0.5 && Math.abs(t[1] - y - 15) < 50)) c.fillRect(3, y, 10, 30);
+      if (!levelTurrets.some(t => t[0] > W / 2 && Math.abs(Math.sin(t[2])) < 0.5 && Math.abs(t[1] - y - 15) < 50)) c.fillRect(W - 13, y, 10, 30);
+    }
+    // socles des tourelles, et support pour celles fixées aux murs
+    for (const [tx, ty, rest] of levelTurrets) {
+      c.fillStyle = 'rgba(210, 63, 43, 0.1)'; c.beginPath(); c.arc(tx, ty, 30, 0, Math.PI * 2); c.fill();
+      if (Math.abs(Math.sin(rest)) < 0.5) {
+        c.fillStyle = '#4A555F';
+        if (tx < W / 2) c.fillRect(0, ty - 11, tx, 22); else c.fillRect(tx, ty - 11, W - tx, 22);
+      }
+    }
+    for (const sc of scorches) paintScorch(c, sc);
+    paintObstacles(c, obstacles, true);
+  }
+  // Une brûlure est "cuite" dans le sol au moment de l'explosion ; les obstacles voisins sont repeints par-dessus
+  function bakeScorch(sc) {
+    scorches.push(sc);
+    if (!floorCtx) return;
+    paintScorch(floorCtx, sc);
+    paintObstacles(floorCtx, obstacles.filter(o => o.x - 2 < sc.x + sc.r + 60 && o.x + o.w + 60 > sc.x - sc.r && o.y - 60 < sc.y + sc.r && o.y + o.h + 60 > sc.y - sc.r), false);
+  }
+  function drawArena() {
+    buildFloor();
+    const x0 = Math.max(0, camX - 20), y0 = Math.max(0, camY - 20);
+    const x1 = Math.min(W, camX + viewW + 20), y1 = Math.min(H, camY + viewH + 20);
+    if (x1 > x0 && y1 > y0) ctx.drawImage(floorCanvas, x0 * floorK, y0 * floorK, (x1 - x0) * floorK, (y1 - y0) * floorK, x0, y0, x1 - x0, y1 - y0);
+  }
+  function inView(x, y, m) { return x > camX - m && x < camX + viewW + m && y > camY - m && y < camY + viewH + m; }
+
+  function drawBeacon() {
+    const pulse = Math.sin(performance.now() / 300) * 3;
+    ctx.save(); ctx.translate(BEACON.x, BEACON.y);
+    ctx.strokeStyle = 'rgba(46, 110, 212, 0.35)'; ctx.lineWidth = 2;
+    ctx.beginPath(); ctx.arc(0, 0, 24 + pulse, 0, Math.PI * 2); ctx.stroke();
+    ctx.fillStyle = 'rgba(61, 139, 255, 0.25)';
+    ctx.beginPath(); ctx.moveTo(0, -20); ctx.lineTo(16, 0); ctx.lineTo(0, 20); ctx.lineTo(-16, 0); ctx.closePath(); ctx.fill();
+    ctx.fillStyle = '#3D8BFF';
+    ctx.beginPath(); ctx.moveTo(0, -13); ctx.lineTo(10, 0); ctx.lineTo(0, 13); ctx.lineTo(-10, 0); ctx.closePath(); ctx.fill();
+    ctx.fillStyle = '#DCEBFF';
+    ctx.beginPath(); ctx.moveTo(0, -6); ctx.lineTo(4.5, 0); ctx.lineTo(0, 6); ctx.lineTo(-4.5, 0); ctx.closePath(); ctx.fill();
+    ctx.restore();
+  }
+
+  function drawFloorFx() {
+    for (const p of debris) {
+      if (!inView(p.x, p.y, 20)) continue;
+      ctx.save(); ctx.translate(p.x, p.y); ctx.rotate(p.rot);
+      ctx.fillStyle = 'rgba(30, 55, 80, 0.18)';
+      ctx.fillRect(-p.w / 2 + 1.5, -p.h / 2 + 2, p.w, p.h);
+      ctx.fillStyle = p.color;
+      if (p.shape === 'ellipse') { ctx.beginPath(); ctx.ellipse(0, 0, p.w / 2, p.h / 2, 0, 0, Math.PI * 2); ctx.fill(); ctx.fillStyle = '#4A3D2A'; ctx.beginPath(); ctx.arc(-p.w / 4, 0, 1.3, 0, Math.PI * 2); ctx.fill(); }
+      else ctx.fillRect(-p.w / 2, -p.h / 2, p.w, p.h);
+      ctx.restore();
+    }
+  }
+
+  function drawSmoke() {
+    for (const s of smokes) {
+      if (!inView(s.x, s.y, s.r)) continue;
+      const a = Math.max(0, s.life / s.max);
+      ctx.fillStyle = s.dust ? `rgba(178, 170, 156, ${a * 0.4})` : `rgba(95, 102, 110, ${a * 0.32})`;
+      ctx.beginPath(); ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2); ctx.fill();
+    }
+    for (const r of rings) {
+      const a = Math.max(0, r.life / r.max);
+      ctx.strokeStyle = `rgba(255, 190, 110, ${a})`; ctx.lineWidth = 3 * a + 1;
+      ctx.beginPath(); ctx.arc(r.x, r.y, r.r, 0, Math.PI * 2); ctx.stroke();
+    }
+  }
+
+  function drawWounded(a) {
+    const k = Math.min(1, a.fallT / 0.45), e = 1 - Math.pow(1 - k, 3);
+    // arme tombée
+    const gx = a.x + Math.cos(a.gunDir) * 17 * e, gy = a.y + Math.sin(a.gunDir) * 17 * e;
+    ctx.save(); ctx.translate(gx, gy); ctx.rotate(a.gunDir + 0.9);
+    ctx.fillStyle = '#2A333B'; ctx.fillRect(-8, -2, 16, 4); ctx.fillRect(-3, 2, 3, 4);
+    ctx.restore();
+    // soldat au sol
+    ctx.save(); ctx.translate(a.x, a.y);
+    ctx.rotate(a.startAng + angDiff(a.startAng, a.fallAng) * e);
+    ctx.globalAlpha = 0.55 + 0.45 * e;
+    ctx.fillStyle = 'rgba(30, 55, 80, 0.2)';
+    ctx.beginPath(); ctx.ellipse(-2, 4, 23 * (0.6 + 0.4 * e), 10, 0, 0, Math.PI * 2); ctx.fill();
+    ctx.strokeStyle = '#98A6B2'; ctx.lineWidth = 1.1;
+    // jambes
+    ctx.fillStyle = '#EEF1F4';
+    ctx.fillRect(-23 * e - 1, -5.5, 13 * e + 2, 4.5); ctx.strokeRect(-23 * e - 1, -5.5, 13 * e + 2, 4.5);
+    ctx.fillRect(-22 * e - 1, 1, 12 * e + 2, 4.5); ctx.strokeRect(-22 * e - 1, 1, 12 * e + 2, 4.5);
+    ctx.fillStyle = '#2A333B'; ctx.fillRect(-23 * e - 3, -5.5, 3, 4.5); ctx.fillRect(-22 * e - 3, 1, 3, 4.5);
+    // bras : un le long du corps, l'autre tendu
+    const wave = Math.sin(performance.now() / 700 + a.i) * 0.06;
+    ctx.fillStyle = '#EEF1F4';
+    ctx.fillRect(-9, 7, 11, 3.5); ctx.strokeRect(-9, 7, 11, 3.5);
+    ctx.save(); ctx.translate(2, -7); ctx.rotate(-0.9 * e + wave);
+    ctx.fillRect(0, -1.8, 12, 3.6); ctx.strokeRect(0, -1.8, 12, 3.6); ctx.restore();
+    // torse
+    ctx.fillStyle = '#F3F6F8';
+    ctx.beginPath(); ctx.ellipse(-2, 0, 9 + 2 * e, 8, 0, 0, Math.PI * 2); ctx.fill(); ctx.stroke();
+    ctx.fillStyle = CLASSES[a.cls].color; ctx.fillRect(-5, -9, 6, 3); ctx.fillRect(-5, 6, 6, 3);
+    // casque
+    ctx.fillStyle = '#FFFFFF';
+    ctx.beginPath(); ctx.arc(9 + 2 * e, 0, 7, 0, Math.PI * 2); ctx.fill(); ctx.stroke();
+    ctx.fillStyle = CLASSES[a.cls].color; ctx.fillRect(4, -1.2, 7, 2.4);
+    ctx.fillStyle = '#1B252E'; ctx.fillRect(13 + 2 * e, -3.5, 2.5, 7);
+    ctx.restore();
+    // indicateur "blessé"
+    if (k >= 1) {
+      const pul = 0.7 + 0.3 * Math.sin(performance.now() / 380 + a.i);
+      ctx.globalAlpha = pul;
+      ctx.fillStyle = '#FFFFFF'; ctx.beginPath(); ctx.arc(a.x, a.y - 26, 8, 0, Math.PI * 2); ctx.fill();
+      ctx.strokeStyle = '#D23F2B'; ctx.lineWidth = 1.5; ctx.stroke();
+      ctx.fillStyle = '#D23F2B'; ctx.fillRect(a.x - 1.6, a.y - 31, 3.2, 10); ctx.fillRect(a.x - 5, a.y - 27.6, 10, 3.2);
+      ctx.globalAlpha = 1;
+    }
+    ctx.globalAlpha = 1;
+  }
+
+  function drawOrders() {
+    // postes assignés
+    for (const a of allies) {
+      if (a.hp <= 0 || !a.post) continue;
+      const p = a.post;
+      if (a.phase === 'move') {
+        ctx.strokeStyle = 'rgba(217, 150, 43, 0.5)'; ctx.lineWidth = 1.5; ctx.setLineDash([4, 5]);
+        ctx.beginPath(); ctx.moveTo(a.x, a.y);
+        if (a.nav) for (const q of a.nav.pts) ctx.lineTo(q.x, q.y);
+        else ctx.lineTo(p.x, p.y);
+        ctx.stroke(); ctx.setLineDash([]);
+      }
+      ctx.strokeStyle = '#D9962B'; ctx.lineWidth = 2;
+      ctx.strokeRect(p.x - 9, p.y - 9, 18, 18);
+      ctx.fillStyle = '#D9962B'; ctx.font = '700 11px Oxanium, sans-serif'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+      ctx.fillText(String(a.i + 1), p.x, p.y + 0.5);
+      ctx.textBaseline = 'alphabetic';
+    }
+  }
+
+  function drawTurrets() {
+    for (const t of turrets) {
+      if (t.hp > 0 && t.tgt && state === 'play') {
+        const a = 0.12 + 0.5 * Math.min(1, t.aimT / 0.55);
+        ctx.strokeStyle = `rgba(225, 55, 35, ${a})`; ctx.lineWidth = 1.5; ctx.setLineDash([6, 6]);
+        ctx.beginPath(); ctx.moveTo(t.x, t.y); ctx.lineTo(t.tgt.x, t.tgt.y); ctx.stroke(); ctx.setLineDash([]);
+      }
+    }
+    for (const t of turrets) {
+      if (!inView(t.x, t.y, 40)) continue;
+      ctx.save(); ctx.translate(t.x, t.y);
+      ctx.fillStyle = 'rgba(30, 55, 80, 0.2)'; ctx.beginPath(); ctx.arc(3, 5, 19, 0, Math.PI * 2); ctx.fill();
+      ctx.fillStyle = t.hp > 0 ? '#56636E' : '#3A424A';
+      ctx.beginPath();
+      for (let i = 0; i < 8; i++) { const a = i / 8 * Math.PI * 2 + Math.PI / 8; ctx.lineTo(Math.cos(a) * 19, Math.sin(a) * 19); }
+      ctx.closePath(); ctx.fill();
+      if (t.hp <= 0) { ctx.fillStyle = '#23292E'; ctx.beginPath(); ctx.arc(0, 0, 9, 0, Math.PI * 2); ctx.fill(); ctx.restore(); continue; }
+      ctx.rotate(t.ang);
+      ctx.fillStyle = '#2E3841'; ctx.fillRect(4 - (t.recoil || 0) * 4, -4, 22, 8);
+      ctx.fillStyle = t.hit > 0 ? '#FFFFFF' : '#707D88';
+      ctx.beginPath(); ctx.arc(0, 0, 11, 0, Math.PI * 2); ctx.fill();
+      if (t.tgt) { ctx.fillStyle = 'rgba(255, 59, 31, 0.35)'; ctx.beginPath(); ctx.arc(5, 0, 7, 0, Math.PI * 2); ctx.fill(); }
+      ctx.fillStyle = '#E3452C';
+      ctx.beginPath(); ctx.arc(5, 0, 3.5, 0, Math.PI * 2); ctx.fill();
+      ctx.restore();
+      for (let i = 0; i < t.maxHp; i++) {
+        ctx.fillStyle = i < t.hp ? '#E3452C' : 'rgba(60, 70, 80, 0.25)';
+        ctx.fillRect(t.x - t.maxHp * 4.25 + i * 8.5, t.y - 30, 7, 3);
+      }
+    }
+  }
+
+  function drawDroids() {
+    for (const d of droids) {
+      if (d.hp <= 0 || state !== 'play') continue;
+      if (d.ecls === 'sniper' && d.state === 'attack' && d.tgt && d.aimT > 0.05) {
+        // laser du tireur d'élite : de plus en plus net, il clignote juste avant le tir
+        const k = Math.min(1, d.aimT / (1.3 * DIFF.aimMul));
+        const m = muzzleOf(d);
+        const blink = k > 0.8 && Math.floor(performance.now() / 70) % 2 === 0;
+        ctx.strokeStyle = `rgba(255, 40, 80, ${blink ? 0.95 : 0.2 + 0.55 * k})`; ctx.lineWidth = k > 0.8 ? 2 : 1;
+        ctx.beginPath(); ctx.moveTo(m.x, m.y); ctx.lineTo(d.tgt.x, d.tgt.y); ctx.stroke();
+        ctx.fillStyle = 'rgba(255, 40, 80, 0.8)'; ctx.beginPath(); ctx.arc(d.tgt.x, d.tgt.y, 2.5, 0, Math.PI * 2); ctx.fill();
+      } else if (d.state === 'attack' && d.tgt && d.aimT > 0.15) {
+        const a = 0.1 + 0.4 * Math.min(1, d.aimT / 0.65);
+        ctx.strokeStyle = `rgba(230, 120, 30, ${a})`; ctx.lineWidth = 1.2; ctx.setLineDash([4, 6]);
+        ctx.beginPath(); ctx.moveTo(d.x, d.y); ctx.lineTo(d.tgt.x, d.tgt.y); ctx.stroke(); ctx.setLineDash([]);
+      }
+      if (d.rocketWarn) {
+        // zone d'impact annoncée de la roquette
+        const w = d.rocketWarn, k = Math.min(1, w.t / ENEMY_ROCKET_WARN), pulse = 0.5 + 0.5 * Math.sin(performance.now() / 60);
+        ctx.fillStyle = `rgba(210, 40, 30, ${0.1 + 0.15 * k + 0.08 * pulse})`;
+        ctx.beginPath(); ctx.arc(w.x, w.y, ENEMY_ROCKET_R, 0, Math.PI * 2); ctx.fill();
+        ctx.strokeStyle = '#D2281E'; ctx.lineWidth = 2; ctx.setLineDash([6, 4]);
+        ctx.beginPath(); ctx.arc(w.x, w.y, ENEMY_ROCKET_R, 0, Math.PI * 2); ctx.stroke(); ctx.setLineDash([]);
+        ctx.lineWidth = 3;
+        ctx.beginPath(); ctx.arc(w.x, w.y, ENEMY_ROCKET_R * 0.35, -Math.PI / 2, -Math.PI / 2 + Math.PI * 2 * k); ctx.stroke();
+      }
+    }
+    for (const d of droids) {
+      if (!inView(d.x, d.y, 40)) continue;
+      ctx.save(); ctx.translate(d.x, d.y);
+      if (d.hp <= 0) {
+        // carcasse : torse effondré dans le sens du tir, tête arrachée (partie en débris)
+        const k = Math.min(1, d.deadT / 0.25), P = DROID_PAL[d.ecls], big = d.ecls === 'lourd' ? 1.3 : 1;
+        ctx.rotate(d.deathAng); ctx.scale(big, big);
+        ctx.fillStyle = 'rgba(30, 55, 80, 0.18)';
+        ctx.beginPath(); ctx.ellipse(6 * k + 2, 3, 12, 7, 0, 0, Math.PI * 2); ctx.fill();
+        ctx.fillStyle = P.line;
+        ctx.fillRect(-9, -4.5, 9, 2.5); ctx.fillRect(-8, 2, 8, 2.5);            // jambes
+        ctx.fillStyle = k < 0.5 ? '#FFF3DC' : P.dead; ctx.strokeStyle = P.line; ctx.lineWidth = 1.2;
+        ctx.beginPath(); ctx.ellipse(6 * k, 0, 11, 5.5, 0.2 * k, 0, Math.PI * 2); ctx.fill(); ctx.stroke();
+        ctx.fillStyle = '#3B3226'; ctx.fillRect(6 * k + 9, -1.5, 5, 3);         // cou arraché
+        ctx.fillStyle = '#2A241B'; ctx.beginPath(); ctx.arc(6 * k + 2, 0, 2.2, 0, Math.PI * 2); ctx.fill();
+        ctx.restore(); continue;
+      }
+      ctx.fillStyle = 'rgba(30, 55, 80, 0.2)';
+      ctx.beginPath(); ctx.ellipse(3, 5, 8, 12, d.ang, 0, Math.PI * 2); ctx.fill();
+      drawFeet(d, d.ang, true);
+      const dw = d.aWalk || 0, dph = d.aPhase || 0;
+      ctx.rotate(d.ang + Math.sin(dph) * 0.12 * dw);   // démarche raide et chaloupée
+      drawDroidBody(d);
+      ctx.restore();
+      // barre de vie continue (les lourds ont beaucoup de points)
+      const bw = d.ecls === 'lourd' ? 34 : 26, by = d.y - d.r - 12;
+      ctx.fillStyle = 'rgba(60, 70, 80, 0.3)'; ctx.fillRect(d.x - bw / 2, by, bw, 3.5);
+      ctx.fillStyle = d.hp <= d.low ? '#E3452C' : '#C99A3A'; ctx.fillRect(d.x - bw / 2, by, bw * Math.max(0, d.hp) / d.maxHp, 3.5);
+      if (d.state === 'repair') {
+        ctx.fillStyle = '#F0A33A'; ctx.fillRect(d.x - 1.5, by - 12, 3, 9); ctx.fillRect(d.x - 4.5, by - 9, 9, 3);
+      }
+      if (d.state === 'attack') {
+        ctx.fillStyle = '#E3452C'; ctx.font = '700 13px Oxanium, sans-serif'; ctx.textAlign = 'center';
+        ctx.fillText('!', d.x, d.y - 26);
+      } else if (d.state === 'cover') {
+        ctx.fillStyle = '#4F7BB8';
+        ctx.beginPath();
+        ctx.moveTo(d.x - 5, d.y - 35); ctx.lineTo(d.x + 5, d.y - 35); ctx.lineTo(d.x + 5, d.y - 30);
+        ctx.quadraticCurveTo(d.x + 5, d.y - 26, d.x, d.y - 24); ctx.quadraticCurveTo(d.x - 5, d.y - 26, d.x - 5, d.y - 30);
+        ctx.closePath(); ctx.fill();
+      }
+    }
+  }
+
+
+  function drawHighlights() {
+    if (selected < 0) return;
+    const a = allies[selected];
+    const now = performance.now();
+    const pulse = 0.5 + 0.5 * Math.sin(now / 180);
+    for (const p of highlight) {
+      const mine = a.post === p || a.prevPost === p;
+      ctx.fillStyle = `rgba(217, 150, 43, ${0.18 + pulse * 0.14})`;
+      ctx.beginPath(); ctx.arc(p.x, p.y, 15, 0, Math.PI * 2); ctx.fill();
+      ctx.strokeStyle = mine ? '#1C2934' : '#D9962B'; ctx.lineWidth = 2.5;
+      ctx.beginPath(); ctx.arc(p.x, p.y, 15 + pulse * 3, 0, Math.PI * 2); ctx.stroke();
+    }
+    ctx.strokeStyle = 'rgba(46, 110, 212, 0.8)'; ctx.lineWidth = 2; ctx.setLineDash([5, 4]);
+    ctx.beginPath(); ctx.arc(player.x, player.y, 22 + pulse * 2, 0, Math.PI * 2); ctx.stroke(); ctx.setLineDash([]);
+    ctx.fillStyle = '#2E6ED4'; ctx.font = '700 11px Oxanium, sans-serif'; ctx.textAlign = 'center';
+    ctx.fillText('Suivre', player.x, player.y + 40);
+    if (a.cls === 'medecin') {
+      for (const h of healTargets(a)) {
+        const x = h.x, y = h.y - 34;
+        ctx.fillStyle = '#2EAD6B'; ctx.beginPath(); ctx.arc(x, y, 11 + pulse * 1.5, 0, Math.PI * 2); ctx.fill();
+        ctx.fillStyle = '#FFFFFF'; ctx.fillRect(x - 1.8, y - 6.5, 3.6, 13); ctx.fillRect(x - 6.5, y - 1.8, 13, 3.6);
+      }
+    }
+    if (a.cls === 'sniper') {
+      for (const e of aliveEnemies()) {
+        ctx.strokeStyle = `rgba(142, 91, 214, ${0.5 + pulse * 0.4})`; ctx.lineWidth = 2;
+        ctx.beginPath(); ctx.arc(e.x, e.y, e.r + 7, 0, Math.PI * 2); ctx.stroke();
+      }
+    }
+    ctx.strokeStyle = 'rgba(217, 150, 43, 0.9)'; ctx.lineWidth = 2;
+    ctx.beginPath(); ctx.arc(a.x, a.y, 17, 0, Math.PI * 2); ctx.stroke();
+  }
+
+  // Lignes de verrouillage du sniper : clignotent pendant 1 s, puis vert (tir dégagé) ou rouge (bloqué)
+  function drawLock(u, lock, width) {
+    if (!lock || !lock.tgt || lock.tgt.hp <= 0 || u.hp <= 0) return;
+    const t = lock.tgt, now = performance.now();
+    let color, alpha = 0.9;
+    if (lock.t < 1) { color = '#C9A8FF'; alpha = Math.floor(now / 110) % 2 ? 0.95 : 0.2; }
+    else color = lockLineClear(u, t) ? '#3FCB6B' : '#E3452C';
+    ctx.globalAlpha = alpha; ctx.strokeStyle = color; ctx.lineWidth = width; ctx.setLineDash([7, 5]);
+    const mz = muzzleOf(u);
+    ctx.beginPath(); ctx.moveTo(mz.x, mz.y); ctx.lineTo(t.x, t.y); ctx.stroke(); ctx.setLineDash([]);
+    ctx.globalAlpha = 1;
+    ctx.strokeStyle = color; ctx.lineWidth = 2;
+    const k = Math.min(1, lock.t);
+    ctx.beginPath(); ctx.arc(t.x, t.y, t.r + 8, -Math.PI / 2, -Math.PI / 2 + Math.PI * 2 * k); ctx.stroke();
+    if (k >= 1) {
+      for (let i = 0; i < 4; i++) {
+        const a = i * Math.PI / 2 + now / 600;
+        ctx.beginPath(); ctx.moveTo(t.x + Math.cos(a) * (t.r + 5), t.y + Math.sin(a) * (t.r + 5));
+        ctx.lineTo(t.x + Math.cos(a) * (t.r + 13), t.y + Math.sin(a) * (t.r + 13)); ctx.stroke();
+      }
+    }
+  }
+
+  function drawRocketZones() {
+    const now = performance.now();
+    if (player.cls === 'lourd' && player.heavyPreview && state === 'play') {
+      const p = player.heavyPreview, ready = player.loaded;
+      ctx.strokeStyle = 'rgba(210, 63, 43, 0.25)'; ctx.lineWidth = 1; ctx.setLineDash([3, 6]);
+      ctx.beginPath(); ctx.arc(player.x, player.y, ROCKET_RANGE, 0, Math.PI * 2); ctx.stroke();
+      ctx.beginPath(); ctx.moveTo(player.x, player.y); ctx.lineTo(p.x, p.y); ctx.stroke();
+      ctx.setLineDash([6, 5]);
+      ctx.fillStyle = ready ? 'rgba(210, 63, 43, 0.16)' : 'rgba(100, 110, 120, 0.14)';
+      ctx.strokeStyle = ready ? '#D23F2B' : '#7C8B98'; ctx.lineWidth = 2;
+      ctx.beginPath(); ctx.arc(p.x, p.y, ROCKET_R, 0, Math.PI * 2); ctx.fill(); ctx.stroke(); ctx.setLineDash([]);
+      ctx.fillStyle = ready ? '#D23F2B' : '#7C8B98';
+      ctx.beginPath(); ctx.arc(p.x, p.y, 3.5, 0, Math.PI * 2); ctx.fill();
+      if (!ready) {
+        ctx.font = '700 12px Oxanium, sans-serif'; ctx.textAlign = 'center';
+        ctx.fillText(player.reloadT > 0 ? player.reloadT.toFixed(1).replace('.', ',') + ' s' : 'Recharger', p.x, p.y - ROCKET_R - 6);
+      }
+    }
+    for (const a of allies) {
+      if (a.hp <= 0 || !a.rocketZone) continue;
+      const p = a.rocketZone, pulse = 0.5 + 0.5 * Math.sin(now / 200);
+      ctx.strokeStyle = a.rocketAuth ? '#D23F2B' : `rgba(224, 103, 43, ${0.5 + pulse * 0.5})`;
+      ctx.fillStyle = `rgba(224, 103, 43, ${0.08 + pulse * 0.08})`;
+      ctx.lineWidth = 2; ctx.setLineDash([6, 5]);
+      ctx.beginPath(); ctx.arc(p.x, p.y, ROCKET_R, 0, Math.PI * 2); ctx.fill(); ctx.stroke(); ctx.setLineDash([]);
+    }
+  }
+
+  // Corps des droïdes selon leur classe (vue de dessus, x = vers l'avant)
+  function drawDroidBody(d) {
+    const P = DROID_PAL[d.ecls], hurt = d.hurt > 0, rc = (d.recoil || 0) * 2;
+    ctx.lineWidth = 1.2;
+    if (d.ecls === 'lourd') {
+      // gros châssis gris, deux bras-canons
+      const ra = d.arm > 0 ? rc : 0, la = d.arm < 0 ? rc : 0;   // le bras qui vient de tirer recule
+      ctx.fillStyle = P.dark;
+      ctx.fillRect(1 - la, 7.5, 17, 4.5); ctx.fillRect(1 - ra, -12, 17, 4.5);
+      ctx.fillStyle = '#23272B'; ctx.fillRect(15 - la, 7.5, 3, 4.5); ctx.fillRect(15 - ra, -12, 3, 4.5);
+      ctx.fillStyle = hurt ? '#FFFFFF' : P.body; ctx.strokeStyle = P.line;
+      ctx.beginPath(); ctx.ellipse(-2, 0, 9, 13, 0, 0, Math.PI * 2); ctx.fill(); ctx.stroke();
+      ctx.fillStyle = hurt ? '#FFFFFF' : '#A3ABB3';
+      ctx.beginPath(); ctx.ellipse(0, 0, 5.5, 8.5, 0, 0, Math.PI * 2); ctx.fill();
+      ctx.fillStyle = P.head; ctx.beginPath(); ctx.ellipse(4, 0, 4, 4.5, 0, 0, Math.PI * 2); ctx.fill(); ctx.stroke();
+      ctx.fillStyle = '#2F3338'; ctx.fillRect(6, -1, 2, 2);
+      if (d.rockets > 0) { ctx.fillStyle = '#D2281E'; ctx.fillRect(-9, -3, 3, 6); }   // réserve de roquettes
+    } else if (d.ecls === 'sniper') {
+      // silhouette fine et sombre, long fusil, fente rouge
+      ctx.fillStyle = P.dark; ctx.fillRect(2 - rc, 1.2, 27, 2.6); ctx.fillRect(8 - rc, 0, 4, 5);
+      ctx.fillStyle = hurt ? '#FFFFFF' : P.body; ctx.strokeStyle = P.line;
+      ctx.beginPath(); ctx.ellipse(-2, 0, 4.5, 9, 0, 0, Math.PI * 2); ctx.fill(); ctx.stroke();
+      ctx.fillStyle = hurt ? '#FFFFFF' : P.head;
+      ctx.beginPath(); ctx.ellipse(4, 0, 7.5, 2.8, 0, 0, Math.PI * 2); ctx.fill(); ctx.stroke();
+      ctx.fillStyle = '#FF3B2F'; ctx.fillRect(8, -0.8, 3.5, 1.6);
+    } else {
+      ctx.fillStyle = P.dark; ctx.fillRect(3 - rc, 4, 15, 3.5);
+      ctx.fillStyle = hurt ? '#FFFFFF' : P.body; ctx.strokeStyle = P.line;
+      ctx.beginPath(); ctx.ellipse(-1, 0, 5.5, 11, 0, 0, Math.PI * 2); ctx.fill(); ctx.stroke();
+      if (d.ecls === 'medecin') { ctx.fillStyle = '#C8372D'; ctx.fillRect(-3, -10.5, 3, 21); }   // bande rouge
+      ctx.fillStyle = hurt ? '#FFFFFF' : P.head;
+      ctx.beginPath(); ctx.ellipse(5, 0, 8, 3.8, 0, 0, Math.PI * 2); ctx.fill(); ctx.stroke();
+      if (d.ecls === 'medecin') { ctx.fillStyle = '#C8372D'; ctx.fillRect(6, -3.8, 2.5, 7.6); }
+      ctx.fillStyle = '#4A3D2A'; ctx.beginPath(); ctx.arc(2, 0, 2, 0, Math.PI * 2); ctx.fill();
+    }
+  }
+
+  // Pieds qui alternent dans la direction de la marche (le buste, lui, regarde où l'on vise)
+  function drawFeet(u, bodyAng, droid) {
+    const w = u.aWalk || 0, ph = u.aPhase || 0;
+    const md = bodyAng + angDiff(bodyAng, u.aDir === undefined ? bodyAng : u.aDir) * Math.min(1, w * 2);
+    const c = Math.cos(md), sn = Math.sin(md), px = -sn, py = c;
+    const sz = droid ? (u.r || 10) / 10 : 1;
+    const spread = (droid ? 3.8 : 5) * sz, reach = (droid ? 9 : 12) * w * sz;
+    for (const side of [1, -1]) {
+      const f = Math.sin(ph) * reach * side;
+      const lift = Math.max(0, Math.cos(ph) * side) * w;   // pied en l'air : un peu plus gros
+      ctx.save();
+      ctx.translate(px * spread * side + c * f, py * spread * side + sn * f);
+      ctx.rotate(md);
+      const k = (1 + 0.2 * lift) * sz; ctx.scale(k, k);
+      if (droid) {
+        ctx.fillStyle = DROID_PAL[u.ecls].foot; ctx.fillRect(-4.5, -1.4, 9, 2.8);
+        ctx.fillStyle = DROID_PAL[u.ecls].line; ctx.fillRect(2.5, -1.8, 3, 3.6);
+      } else {
+        ctx.fillStyle = '#E8ECEF'; ctx.strokeStyle = '#98A6B2'; ctx.lineWidth = 1;
+        ctx.beginPath(); ctx.ellipse(0.5, 0, 4.8, 2.9, 0, 0, Math.PI * 2); ctx.fill(); ctx.stroke();
+        ctx.fillStyle = '#2A333B'; ctx.fillRect(-4.3, -1.7, 1.9, 3.4);
+      }
+      ctx.restore();
+    }
+  }
+
+  // Corps du soldat, avec balancement du buste, léger rebond et recul de l'arme
+  function drawTrooperBody(u, ang, stripe, flash, scl, sway) {
+    ctx.save();
+    ctx.rotate(ang + sway);
+    ctx.scale(scl, scl);
+    const rc = (u.recoil || 0) * 2.2;
+    ctx.fillStyle = '#2A333B';
+    if (u.cls === 'lourd' && (u.isPlayer ? u.weapon === 'bazooka' : u.rocketsLeft > 0)) { ctx.fillRect(-6 - rc, 3, 26, 6.5); ctx.fillStyle = stripe; ctx.fillRect(16 - rc, 3, 4, 6.5); }
+    else if (u.cls === 'lourd') ctx.fillRect(4 - rc, 5, 12, 4);
+    else if (u.cls === 'sniper') ctx.fillRect(4 - rc, 5, 24, 3.5);
+    else ctx.fillRect(4 - rc, 5, 17, 4.5);
+    ctx.fillStyle = flash ? '#FFD2C8' : '#F3F6F8'; ctx.strokeStyle = '#98A6B2'; ctx.lineWidth = 1.2;
+    ctx.beginPath(); ctx.ellipse(-rc * 0.3, 0, 8, 14, 0, 0, Math.PI * 2); ctx.fill(); ctx.stroke();
+    ctx.fillStyle = stripe; ctx.fillRect(-4 - rc * 0.3, -13, 6, 3.5); ctx.fillRect(-4 - rc * 0.3, 9.5, 6, 3.5);
+    ctx.rotate(-sway * 0.6);   // la tête compense le balancement des épaules
+    ctx.fillStyle = flash ? '#FFD2C8' : '#FFFFFF';
+    ctx.beginPath(); ctx.arc(1, 0, 7.5, 0, Math.PI * 2); ctx.fill(); ctx.stroke();
+    ctx.fillStyle = stripe; ctx.fillRect(-5, -1.2, 8, 2.4);
+    ctx.fillStyle = '#1B252E'; ctx.fillRect(5, -4, 3, 8);
+    if (u.cls === 'medecin') { ctx.fillStyle = '#FFFFFF'; ctx.fillRect(-4.5, -2.8, 2, 5.6); ctx.fillStyle = stripe; ctx.fillRect(-4.2, -2.2, 1.4, 4.4); }
+    ctx.restore();
+  }
+
+  function drawTrooper(u, ang, stripe, flash, isPlayer) {
+    ctx.save(); ctx.translate(u.x, u.y);
+    if (isPlayer) {
+      ctx.fillStyle = 'rgba(255, 255, 255, 0.55)';
+      ctx.beginPath(); ctx.arc(0, 0, 19, 0, Math.PI * 2); ctx.fill();
+      ctx.strokeStyle = stripe; ctx.lineWidth = 1.5; ctx.stroke();
+    }
+    const r = u.roll;
+    if (r && r.t < ROLL_PREP) {
+      // appel : il se ramasse et se tourne vers la direction de la roulade
+      const k = r.t / ROLL_PREP;
+      const a = r.from + angDiff(r.from, r.ang) * k;
+      ctx.fillStyle = 'rgba(30, 55, 80, 0.2)';
+      ctx.beginPath(); ctx.ellipse(3, 5, 10, 14, a, 0, Math.PI * 2); ctx.fill();
+      drawTrooperBody(u, a, stripe, flash, 1 - 0.14 * k, 0);
+    } else if (r && r.t < ROLL_MOVE) {
+      // roulé : images fantômes, boule qui tourne, étirée dans l'axe au plus fort de la vitesse
+      const k = (r.t - ROLL_PREP) / (ROLL_MOVE - ROLL_PREP);
+      r.trail.forEach((g, i) => {
+        ctx.fillStyle = `rgba(150, 165, 182, ${0.07 + i * 0.05})`;
+        ctx.beginPath(); ctx.arc(g.x - u.x, g.y - u.y, 8 + i * 0.6, 0, Math.PI * 2); ctx.fill();
+      });
+      ctx.rotate(r.ang);
+      ctx.fillStyle = 'rgba(30, 55, 80, 0.2)';
+      ctx.beginPath(); ctx.ellipse(2, 4, 12, 9, 0, 0, Math.PI * 2); ctx.fill();
+      const speedK = 1 - k;                       // vitesse relative (forte au début)
+      ctx.scale(1 + 0.2 * speedK, 1 - 0.12 * speedK);
+      ctx.rotate(rollEase(k) * Math.PI * 2);
+      ctx.fillStyle = '#F3F6F8'; ctx.strokeStyle = '#98A6B2'; ctx.lineWidth = 1.2;
+      ctx.beginPath(); ctx.ellipse(0, 0, 10.5, 9, 0, 0, Math.PI * 2); ctx.fill(); ctx.stroke();
+      ctx.strokeStyle = stripe; ctx.lineWidth = 3;
+      ctx.beginPath(); ctx.arc(0, 0, 6, 0.3, Math.PI - 0.3); ctx.stroke();
+      ctx.fillStyle = '#2A333B'; ctx.fillRect(-7, -8.5, 10, 3);             // arme serrée contre le corps
+      ctx.fillStyle = '#FFFFFF'; ctx.strokeStyle = '#98A6B2'; ctx.lineWidth = 1.2;
+      ctx.beginPath(); ctx.arc(5, -2, 4.5, 0, Math.PI * 2); ctx.fill(); ctx.stroke();
+      ctx.fillStyle = '#1B252E'; ctx.fillRect(7.5, -4.5, 2, 5);
+    } else if (r) {
+      // réception : il se relève et retrouve sa visée
+      const k = (r.t - ROLL_MOVE) / (ROLL_DUR - ROLL_MOVE);
+      const a = r.ang + angDiff(r.ang, ang) * k;
+      ctx.fillStyle = 'rgba(30, 55, 80, 0.2)';
+      ctx.beginPath(); ctx.ellipse(3, 5, 10, 14, a, 0, Math.PI * 2); ctx.fill();
+      drawTrooperBody(u, a, stripe, flash, 0.86 + 0.14 * k, (1 - k) * 0.15);
+    } else {
+      const w = u.aWalk || 0, ph = u.aPhase || 0;
+      ctx.fillStyle = 'rgba(30, 55, 80, 0.2)';
+      ctx.beginPath(); ctx.ellipse(3, 5, 10, 15, ang, 0, Math.PI * 2); ctx.fill();
+      drawFeet(u, ang, false);
+      const bob = 1 + Math.abs(Math.sin(ph)) * 0.035 * w;
+      drawTrooperBody(u, ang, stripe, flash, bob, Math.sin(ph) * 0.09 * w);
+    }
+    ctx.restore();
+  }
+
+  function drawAllies() {
+    for (const a of allies) if (a.hp <= 0 && inView(a.x, a.y, 40)) drawWounded(a);
+    for (const a of allies) {
+      if (a.hp <= 0 || !inView(a.x, a.y, 40)) continue;
+      drawTrooper(a, a.ang, CLASSES[a.cls].color, a.flash > 0, false);
+      ctx.fillStyle = '#D9962B'; ctx.beginPath(); ctx.arc(a.x, a.y - 27, 7, 0, Math.PI * 2); ctx.fill();
+      ctx.fillStyle = '#FFFFFF'; ctx.font = '700 10px Oxanium, sans-serif'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+      ctx.fillText(String(a.i + 1), a.x, a.y - 26.5); ctx.textBaseline = 'alphabetic';
+      for (let i = 0; i < a.maxHp; i++) {
+        ctx.fillStyle = i < a.hp ? (a.hp / a.maxHp <= 0.4 ? '#E3452C' : '#3A9F66') : 'rgba(60, 70, 80, 0.25)';
+        ctx.fillRect(a.x - 16 + i * 6.5, a.y - 19, 5, 3);
+      }
+      if (a.mode === 'heal' && a.healTarget && Math.hypot(a.healTarget.x - a.x, a.healTarget.y - a.y) < 42) {
+        ctx.strokeStyle = 'rgba(46, 173, 107, 0.7)'; ctx.lineWidth = 2; ctx.setLineDash([3, 4]);
+        ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(a.healTarget.x, a.healTarget.y); ctx.stroke(); ctx.setLineDash([]);
+      }
+    }
+  }
+
+  function drawPlayer() {
+    if (player.healing) {
+      ctx.strokeStyle = 'rgba(46, 173, 107, 0.7)'; ctx.lineWidth = 2; ctx.setLineDash([3, 4]);
+      ctx.beginPath(); ctx.moveTo(player.x, player.y); ctx.lineTo(player.healing.x, player.healing.y); ctx.stroke(); ctx.setLineDash([]);
+    }
+    if (player.inv > 0 && Math.floor(player.inv * 20) % 2 === 0) return;
+    drawTrooper(player, player.aim, CLASSES[player.cls].color, false, true);
+  }
+
+  // Projectiles regroupés par couleur : un seul tracé par groupe, halo simulé par un trait large translucide
+  const BOLT_GROUPS = [
+    { key: 'enemy', core: '#FF4A2E', glow: 'rgba(255, 74, 46, 0.28)', w: 3.5, tail: 0.035 },
+    { key: 'esnipe', core: '#FF4F7B', glow: 'rgba(255, 60, 110, 0.32)', w: 2.5, tail: 0.03 },
+    { key: 'bolt', core: '#4AA3FF', glow: 'rgba(74, 163, 255, 0.28)', w: 3.5, tail: 0.035 },
+    { key: 'snipe', core: '#C9A8FF', glow: 'rgba(201, 168, 255, 0.32)', w: 2.5, tail: 0.03 }
+  ];
+  const boltGroup = b => b.team === 'enemy' ? (b.kind === 'esnipe' ? 'esnipe' : 'enemy') : b.kind === 'snipe' ? 'snipe' : 'bolt';
+  function drawBolts() {
+    for (const b of bolts) {
+      if (b.kind !== 'rocket' || !inView(b.x, b.y, 30)) continue;
+      const a = Math.atan2(b.vy, b.vx);
+      ctx.save(); ctx.translate(b.x, b.y); ctx.rotate(a);
+      ctx.fillStyle = 'rgba(255, 179, 71, 0.35)'; ctx.beginPath(); ctx.arc(-9, 0, 6, 0, Math.PI * 2); ctx.fill();
+      ctx.fillStyle = '#FFB347'; ctx.beginPath(); ctx.moveTo(-6, -2.5); ctx.lineTo(-13 - Math.random() * 4, 0); ctx.lineTo(-6, 2.5); ctx.fill();
+      ctx.fillStyle = '#3A424A'; ctx.fillRect(-6, -2.5, 11, 5);
+      ctx.fillStyle = '#D23F2B'; ctx.fillRect(3, -2.5, 3, 5);
+      ctx.restore();
+    }
+    ctx.lineCap = 'round';
+    for (const g of BOLT_GROUPS) {
+      ctx.beginPath();
+      let any = false;
+      for (const b of bolts) {
+        if (b.kind === 'rocket' || boltGroup(b) !== g.key || !inView(b.x, b.y, 30)) continue;
+        ctx.moveTo(b.x - b.vx * g.tail, b.y - b.vy * g.tail); ctx.lineTo(b.x, b.y); any = true;
+      }
+      if (!any) continue;
+      ctx.strokeStyle = g.glow; ctx.lineWidth = g.w + 5; ctx.stroke();
+      ctx.strokeStyle = g.core; ctx.lineWidth = g.w; ctx.stroke();
+    }
+    ctx.lineCap = 'butt';
+    let lastColor = null;
+    for (const sp of sparks) {
+      if (!inView(sp.x, sp.y, 10)) continue;
+      ctx.globalAlpha = Math.max(0, sp.life / sp.max);
+      if (sp.color !== lastColor) { ctx.fillStyle = sp.color; lastColor = sp.color; }
+      ctx.fillRect(sp.x - 1.5, sp.y - 1.5, 3, 3);
+    }
+    for (const f of flashes) {
+      const a = Math.max(0, f.life / 0.07);
+      ctx.globalAlpha = a * 0.45; ctx.fillStyle = f.color;
+      ctx.beginPath(); ctx.arc(f.x, f.y, 7, 0, Math.PI * 2); ctx.fill();
+      ctx.globalAlpha = a; ctx.beginPath(); ctx.arc(f.x, f.y, 3.5, 0, Math.PI * 2); ctx.fill();
+      ctx.fillStyle = '#FFFFFF'; ctx.beginPath(); ctx.arc(f.x, f.y, 1.8, 0, Math.PI * 2); ctx.fill();
+    }
+    for (const p of plusFx) {
+      ctx.globalAlpha = Math.max(0, p.life / 0.9);
+      ctx.fillStyle = p.color || '#2EAD6B';
+      ctx.fillRect(p.x - 1.5, p.y - 5, 3, 10); ctx.fillRect(p.x - 5, p.y - 1.5, 10, 3);
+    }
+    ctx.globalAlpha = 1;
+  }
+
+
+  function drawStick(s, base, label) {
+    ctx.fillStyle = 'rgba(28, 41, 52, 0.12)'; ctx.strokeStyle = 'rgba(28, 41, 52, 0.28)'; ctx.lineWidth = 2;
+    ctx.beginPath(); ctx.arc(base.x, base.y, STICK_R, 0, Math.PI * 2); ctx.fill(); ctx.stroke();
+    let kx = base.x, ky = base.y;
+    if (s) { const dx = s.x - s.ox, dy = s.y - s.oy, d = Math.hypot(dx, dy), m = Math.min(d, STICK_R); if (d > 0) { kx = base.x + dx / d * m; ky = base.y + dy / d * m; } }
+    ctx.fillStyle = s ? 'rgba(46, 110, 212, 0.75)' : 'rgba(28, 41, 52, 0.25)';
+    ctx.beginPath(); ctx.arc(kx, ky, 22, 0, Math.PI * 2); ctx.fill();
+    if (!s) {
+      ctx.fillStyle = 'rgba(28, 41, 52, 0.5)'; ctx.font = '600 11px Oxanium, sans-serif'; ctx.textAlign = 'center';
+      ctx.fillText(label, base.x, base.y + STICK_R + 16);
+    }
+  }
+
+
+  function render(dt) {
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    scale = Math.min(cw / 420, ch / 640);
+    viewH = ch / scale; viewW = cw / scale;
+    const ty = viewH >= H ? -(viewH - H) / 2 : Math.max(0, Math.min(H - viewH, player.y - viewH * 0.62));
+    const tx = viewW >= W ? -(viewW - W) / 2 : Math.max(0, Math.min(W - viewW, player.x - viewW / 2));
+    const k = Math.min(1, dt * 6);
+    camY += (ty - camY) * k; camX += (tx - camX) * k;
+    const sh = shakeT > 0 ? shakeT * 16 : 0;
+    const sx = (Math.random() - 0.5) * sh, sy = (Math.random() - 0.5) * sh;
+
+    ctx.fillStyle = '#7C8B98'; ctx.fillRect(0, 0, cw, ch);
+    ctx.save();
+    ctx.translate(-camX * scale + sx, -camY * scale + sy);
+    ctx.scale(scale, scale);
+    drawArena();
+    drawFloorFx();
+    drawBeacon();
+    drawOrders();
+    drawRocketZones();
+    drawHighlights();
+    drawTurrets();
+    drawDroids();
+    drawAllies();
+    drawPlayer();
+    if (state === 'play') {
+      drawLock(player, player.lock, 2);
+      for (const a of allies) if (a.cls === 'sniper') drawLock(a, a.lock, 1.3);
+    }
+    drawBolts();
+    drawSmoke();
+    ctx.restore();
+
+    if (isTouch && state === 'play') {
+      drawStick(sticks.move, baseL(), 'Déplacement');
+      drawStick(sticks.aim, baseR(), player.cls === 'lourd' ? 'Viser, relâcher' : 'Viser et tirer');
+    }
+  }
+
+  // ---------- écrans ----------
+  function fmt(t) { return t.toFixed(1).replace('.', ',') + ' s'; }
+
+  function controlsHtml() {
+    return isTouch
+      ? `<p>Joystick gauche : se déplacer</p>
+         <p>Joystick droit : viser et tirer (Lourd au bazooka : la longueur du geste règle la distance, relâche pour tirer, reviens au centre pour annuler)</p>
+         <p>Lourd : boutons « Recharger » (2,8 s) et changement d'arme au-dessus du joystick droit. 5 roquettes par partie</p>
+         <p>Classique, médecin, sniper : bouton « Roulade » au-dessus du joystick droit, dans la direction où tu te déplaces</p>
+         <p>Sniper : touche un ennemi à l'écran pour le verrouiller</p>
+         <p>Bulle d'un équipier, puis un abri, une croix verte (médecin), un ennemi (sniper) ou ton soldat</p>
+         <p>Bouton « Feu » près d'une bulle : autoriser la roquette d'un Lourd</p>`
+      : `<p>ZQSD ou flèches : se déplacer</p>
+         <p>Souris : viser, clic : tirer (Lourd : la souris place la zone d'impact)</p>
+         <p>Sniper : clic sur un ennemi pour le verrouiller</p>
+         <p>1, 2, 3 ou clic sur une bulle, puis clic sur un abri, une croix verte, un ennemi ou ton soldat</p>
+         <p>F ou bouton « Feu » : autoriser la roquette d'un Lourd</p>
+         <p>Lourd : R pour recharger (2,8 s), X pour changer d'arme. 5 roquettes par partie</p>
+         <p>Classique, médecin, sniper : Maj ou C pour une roulade</p>`;
+  }
+
+  function enemySummary(diff, lv) {
+    const n = {}, k0 = DIFF_INDEX[diff];
+    for (const [, , spec] of lv.droids) { const k = CLASS_CODE[spec.split(' ')[k0]]; if (k) n[k] = (n[k] || 0) + 1; }
+    const side = lv.turrets.filter(t => Math.abs(Math.sin(t[2])) < 0.5).length, front = lv.turrets.length - side;
+    const tur = [front ? `${front} tourelle${front > 1 ? 's' : ''}` : '', side ? `${side} tourelle${side > 1 ? 's' : ''} latérale${side > 1 ? 's' : ''}` : ''].filter(Boolean);
+    const lbl = { classique: ['droïde de combat', 'droïdes de combat'], lourd: ['droïde lourd', 'droïdes lourds'], medecin: ['réparateur', 'réparateurs'], sniper: ['tireur d\'élite', 'tireurs d\'élite'] };
+    return Object.keys(lbl).filter(k => n[k]).map(k => `${n[k]} ${lbl[k][n[k] > 1 ? 1 : 0]}`).concat(tur).join(', ');
+  }
+  // Mini-carte d'un niveau (menu et générateur)
+  const PV_COLORS = { classique: '#C9B184', lourd: '#6E767E', medecin: '#E8862E', sniper: '#8E5BD6' };
+  function drawLevelPreview(cv, lv, diff) {
+    const maxW = 118, maxH = 250;
+    const k = Math.min(maxW / lv.W, maxH / lv.H);
+    const w = Math.round(lv.W * k), h = Math.round(lv.H * k), r = Math.min(2, window.devicePixelRatio || 1);
+    cv.width = w * r; cv.height = h * r; cv.style.width = w + 'px'; cv.style.height = h + 'px';
+    const c = cv.getContext('2d');
+    c.setTransform(r * k, 0, 0, r * k, 0, 0);
+    c.fillStyle = '#7C8B98'; c.fillRect(0, 0, lv.W, lv.H);
+    c.fillStyle = '#E5EBEF'; c.fillRect(WALL, WALL, lv.W - WALL * 2, lv.H - WALL * 2);
+    c.fillStyle = 'rgba(46, 110, 212, 0.2)'; c.fillRect(WALL, lv.start.y - 40, lv.W - WALL * 2, lv.H - WALL - lv.start.y + 40);
+    c.fillStyle = '#8795A2'; for (const [x, y, ww, hh] of lv.obstacles) c.fillRect(x, y, ww, hh);
+    c.fillStyle = '#3D8BFF'; c.beginPath(); c.arc(lv.beacon.x, lv.beacon.y, 22, 0, Math.PI * 2); c.fill();
+    for (const [tx, ty, rest] of lv.turrets) {
+      c.fillStyle = '#D23F2B'; c.beginPath(); c.arc(tx, ty, 16, 0, Math.PI * 2); c.fill();
+      c.strokeStyle = '#D23F2B'; c.lineWidth = 8; c.beginPath(); c.moveTo(tx, ty); c.lineTo(tx + Math.cos(rest) * 34, ty + Math.sin(rest) * 34); c.stroke();
+    }
+    const k0 = DIFF_INDEX[diff];
+    for (const [x, y, spec] of lv.droids) {
+      const cl = CLASS_CODE[spec.split(' ')[k0]];
+      if (!cl) continue;
+      c.fillStyle = PV_COLORS[cl]; c.beginPath(); c.arc(x, y, cl === 'lourd' ? 17 : 13, 0, Math.PI * 2); c.fill();
+      c.strokeStyle = '#1C2934'; c.lineWidth = 3; c.stroke();
+    }
+    c.fillStyle = '#FFFFFF'; c.strokeStyle = '#2E6ED4'; c.lineWidth = 5;
+    c.beginPath(); c.arc(lv.start.x, lv.start.y, 13, 0, Math.PI * 2); c.fill(); c.stroke();
+  }
+  const legendHtml = () => `<div class="legend"><span><i style="background:#D23F2B"></i>Tourelle</span><span><i style="background:${PV_COLORS.classique}"></i>Combat</span><span><i style="background:${PV_COLORS.lourd}"></i>Lourd</span><span><i style="background:${PV_COLORS.medecin}"></i>Réparateur</span><span><i style="background:${PV_COLORS.sniper}"></i>Tireur</span></div>`;
+  const esc = t => String(t).replace(/[&<>"']/g, ch => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[ch]));
+  const droidCount = (lv, diff) => lv.droids.filter(d => d[2].split(' ')[DIFF_INDEX[diff]] !== '-').length;
+
+  function optionsHtml() {
+    return `<div class="opt"><span>Son</span><button class="toggle ${Sound.muted ? '' : 'on'}" id="sndToggle" aria-pressed="${!Sound.muted}">${Sound.muted ? 'Coupé' : 'Activé'}</button></div>
+      <div class="opt"><label for="volRange">Volume</label><input type="range" id="volRange" min="0" max="100" value="${Math.round(Sound.volume * 100)}"></div>`;
+  }
+  function wireOptions() {
+    const t = document.getElementById('sndToggle'), v = document.getElementById('volRange');
+    if (t) t.onclick = () => { Sound.init(); Sound.setMuted(!Sound.muted); t.classList.toggle('on', !Sound.muted); t.textContent = Sound.muted ? 'Coupé' : 'Activé'; t.setAttribute('aria-pressed', String(!Sound.muted)); };
+    if (v) { v.oninput = () => Sound.setVolume(v.value / 100); v.onchange = () => { Sound.init(); Sound.play('click'); }; }
+  }
+
+  let deleteArmed = null;
+  function showMenu() {
+    state = 'menu';
+    const keep = card.scrollTop;
+    const lv = levelById(cfg.level);
+    cfg.level = lv.id;
+    const bestT = getBest(cfg.diff);
+    card.innerHTML = `
+      <h1>Arène d'entraînement</h1>
+      <p>Atteins la balise au fond de l'arène avec ton escouade.</p>
+      ${STAGE >= 2 ? `<h2>Niveau</h2>
+      <div class="levels" role="radiogroup" aria-label="Niveau">
+        ${allLevels().map(l => `<div style="position:relative"><button role="radio" aria-checked="${l.id === lv.id}" class="lvl ${l.id === lv.id ? 'on' : ''}" data-level="${esc(l.id)}" style="width:100%">
+            <b>${esc(l.name)}</b><small>${droidCount(l, cfg.diff)} droïdes · ${l.turrets.length} tourelles</small>${l.custom ? '<span class="tag">Perso</span>' : ''}</button>
+            ${l.custom ? `<button class="lvl-del ${deleteArmed === l.id ? 'confirm' : ''}" data-del="${esc(l.id)}" aria-label="Supprimer ${esc(l.name)}">${deleteArmed === l.id ? 'Supprimer ?' : '×'}</button>` : ''}</div>`).join('')}
+      </div>
+      <div class="pv"><canvas id="pvCanvas" aria-label="Plan du niveau ${esc(lv.name)}"></canvas>
+        <div><p class="small">${esc(lv.desc || 'Niveau généré.')}</p><p class="small">Ennemis : ${enemySummary(cfg.diff, lv)}.</p>${legendHtml()}</div></div>
+      ${STAGE >= 3 ? '<button class="go ghost" id="genBtn">Créer un niveau procédural</button>' : ''}` : ''}
+      <h2>Difficulté</h2>
+      <div class="seg" role="radiogroup" aria-label="Difficulté">
+        ${Object.entries(DIFFS).map(([k, v]) => `<button role="radio" aria-checked="${cfg.diff === k}" data-diff="${k}" class="${cfg.diff === k ? 'on' : ''}">${v.label}</button>`).join('')}
+      </div>
+      <p class="small">${DIFFS[cfg.diff].desc}</p>
+      <h2>Ta classe</h2>
+      <div class="classes" role="radiogroup" aria-label="Ta classe">
+        ${CLASS_KEYS.map(k => { const c = CLASSES[k]; return `<button role="radio" aria-checked="${cfg.player === k}" data-cls="${k}" class="cls ${cfg.player === k ? 'on' : ''}" style="--c:${c.color}"><b><span class="dot"></span>${c.name}</b><small>${c.desc}</small></button>`; }).join('')}
+      </div>
+      <h2>Escouade</h2>
+      <div class="stepper">
+        <button id="minus" aria-label="Retirer un équipier" ${cfg.count <= 0 ? 'disabled' : ''}>−</button>
+        <span>${cfg.count === 0 ? 'Seul' : cfg.count + ' équipier' + (cfg.count > 1 ? 's' : '')}</span>
+        <button id="plus" aria-label="Ajouter un équipier" ${cfg.count >= 3 ? 'disabled' : ''}>+</button>
+      </div>
+      <div>
+        ${[...Array(cfg.count).keys()].map(i => `
+          <div class="srow">
+            <div><b>${ALLY_NAMES[i]}</b><small>${CLASSES[cfg.squad[i]].name}</small></div>
+            <div class="chips" role="radiogroup" aria-label="Classe de ${ALLY_NAMES[i]}">
+              ${CLASS_KEYS.map(k => `<button role="radio" aria-checked="${cfg.squad[i] === k}" class="chipc ${cfg.squad[i] === k ? 'on' : ''}" style="--c:${CLASSES[k].color}" data-slot="${i}" data-k="${k}" aria-label="${CLASSES[k].name}" title="${CLASSES[k].name}"></button>`).join('')}
+            </div>
+          </div>`).join('')}
+      </div>
+      <details><summary>Options</summary>${optionsHtml()}</details>
+      <details><summary>Commandes</summary><div class="controls">${controlsHtml()}</div></details>
+      ${bestT ? `<p class="small">Meilleur temps sur ${esc(lv.name)} en ${DIFFS[cfg.diff].label} : ${fmt(bestT)}</p>` : ''}
+      <button class="go" id="go">Commencer</button>`;
+    card.scrollTop = keep;
+    if (STAGE >= 2) drawLevelPreview(document.getElementById('pvCanvas'), lv, cfg.diff);
+    card.querySelectorAll('[data-level]').forEach(b => b.onclick = () => { cfg.level = b.dataset.level; deleteArmed = null; saveCfg(); showMenu(); });
+    card.querySelectorAll('[data-del]').forEach(b => b.onclick = () => {
+      const id = b.dataset.del;
+      if (deleteArmed !== id) { deleteArmed = id; showMenu(); return; }   // deuxième appui : suppression
+      customLevels = customLevels.filter(l => l.id !== id); saveLevels();
+      deleteArmed = null; if (cfg.level === id) cfg.level = LEVELS[0].id; saveCfg(); showMenu();
+    });
+    if (STAGE >= 3) document.getElementById('genBtn').onclick = () => showGenerator(true);
+    card.querySelectorAll('[data-diff]').forEach(b => b.onclick = () => { cfg.diff = b.dataset.diff; saveCfg(); showMenu(); });
+    card.querySelectorAll('[data-cls]').forEach(b => b.onclick = () => { cfg.player = b.dataset.cls; saveCfg(); showMenu(); });
+    card.querySelectorAll('[data-slot]').forEach(b => b.onclick = () => { cfg.squad[+b.dataset.slot] = b.dataset.k; saveCfg(); showMenu(); });
+    const minus = document.getElementById('minus'), plus = document.getElementById('plus');
+    minus.onclick = () => { if (cfg.count > 0) { cfg.count--; saveCfg(); showMenu(); } };
+    plus.onclick = () => { if (cfg.count < 3) { cfg.count++; saveCfg(); showMenu(); } };
+    wireOptions();
+    document.getElementById('go').onclick = start;
+    overlay.classList.remove('hidden');
+    hud.classList.add('hidden'); squadEl.classList.add('hidden'); hintEl.classList.add('hidden'); toastEl.classList.add('hidden'); weaponsEl.classList.add('hidden'); rollBtn.classList.add('hidden');
+  }
+
+  // ---------- générateur de niveaux ----------
+  let genParams = { classique: 5, lourd: 1, medecin: 1, sniper: 1, front: 3, side: 2, seed: 1 };
+  try { const g = JSON.parse(localStorage.getItem('arene-gen') || 'null'); if (g) for (const k in GEN_LIMITS) if (Number.isFinite(g[k])) genParams[k] = Math.max(GEN_LIMITS[k][0], Math.min(GEN_LIMITS[k][1], g[k] | 0)); } catch (e) {}
+  let genLevel = null, genName = '';
+  const GEN_ROWS = [['classique', 'Droïdes de combat'], ['lourd', 'Droïdes lourds'], ['medecin', 'Réparateurs'], ['sniper', 'Tireurs d\'élite'], ['front', 'Tourelles frontales'], ['side', 'Tourelles latérales']];
+  function regenerate(newSeed) {
+    if (newSeed) genParams.seed = (Math.random() * 1e9) | 0;
+    try { localStorage.setItem('arene-gen', JSON.stringify(genParams)); } catch (e) {}
+    genLevel = generateLevel(genParams);
+  }
+  function showGenerator(fresh) {
+    state = 'menu';
+    if (fresh || !genLevel) regenerate(fresh);
+    const keep = card.scrollTop;
+    const total = genParams.classique + genParams.lourd + genParams.medecin + genParams.sniper;
+    card.innerHTML = `
+      <h1>Niveau procédural</h1>
+      <p>Choisis les ennemis : le plan se régénère à chaque réglage. « Nouveau plan » tire une autre disposition avec les mêmes ennemis.</p>
+      <h2>Ennemis</h2>
+      ${GEN_ROWS.map(([k, label]) => `<div class="grow"><span>${label}</span><div class="stepper">
+          <button data-gk="${k}" data-d="-1" aria-label="Moins de ${label}" ${genParams[k] <= GEN_LIMITS[k][0] ? 'disabled' : ''}>−</button>
+          <span>${genParams[k]}</span>
+          <button data-gk="${k}" data-d="1" aria-label="Plus de ${label}" ${genParams[k] >= GEN_LIMITS[k][1] ? 'disabled' : ''}>+</button></div></div>`).join('')}
+      ${total === 0 ? '<p class="small">Ajoute au moins un droïde.</p>' : ''}
+      <button class="go ghost" id="reroll">Nouveau plan</button>
+      ${genLevel ? `<div class="pv"><canvas id="pvCanvas" aria-label="Plan généré"></canvas>
+        <div><p class="small">Arène de ${genLevel.W} × ${genLevel.H}, ${genLevel.obstacles.length} blocs d'obstacles.</p>
+        <p class="small">Chaque tourelle latérale a un abri en L de son côté.</p><p class="small">Plan n° ${genParams.seed}</p>${legendHtml()}</div></div>`
+        : '<p class="small">Impossible de placer tous ces ennemis. Réduis leur nombre ou essaie un nouveau plan.</p>'}
+      <label class="field" for="lvlName">Nom du niveau<input type="text" id="lvlName" maxlength="30" placeholder="Mon niveau" value="${esc(genName)}" autocomplete="off"></label>
+      <button class="go" id="saveLvl" ${genLevel && total ? '' : 'disabled'}>Enregistrer et sélectionner</button>
+      <button class="go ghost" id="tryLvl" ${genLevel && total ? '' : 'disabled'}>Essayer sans enregistrer</button>
+      <button class="go ghost" id="backMenu">Retour</button>`;
+    card.scrollTop = keep;
+    if (genLevel) drawLevelPreview(document.getElementById('pvCanvas'), genLevel, 'soldat');
+    const nameInput = document.getElementById('lvlName');
+    nameInput.oninput = () => { genName = nameInput.value; };
+    card.querySelectorAll('[data-gk]').forEach(b => b.onclick = () => {
+      const k = b.dataset.gk; genParams[k] = Math.max(GEN_LIMITS[k][0], Math.min(GEN_LIMITS[k][1], genParams[k] + +b.dataset.d));
+      regenerate(false); showGenerator(false);
+    });
+    document.getElementById('reroll').onclick = () => { regenerate(true); showGenerator(false); };
+    document.getElementById('backMenu').onclick = () => showMenu();
+    const finish = save => {
+      const name = (genName || '').trim() || `Niveau perso ${customLevels.length + 1}`;
+      const lv = Object.assign({}, genLevel, { id: (save ? 'perso-' : 'essai-') + Date.now(), name, custom: true, desc: `Niveau généré (plan n° ${genParams.seed}).` });
+      if (save) { customLevels.push(lv); saveLevels(); cfg.level = lv.id; saveCfg(); genName = ''; showMenu(); }
+      else { tempLevel = lv; cfg.level = lv.id; start(); }
+    };
+    document.getElementById('saveLvl').onclick = () => finish(true);
+    document.getElementById('tryLvl').onclick = () => finish(false);
+  }
+  let tempLevel = null;
+
+  // ---------- pause ----------
+  function showPause() {
+    if (state !== 'play') return;
+    state = 'paused';
+    setSelected(-1);
+    sticks.move = sticks.aim = null; mouse.down = false;
+    for (const k in keys) keys[k] = false;
+    card.innerHTML = `
+      <h1>Pause</h1>
+      <p>${esc(LEVEL.name)} · ${DIFF.label} · ${fmt(time)}</p>
+      <button class="go" id="resumeBtn">Reprendre</button>
+      <h2>Options</h2>
+      ${optionsHtml()}
+      <button class="go ghost" id="restartBtn">Recommencer le niveau</button>
+      <button class="go ghost" id="quitBtn">Retour au menu</button>`;
+    card.scrollTop = 0;
+    wireOptions();
+    document.getElementById('resumeBtn').onclick = resumeGame;
+    document.getElementById('restartBtn').onclick = start;
+    document.getElementById('quitBtn').onclick = () => { if (cfg.level.startsWith('essai-')) cfg.level = LEVELS[0].id; showMenu(); };
+    overlay.classList.remove('hidden');
+    squadEl.classList.add('hidden'); weaponsEl.classList.add('hidden'); rollBtn.classList.add('hidden');
+  }
+  function resumeGame() {
+    if (state !== 'paused') return;
+    state = 'play';
+    overlay.classList.add('hidden');
+    squadEl.classList.toggle('hidden', allies.length === 0);
+    weaponsCache = ''; updateWeaponsUi(); rollUiCache = ''; updateRollUi();
+    Sound.play('click');
+  }
+
+  function start() {
+    Sound.init(); Sound.play('click');
+    reset();
+    state = 'play';
+    card.scrollTop = 0;
+    overlay.classList.add('hidden');
+    hud.classList.remove('hidden');
+    squadEl.classList.toggle('hidden', allies.length === 0);
+    weaponsCache = ''; updateWeaponsUi();
+    rollUiCache = ''; updateRollUi();
+    sticks.move = sticks.aim = null; mouse.down = false;
+  }
+
+  function end(won) {
+    Sound.play(won ? 'victory' : 'defeat');
+    state = won ? 'won' : 'lost';
+    setSelected(-1);
+    toastEl.classList.add('hidden');
+    const destroyed = turrets.filter(t => t.hp <= 0).length;
+    const droidsDown = droids.filter(d => d.hp <= 0).length;
+    const up = allies.filter(a => a.hp > 0).length, n = allies.length;
+    let record = false;
+    const prev = getBest(cfg.diff);
+    if (won && (prev === null || time < prev)) { setBest(cfg.diff, time); record = true; }
+    const squadLine = n ? `<p>Équipiers encore debout : ${up} sur ${n}${up < n ? ` (${n - up} blessé${n - up > 1 ? 's' : ''})` : ''}</p>` : '';
+    card.innerHTML = (won
+      ? `<h1>Balise atteinte</h1>
+         <p class="stats">Temps : ${fmt(time)}${record ? ' (nouveau record)' : ''}</p>
+         <p>Difficulté : ${DIFF.label} · Classe : ${CLASSES[player.cls].name}</p>
+         <p>Tourelles détruites : ${destroyed} sur ${turrets.length} · Droïdes détruits : ${droidsDown} sur ${droids.length}</p>
+         ${squadLine}
+         ${prev && !record ? `<p>Meilleur temps : ${fmt(prev)}</p>` : ''}`
+      : `<h1>Touché</h1>
+         <p>Tu as tenu ${fmt(time)}, détruit ${destroyed} tourelle${destroyed > 1 ? 's' : ''} et ${droidsDown} droïde${droidsDown > 1 ? 's' : ''}.</p>
+         ${squadLine}
+         <p>Envoie un équipier sur l'abri suivant avant d'avancer : il te couvrira pendant que tu traverses.</p>`)
+      + `<button class="go" id="go">${won ? 'Rejouer' : 'Recommencer'}</button>
+         <button class="go ghost" id="menuBtn">Menu</button>`;
+    document.getElementById('go').onclick = start;
+    document.getElementById('menuBtn').onclick = () => { if (cfg.level.startsWith('essai-')) cfg.level = LEVELS[0].id; showMenu(); };
+    overlay.classList.remove('hidden');
+    squadEl.classList.add('hidden'); weaponsEl.classList.add('hidden'); rollBtn.classList.add('hidden');
+    sticks.move = sticks.aim = null; mouse.down = false;
+  }
+
+  let last = performance.now();
+  function loop(now) {
+    const raw = Math.min(0.033, (now - last) / 1000);
+    last = now;
+    if (state === 'play') {
+      computeHighlight();
+      update(selected >= 0 ? raw * 0.35 : raw);
+    }
+    render(raw);
+    requestAnimationFrame(loop);
+  }
+
+  resize();
+  reset();
+  showMenu();
+  requestAnimationFrame(loop);
+})();
+</script>
+<script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => navigator.serviceWorker.register('./service-worker.js').catch(() => {}));
+}
+</script>
+</body>
+</html>
